@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manchester LMC subscriber area — access agenda papers, meeting minutes, the open forum, and exclusive member resources.">
+  <title>Members Area — Manchester LMC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <style>
+    /* Members-specific styles */
+    .members-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .members-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .auth-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--colour-border);
+      margin-bottom: 2rem;
+    }
+    .auth-tab-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background: none;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--colour-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .auth-tab-btn.active {
+      color: var(--colour-primary);
+      border-bottom-color: var(--colour-primary);
+    }
+    .auth-panel { display: none; }
+    .auth-panel.active { display: block; }
+    .member-resource-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--colour-border);
+      border-radius: var(--radius);
+      background: var(--colour-white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .member-resource-item:hover {
+      border-color: var(--colour-secondary);
+      box-shadow: var(--shadow-sm);
+    }
+    .member-resource-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: var(--colour-neutral);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--colour-primary);
+    }
+    .member-resource-item a {
+      font-weight: 500;
+      color: var(--colour-primary);
+      text-decoration: none;
+    }
+    .member-resource-item a:hover { text-decoration: underline; }
+    .member-resource-item .meta {
+      font-size: 0.8rem;
+      color: var(--colour-muted);
+      margin-top: 0.2rem;
+    }
+    .benefit-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--colour-border);
+    }
+    .benefit-row:last-child { border-bottom: none; }
+    .benefit-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--colour-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Manchester LMC home">
+        <img src="../assets/images/logo.svg" alt="" width="160" height="48">
+      </a>
+      <ul class="nav-primary" role="list">
+        <li class="nav-item">
+          <a href="../about/index.html" class="nav-link">About Us
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../about/index.html">About Manchester LMC</a>
+            <a href="../about/team.html">Our Team</a>
+            <a href="../about/funding.html">How We're Funded</a>
+            <a href="../about/funding.html#constitution">Constitution</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../support/index.html" class="nav-link">Support
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../support/index.html">What We Can Do For You</a>
+            <a href="../support/wellbeing.html">Wellbeing Hub</a>
+            <a href="../support/index.html#confidential">Confidential Advisory</a>
+            <a href="../support/breach-report.html">Report a Breach</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../guidance/index.html" class="nav-link">Guidance
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../guidance/index.html">Resource Library</a>
+            <a href="../guidance/index.html?cat=clinical">Clinical Guidance</a>
+            <a href="../guidance/index.html?cat=contractual">Policy Documents</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../news/index.html" class="nav-link">News
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../news/index.html">Latest News</a>
+            <a href="../news/index.html#newsletters">Newsletters</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../events/index.html" class="nav-link">Events
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../events/index.html">Upcoming Events</a>
+            <a href="../events/index.html#meetings">Meeting Dates</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../vacancies/index.html" class="nav-link">Vacancies
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../vacancies/index.html">Job Board</a>
+            <a href="../vacancies/index.html#post">Post a Vacancy</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" aria-current="page">Members
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="index.html" aria-current="page">Subscriber Area</a>
+            <a href="#register">Register</a>
+            <a href="#login">Login</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../contact/index.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      <div class="nav-utility">
+        <a href="#login" class="btn btn--sm btn--outline">Login</a>
+        <a href="#register" class="btn btn--sm btn--accent">Register</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="nav-mobile" id="mobile-nav" aria-hidden="true">
+  <ul role="list">
+    <li>
+      <button data-toggle="mobile-about" aria-expanded="false">About Us</button>
+      <ul id="mobile-about" hidden>
+        <li><a href="../about/index.html">About Manchester LMC</a></li>
+        <li><a href="../about/team.html">Our Team</a></li>
+        <li><a href="../about/funding.html">How We're Funded</a></li>
+      </ul>
+    </li>
+    <li>
+      <button data-toggle="mobile-support" aria-expanded="false">Support</button>
+      <ul id="mobile-support" hidden>
+        <li><a href="../support/index.html">What We Can Do For You</a></li>
+        <li><a href="../support/wellbeing.html">Wellbeing Hub</a></li>
+        <li><a href="../support/breach-report.html">Report a Breach</a></li>
+      </ul>
+    </li>
+    <li><a href="../guidance/index.html">Guidance</a></li>
+    <li><a href="../news/index.html">News</a></li>
+    <li><a href="../events/index.html">Events</a></li>
+    <li><a href="../vacancies/index.html">Vacancies</a></li>
+    <li><a href="index.html">Members</a></li>
+    <li><a href="../contact/index.html">Contact</a></li>
+  </ul>
+  <div class="nav-mobile-actions">
+    <a href="#login" class="btn btn--outline">Login</a>
+    <a href="#register" class="btn btn--accent">Register</a>
+  </div>
+</div>
+
+<main id="main-content">
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li aria-current="page">Members Area</li>
+        </ol>
+      </nav>
+      <h1>Members Area</h1>
+      <p>Exclusive resources for Manchester LMC members — agenda papers, meeting minutes, the open forum, and subscriber-only guidance.</p>
+    </div>
+  </section>
+
+  <!-- Login / Register -->
+  <section class="section" id="login">
+    <div class="container">
+      <div class="members-layout">
+
+        <!-- Auth panel -->
+        <div>
+          <div class="auth-tabs" role="tablist" aria-label="Login or Register">
+            <button class="auth-tab-btn active" role="tab" aria-selected="true" aria-controls="panel-login" id="tab-login" data-auth-tab="login">Log In</button>
+            <button class="auth-tab-btn" role="tab" aria-selected="false" aria-controls="panel-register" id="tab-register" data-auth-tab="register">Register</button>
+          </div>
+
+          <!-- Login panel -->
+          <div class="auth-panel active" id="panel-login" role="tabpanel" aria-labelledby="tab-login">
+            <h2 style="margin-top: 0;">Welcome back</h2>
+            <p style="color: var(--colour-muted); margin-bottom: 2rem;">Log in with your registered email address and password to access subscriber content.</p>
+
+            <form id="login-form" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="login-email">Email address</label>
+                <input class="form-input" type="email" id="login-email" name="email" autocomplete="email" required placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="login-password">Password</label>
+                <input class="form-input" type="password" id="login-password" name="password" autocomplete="current-password" required placeholder="••••••••">
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
+                  <input type="checkbox" name="remember"> Remember me
+                </label>
+                <a href="#" style="font-size: 0.9rem; color: var(--colour-secondary);">Forgotten your password?</a>
+              </div>
+              <button type="submit" class="btn btn--primary" style="width: 100%;">Log In</button>
+            </form>
+
+            <div id="login-error" class="alert alert--warning" style="display: none; margin-top: 1.5rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <div>Incorrect email or password. Please try again, or <a href="#">reset your password</a>.</div>
+            </div>
+
+            <p style="margin-top: 2rem; text-align: center; font-size: 0.9rem; color: var(--colour-muted);">
+              Not yet registered? <a href="#register" data-auth-switch="register">Create an account</a>
+            </p>
+          </div>
+
+          <!-- Register panel -->
+          <div class="auth-panel" id="panel-register" role="tabpanel" aria-labelledby="tab-register">
+            <h2 style="margin-top: 0;" id="register">Register for access</h2>
+            <p style="color: var(--colour-muted);">Practice staff and GPs within a contracted practice are registered automatically. The form below is for <strong>locum and portfolio GPs</strong> who are not attached to a member practice.</p>
+
+            <div class="alert alert--info" style="margin-bottom: 2rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <div>Locum and portfolio GP subscriptions are <strong>£100 per year</strong>. You will receive a payment link by email after submitting this form.</div>
+            </div>
+
+            <form id="register-form" novalidate>
+              <div class="grid-2" style="gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label" for="reg-firstname">First name <span aria-hidden="true">*</span></label>
+                  <input class="form-input" type="text" id="reg-firstname" name="firstname" autocomplete="given-name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="reg-lastname">Last name <span aria-hidden="true">*</span></label>
+                  <input class="form-input" type="text" id="reg-lastname" name="lastname" autocomplete="family-name" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-email">Email address <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="email" id="reg-email" name="email" autocomplete="email" required placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-gmc">GMC number <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="text" id="reg-gmc" name="gmc" placeholder="e.g. 1234567" required pattern="[0-9]{7}">
+                <span class="form-hint">7-digit GMC registration number</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-role">Role <span aria-hidden="true">*</span></label>
+                <select class="form-input" id="reg-role" name="role" required>
+                  <option value="">Please select…</option>
+                  <option>Locum GP</option>
+                  <option>Portfolio GP</option>
+                  <option>GP Registrar (not at member practice)</option>
+                  <option>Retired GP</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-password">Choose a password <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="password" id="reg-password" name="password" autocomplete="new-password" required minlength="8" placeholder="Minimum 8 characters">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-password2">Confirm password <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="password" id="reg-password2" name="password2" autocomplete="new-password" required minlength="8" placeholder="Re-enter password">
+              </div>
+              <div class="form-group">
+                <label style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer;">
+                  <input type="checkbox" name="terms" required style="margin-top: 3px; flex-shrink: 0;">
+                  <span style="font-size: 0.9rem;">I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>. I understand my subscription will be £100/year and will be activated on receipt of payment.</span>
+                </label>
+              </div>
+              <button type="submit" class="btn btn--accent" style="width: 100%;">Register &amp; Proceed to Payment</button>
+            </form>
+
+            <p style="margin-top: 2rem; text-align: center; font-size: 0.9rem; color: var(--colour-muted);">
+              Already have an account? <a href="#login" data-auth-switch="login">Log in</a>
+            </p>
+
+            <p style="margin-top: 1rem; text-align: center; font-size: 0.85rem; color: var(--colour-muted);">
+              Practice staff at member practices should contact <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a> for access.
+            </p>
+          </div>
+
+          <!-- Authenticated state (shown when logged in via JS) -->
+          <div id="member-content" style="display: none;">
+            <div class="alert alert--success" style="margin-bottom: 2rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>You are logged in. Welcome to the Manchester LMC members area.</div>
+            </div>
+
+            <h2 style="margin-top: 0;">Your Resources</h2>
+
+            <h3>Upcoming Meeting Agenda Papers</h3>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem;">
+              <div class="member-resource-item">
+                <div class="member-resource-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <a href="#">LMC Full Meeting — Agenda &amp; Papers, March 2026</a>
+                  <div class="meta">PDF · Distributed 5 March 2026</div>
+                </div>
+                <span class="badge badge--accent">New</span>
+              </div>
+              <div class="member-resource-item">
+                <div class="member-resource-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <a href="#">LMC Full Meeting — Agenda &amp; Papers, January 2026</a>
+                  <div class="meta">PDF · Distributed 8 January 2026</div>
+                </div>
+              </div>
+              <div class="member-resource-item">
+                <div class="member-resource-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <a href="#">AGM 2025 — Agenda, Accounts &amp; Minutes</a>
+                  <div class="meta">PDF · May 2025</div>
+                </div>
+              </div>
+            </div>
+
+            <h3>Meeting Minutes Archive</h3>
+            <div class="accordion" style="margin-bottom: 2rem;">
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="true">
+                  2025 Minutes
+                  <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="accordion-panel" style="display: block;">
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem 0;">
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — November 2025 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — September 2025 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — July 2025 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — May 2025 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — March 2025 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — January 2025 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">AGM — May 2025 (PDF)</a>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  2024 Minutes
+                  <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="accordion-panel" hidden>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem 0;">
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — November 2024 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — September 2024 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — July 2024 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — May 2024 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">Full Meeting — March 2024 (PDF)</a>
+                    <a href="#" style="color: var(--colour-secondary); font-size: 0.9rem;">AGM — May 2024 (PDF)</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3>Open Forum</h3>
+            <p style="color: var(--colour-muted); margin-bottom: 1rem;">The Manchester LMC Open Forum is a private online space for members to raise issues, share experiences, and connect with colleagues across the city.</p>
+            <a href="#" class="btn btn--primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align: middle; margin-right: 0.5rem;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Go to Open Forum
+            </a>
+
+            <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid var(--colour-border);">
+
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <p style="margin: 0; font-size: 0.9rem; color: var(--colour-muted);">Logged in as <strong>member@example.com</strong></p>
+              </div>
+              <button id="logout-btn" class="btn btn--sm btn--outline">Log Out</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sidebar -->
+        <aside>
+          <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+            <h3 style="margin-top: 0; font-size: 1.1rem;">Member Benefits</h3>
+            <div>
+              <div class="benefit-row">
+                <div class="benefit-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">Agenda papers &amp; meeting minutes</p>
+              </div>
+              <div class="benefit-row">
+                <div class="benefit-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">Subscriber-only newsletters &amp; briefings</p>
+              </div>
+              <div class="benefit-row">
+                <div class="benefit-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">Open forum access</p>
+              </div>
+              <div class="benefit-row">
+                <div class="benefit-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">Confidential advisory service</p>
+              </div>
+              <div class="benefit-row">
+                <div class="benefit-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">Vacancy posting for practices</p>
+              </div>
+              <div class="benefit-row">
+                <div class="benefit-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">Representation at LMC conferences</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--colour-accent);">
+            <h3 style="margin-top: 0; font-size: 1rem;">Locum &amp; Portfolio GPs</h3>
+            <p style="font-size: 0.9rem; color: var(--colour-muted); margin-bottom: 1rem;">Not attached to a member practice? Subscribe for just £100/year for full member access.</p>
+            <a href="#register" class="btn btn--accent btn--sm" style="width: 100%; text-align: center;" data-auth-switch="register">Register Now</a>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <h3 style="margin-top: 0; font-size: 1rem;">Need Help?</h3>
+            <p style="font-size: 0.9rem; color: var(--colour-muted); margin-bottom: 1rem;">Problems accessing your account or questions about membership?</p>
+            <p style="font-size: 0.9rem; margin: 0;">
+              <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a><br>
+              <a href="tel:01613015050">0161 301 5050</a><br>
+              <span style="color: var(--colour-muted);">Mon–Fri, 9am–5pm</span>
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's in the members area (teaser for non-logged-in users) -->
+  <section class="section" style="background: var(--colour-neutral);" id="what-is-in-members-area">
+    <div class="container">
+      <h2 class="text-center" style="margin-bottom: 0.5rem;">What's in the Members Area</h2>
+      <p class="text-center" style="color: var(--colour-muted); max-width: 600px; margin: 0 auto 3rem;">Everything you need to stay informed and connected as a Manchester GP — in one secure place.</p>
+
+      <div class="grid-3" style="gap: 1.5rem;">
+        <div class="card" style="padding: 1.75rem; text-align: center;">
+          <div style="width: 56px; height: 56px; background: var(--colour-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3 style="margin: 0 0 0.5rem;">Agenda &amp; Minutes</h3>
+          <p style="color: var(--colour-muted); font-size: 0.9rem; margin: 0;">Download agenda papers before meetings and read minutes afterwards. Stay informed on decisions that affect your practice.</p>
+        </div>
+        <div class="card" style="padding: 1.75rem; text-align: center;">
+          <div style="width: 56px; height: 56px; background: var(--colour-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 style="margin: 0 0 0.5rem;">Open Forum</h3>
+          <p style="color: var(--colour-muted); font-size: 0.9rem; margin: 0;">A private, members-only discussion space. Raise issues, share experiences, and connect with GPs from across Manchester.</p>
+        </div>
+        <div class="card" style="padding: 1.75rem; text-align: center;">
+          <div style="width: 56px; height: 56px; background: var(--colour-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3 style="margin: 0 0 0.5rem;">Subscriber Briefings</h3>
+          <p style="color: var(--colour-muted); font-size: 0.9rem; margin: 0;">In-depth member briefings on contracts, policy changes, and local GP news — separate from the public newsletter.</p>
+        </div>
+        <div class="card" style="padding: 1.75rem; text-align: center;">
+          <div style="width: 56px; height: 56px; background: var(--colour-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 style="margin: 0 0 0.5rem;">Confidential Advice</h3>
+          <p style="color: var(--colour-muted); font-size: 0.9rem; margin: 0;">Access to confidential advisory support from our Managing Director — for GMC, CQC, partnership, or contractual concerns.</p>
+        </div>
+        <div class="card" style="padding: 1.75rem; text-align: center;">
+          <div style="width: 56px; height: 56px; background: var(--colour-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <h3 style="margin: 0 0 0.5rem;">Post Vacancies</h3>
+          <p style="color: var(--colour-muted); font-size: 0.9rem; margin: 0;">Member practices can post GP and practice staff vacancies directly to the Manchester LMC job board — free of charge.</p>
+        </div>
+        <div class="card" style="padding: 1.75rem; text-align: center;">
+          <div style="width: 56px; height: 56px; background: var(--colour-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 style="margin: 0 0 0.5rem;">Conference Representation</h3>
+          <p style="color: var(--colour-muted); font-size: 0.9rem; margin: 0;">Member GPs are eligible to stand as LMC conference representatives, taking Manchester's voice to national BMA/GPC meetings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width: 760px;">
+      <h2>Membership FAQs</h2>
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            My practice holds an NHS contract — do I need to register?
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-panel" hidden>
+            <p>GP partners, salaried GPs, and practice staff at NHS-contracted Manchester practices are covered by the practice levy and do not need to pay separately. Contact us at <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a> to set up your account and we will verify your practice membership.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            I've forgotten my password — how do I reset it?
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-panel" hidden>
+            <p>Use the "Forgotten your password?" link on the login form. You will receive a reset link to your registered email address. If you no longer have access to that email address, contact us directly and we will update your details.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            How is my subscription payment handled?
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-panel" hidden>
+            <p>After you submit the registration form, you will receive an email with a secure payment link. The £100 annual subscription is payable by card. Your account will be activated within one working day of payment being confirmed. You will receive a reminder when your subscription is due for renewal.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            Can I cancel my locum subscription?
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-panel" hidden>
+            <p>Yes. Subscriptions are annual and non-refundable once paid, but you can choose not to renew at the end of your subscription year. Simply do not respond to the renewal notice and your account access will lapse automatically. To cancel early due to exceptional circumstances, contact us.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/images/logo.svg" alt="Manchester LMC" width="140" height="42">
+        <p>Representing and supporting general practice in Manchester since 1974.</p>
+        <div class="footer-social">
+          <a href="https://twitter.com/manchesterlmc" aria-label="Manchester LMC on Twitter/X" rel="noopener noreferrer" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../about/index.html">About Us</a></li>
+          <li><a href="../support/index.html">GP Support</a></li>
+          <li><a href="../guidance/index.html">Resource Library</a></li>
+          <li><a href="../news/index.html">News &amp; Newsletters</a></li>
+          <li><a href="../events/index.html">Events &amp; Meetings</a></li>
+          <li><a href="../vacancies/index.html">Vacancies</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Members</h4>
+        <ul>
+          <li><a href="index.html">Subscriber Area</a></li>
+          <li><a href="#register" data-auth-switch="register">Register</a></li>
+          <li><a href="#login">Login</a></li>
+          <li><a href="../about/funding.html">How We're Funded</a></li>
+          <li><a href="../contact/index.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <address>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Oak House, 47 Graham Street<br>Beswick, Manchester M11 3BB
+          </p>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:01613015050">0161 301 5050</a>
+          </p>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a>
+          </p>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Manchester Local Medical Committee. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Accessibility</a> · <a href="#">Cookie Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script>
+  // Members area auth tab switcher
+  (function () {
+    const tabBtns = document.querySelectorAll('.auth-tab-btn');
+    const panels = document.querySelectorAll('.auth-panel');
+
+    function switchTab(targetId) {
+      tabBtns.forEach(function (btn) {
+        const isTarget = btn.dataset.authTab === targetId;
+        btn.classList.toggle('active', isTarget);
+        btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+      });
+      panels.forEach(function (panel) {
+        panel.classList.toggle('active', panel.id === 'panel-' + targetId);
+      });
+      // Scroll to auth section
+      document.getElementById('login').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        switchTab(btn.dataset.authTab);
+      });
+    });
+
+    // data-auth-switch links (e.g. in sidebar and footer)
+    document.querySelectorAll('[data-auth-switch]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        switchTab(link.dataset.authSwitch);
+      });
+    });
+
+    // Hash-based routing
+    if (window.location.hash === '#register') {
+      switchTab('register');
+    }
+
+    // Login form stub
+    var loginForm = document.getElementById('login-form');
+    if (loginForm) {
+      loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Demo: show error (replace with real auth logic)
+        document.getElementById('login-error').style.display = 'flex';
+      });
+    }
+
+    // Register form stub
+    var registerForm = document.getElementById('register-form');
+    if (registerForm) {
+      registerForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Demo feedback
+        var btn = registerForm.querySelector('button[type="submit"]');
+        btn.textContent = 'Thank you — check your email for a payment link.';
+        btn.disabled = true;
+        btn.classList.remove('btn--accent');
+        btn.classList.add('btn--outline');
+      });
+    }
+
+    // Logout
+    var logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', function () {
+        document.getElementById('member-content').style.display = 'none';
+        document.getElementById('panel-login').style.display = 'block';
+      });
+    }
+  })();
+</script>
+</body>
+</html>

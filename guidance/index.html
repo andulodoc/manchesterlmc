@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Searchable guidance, policies, and clinical resources for Manchester GPs. Download documents covering clinical guidance, contractual matters, CQC, legal, prescribing, workforce, and collective action.">
+  <title>Resource Library — Manchester LMC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <style>
+    #document-list { display: flex; flex-direction: column; gap: var(--space-3); }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Manchester LMC home">
+        <img src="../assets/images/logo.svg" alt="" width="160" height="48">
+      </a>
+      <ul class="nav-primary" role="list">
+        <li class="nav-item">
+          <a href="../about/index.html" class="nav-link">About Us
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../about/index.html">About Manchester LMC</a>
+            <a href="../about/team.html">Our Team</a>
+            <a href="../about/funding.html">How We're Funded</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../support/index.html" class="nav-link">Support
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../support/index.html">What We Can Do For You</a>
+            <a href="../support/wellbeing.html">Wellbeing Hub</a>
+            <a href="../support/breach-report.html">Report a Breach</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" aria-current="page">Guidance
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="index.html" aria-current="page">Resource Library</a>
+            <a href="index.html?cat=clinical">Clinical Guidance</a>
+            <a href="index.html?cat=policy">Policy Documents</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../news/index.html" class="nav-link">News
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../news/index.html">Latest News</a>
+            <a href="../news/index.html#newsletters">Newsletters</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../events/index.html" class="nav-link">Events
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../events/index.html">Upcoming Events</a>
+            <a href="../events/index.html#meetings">Meeting Dates</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../vacancies/index.html" class="nav-link">Vacancies
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="../vacancies/index.html">Job Board</a>
+            <a href="../vacancies/index.html#post">Post a Vacancy</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../contact/index.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      <div class="nav-utility">
+        <button class="nav-search-btn" aria-label="Search site">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <a href="../members/index.html" class="nav-utility-btn nav-utility-btn--ghost">Login</a>
+        <a href="../members/index.html#register" class="nav-utility-btn nav-utility-btn--primary">Register</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" aria-hidden="true">
+    <ul role="list">
+      <li class="nav-mobile-item"><a href="../about/index.html" class="nav-mobile-link">About Us</a></li>
+      <li class="nav-mobile-item"><a href="../support/index.html" class="nav-mobile-link">Support</a></li>
+      <li class="nav-mobile-item"><a href="index.html" class="nav-mobile-link">Guidance</a></li>
+      <li class="nav-mobile-item"><a href="../news/index.html" class="nav-mobile-link">News</a></li>
+      <li class="nav-mobile-item"><a href="../events/index.html" class="nav-mobile-link">Events</a></li>
+      <li class="nav-mobile-item"><a href="../vacancies/index.html" class="nav-mobile-link">Vacancies</a></li>
+      <li class="nav-mobile-item"><a href="../contact/index.html" class="nav-mobile-link">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-utility">
+      <a href="../members/index.html" class="btn btn--outline" style="justify-content:center">Login</a>
+      <a href="../members/index.html#register" class="btn btn--primary" style="justify-content:center">Register as a Member</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content" class="page-content">
+
+  <section class="page-hero" aria-label="Page header">
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span aria-current="page">Resource Library</span>
+        </nav>
+        <h1>Resource Library</h1>
+        <p>Searchable guidance, policies, and clinical resources for Manchester GPs and practice staff</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="library-heading">
+    <div class="container">
+
+      <div id="guidance-filter" class="filter-bar" role="search" aria-label="Filter documents">
+        <div class="filter-search">
+          <div class="filter-search-input-wrap">
+            <svg class="filter-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input class="filter-search-input" type="search" placeholder="Search documents…" aria-label="Search documents">
+          </div>
+        </div>
+        <div class="filter-chips" role="group" aria-label="Filter by category">
+          <button class="filter-chip active" data-category="all">All</button>
+          <button class="filter-chip" data-category="clinical">Clinical</button>
+          <button class="filter-chip" data-category="contractual">Contractual</button>
+          <button class="filter-chip" data-category="cqc">CQC</button>
+          <button class="filter-chip" data-category="legal">Legal</button>
+          <button class="filter-chip" data-category="prescribing">Prescribing</button>
+          <button class="filter-chip" data-category="workforce">Workforce</button>
+          <button class="filter-chip" data-category="covid">COVID / Pandemic</button>
+          <button class="filter-chip" data-category="collective-action">Collective Action</button>
+        </div>
+      </div>
+
+      <p id="results-count" class="filter-results-count" aria-live="polite" aria-atomic="true">Showing 21 documents</p>
+
+      <!-- SVG icon snippets reused inline -->
+      <div id="document-list" role="list" aria-label="Document library">
+
+        <!-- ── Clinical ─────────────────────────────────── -->
+        <div class="doc-card" role="listitem" data-doc data-category="clinical" data-title="safe prescribing guidelines 2025">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--clinical">Clinical</span><span class="doc-card-date">January 2026</span></div>
+            <h3 class="doc-card-title">Safe Prescribing Guidelines 2025</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Safe Prescribing Guidelines 2025 (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="clinical" data-title="antibiotic prescribing primary care protocol">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--clinical">Clinical</span><span class="doc-card-date">November 2025</span></div>
+            <h3 class="doc-card-title">Antibiotic Prescribing: Primary Care Protocol</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Antibiotic Prescribing Protocol (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="clinical" data-title="fit note guidance for gps">
+          <div class="doc-card-icon doc-card-icon--word" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--clinical">Clinical</span><span class="doc-card-date">September 2025</span></div>
+            <h3 class="doc-card-title">Fit Note Guidance for GPs</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Fit Note Guidance (Word)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Word
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="clinical" data-title="mental health act gp responsibilities">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--clinical">Clinical</span><span class="doc-card-date">August 2025</span></div>
+            <h3 class="doc-card-title">Mental Health Act: GP Responsibilities</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Mental Health Act GP Guide (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Contractual ───────────────────────────────── -->
+        <div class="doc-card" role="listitem" data-doc data-category="contractual" data-title="gms contract 2025/26 summary">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--contractual">Contractual</span><span class="doc-card-date">April 2025</span></div>
+            <h3 class="doc-card-title">GMS Contract 2025/26 Summary</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download GMS Contract Summary (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="contractual" data-title="pcn des requirements 2025/26">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--contractual">Contractual</span><span class="doc-card-date">April 2025</span></div>
+            <h3 class="doc-card-title">PCN DES Requirements 2025/26</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download PCN DES Requirements (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="contractual" data-title="enhanced services directory manchester">
+          <div class="doc-card-icon doc-card-icon--word" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--contractual">Contractual</span><span class="doc-card-date">March 2025</span></div>
+            <h3 class="doc-card-title">Enhanced Services Directory Manchester</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Enhanced Services Directory (Word)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Word
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="contractual" data-title="dispensing practice regulations guide">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--contractual">Contractual</span><span class="doc-card-date">January 2025</span></div>
+            <h3 class="doc-card-title">Dispensing Practice Regulations Guide</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Dispensing Practice Guide (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- ── CQC ───────────────────────────────────────── -->
+        <div class="doc-card" role="listitem" data-doc data-category="cqc" data-title="cqc single assessment framework gp guide">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--cqc">CQC</span><span class="doc-card-date">January 2026</span></div>
+            <h3 class="doc-card-title">CQC Single Assessment Framework: GP Guide</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download CQC SAF GP Guide (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="cqc" data-title="cqc inspection preparation checklist">
+          <div class="doc-card-icon doc-card-icon--word" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--cqc">CQC</span><span class="doc-card-date">December 2025</span></div>
+            <h3 class="doc-card-title">CQC Inspection Preparation Checklist</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download CQC Checklist (Word)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Word
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="cqc" data-title="significant event audit template">
+          <div class="doc-card-icon doc-card-icon--word" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--cqc">CQC</span><span class="doc-card-date">October 2025</span></div>
+            <h3 class="doc-card-title">Significant Event Audit Template</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download SEA Template (Word)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Word
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Legal ─────────────────────────────────────── -->
+        <div class="doc-card" role="listitem" data-doc data-category="legal" data-title="data protection subject access requests">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--legal">Legal</span><span class="doc-card-date">November 2025</span></div>
+            <h3 class="doc-card-title">Data Protection &amp; Subject Access Requests</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Data Protection Guide (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="legal" data-title="employment law update for practices">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--legal">Legal</span><span class="doc-card-date">July 2025</span></div>
+            <h3 class="doc-card-title">Employment Law Update for Practices</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Employment Law Update (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="legal" data-title="indemnity what gps need to know">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--legal">Legal</span><span class="doc-card-date">May 2025</span></div>
+            <h3 class="doc-card-title">Indemnity: What GPs Need to Know</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Indemnity Guide (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Prescribing ────────────────────────────────── -->
+        <div class="doc-card" role="listitem" data-doc data-category="prescribing" data-title="high-risk medication monitoring protocol">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--prescribing">Prescribing</span><span class="doc-card-date">February 2026</span></div>
+            <h3 class="doc-card-title">High-Risk Medication Monitoring Protocol</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download High-Risk Medication Protocol (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="prescribing" data-title="controlled drug prescribing guidelines">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--prescribing">Prescribing</span><span class="doc-card-date">December 2025</span></div>
+            <h3 class="doc-card-title">Controlled Drug Prescribing Guidelines</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Controlled Drug Guidelines (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Workforce ──────────────────────────────────── -->
+        <div class="doc-card" role="listitem" data-doc data-category="workforce" data-title="arrs roles practice manager guide">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--workforce">Workforce</span><span class="doc-card-date">January 2026</span></div>
+            <h3 class="doc-card-title">ARRS Roles: Practice Manager Guide</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download ARRS Guide (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="workforce" data-title="salaried gp model contract 2025">
+          <div class="doc-card-icon doc-card-icon--word" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--workforce">Workforce</span><span class="doc-card-date">April 2025</span></div>
+            <h3 class="doc-card-title">Salaried GP Model Contract 2025</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Salaried GP Model Contract (Word)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Word
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="workforce" data-title="locum engagement guidance">
+          <div class="doc-card-icon doc-card-icon--word" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--workforce">Workforce</span><span class="doc-card-date">August 2025</span></div>
+            <h3 class="doc-card-title">Locum Engagement Guidance</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Locum Engagement Guidance (Word)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Word
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Collective Action ──────────────────────────── -->
+        <div class="doc-card" role="listitem" data-doc data-category="collective-action" data-title="collective action what practices can do">
+          <div class="doc-card-icon doc-card-icon--pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--primary">Collective Action</span><span class="doc-card-date">January 2026</span></div>
+            <h3 class="doc-card-title">Collective Action: What Practices Can Do</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download Collective Action Guide (PDF)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-card" role="listitem" data-doc data-category="collective-action" data-title="nhse data requests guidance for practices">
+          <div class="doc-card-icon doc-card-icon--word" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-card-meta"><span class="badge badge--primary">Collective Action</span><span class="doc-card-date">February 2026</span></div>
+            <h3 class="doc-card-title">NHSE Data Requests: Guidance for Practices</h3>
+          </div>
+          <div class="doc-card-actions">
+            <a href="#" class="btn btn--sm btn--outline" aria-label="Download NHSE Data Requests Guidance (Word)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Word
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /document-list -->
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../index.html" class="footer-logo" aria-label="Manchester LMC home">
+          <img src="../assets/images/logo.svg" alt="" width="140" height="42">
+        </a>
+        <p class="footer-tagline">Representing and supporting general practice in Manchester since 1974.</p>
+        <div class="footer-social">
+          <a href="https://twitter.com/manchesterlmc" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.739l7.734-8.835L1.254 2.25H8.08l4.26 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../about/index.html">About Manchester LMC</a></li>
+          <li><a href="../support/index.html">Support Services</a></li>
+          <li><a href="index.html">Resource Library</a></li>
+          <li><a href="../news/index.html">News &amp; Newsletters</a></li>
+          <li><a href="../events/index.html">Events &amp; Meetings</a></li>
+          <li><a href="../vacancies/index.html">Vacancies</a></li>
+          <li><a href="../support/breach-report.html">Report a Breach</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="../support/wellbeing.html">Wellbeing Hub</a></li>
+          <li><a href="../support/index.html#confidential">Confidential Advisory</a></li>
+          <li><a href="../members/index.html">Members Area</a></li>
+          <li><a href="../members/index.html#register">Register as Member</a></li>
+          <li><a href="https://www.bma.org.uk" target="_blank" rel="noopener">BMA Website</a></li>
+          <li><a href="https://www.cameronfund.org.uk" target="_blank" rel="noopener">Cameron Fund</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Oak House, 47 Graham Street, Beswick, M11 3BB</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18H6.6a2 2 0 0 1 2 1.72 19.4 19.4 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.51 8.69a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 19.4 19.4 0 0 0 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+          <a href="tel:01612230032">0161 223 0032</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a>
+        </div>
+        <div style="margin-top:var(--space-5)">
+          <a href="../contact/index.html" class="btn btn--outline" style="border-color:rgba(255,255,255,0.25);color:rgba(255,255,255,0.75);font-size:.875rem">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Manchester Local Medical Committee. Registered charity. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Cookies</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
