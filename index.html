@@ -700,6 +700,7 @@
           <li><a href="events/index.html">Events &amp; Meetings</a></li>
           <li><a href="vacancies/index.html">Vacancies</a></li>
           <li><a href="support/breach-report.html">Report a Breach</a></li>
+          <li><a href="#" id="view-disclaimer-link" class="footer-link-secondary">View Disclaimer</a></li>
         </ul>
       </div>
 
@@ -750,6 +751,35 @@
 
   </div><!-- /container -->
 </footer>
+
+<!-- Disclaimer Overlay -->
+<div id="disclaimer-overlay" class="disclaimer-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
+  <div class="disclaimer-backdrop" id="disclaimer-backdrop" aria-hidden="true"></div>
+  <div class="disclaimer-dialog">
+    <div class="disclaimer-content">
+      <button class="disclaimer-close" id="disclaimer-close" aria-label="Close disclaimer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+      <h2 id="disclaimer-title">Website Under Development</h2>
+      <div class="disclaimer-text">
+        <p>This website is currently <strong>under development</strong> and is being made available for testing and feedback purposes.</p>
+        <p>Please be aware that:</p>
+        <ul class="disclaimer-list">
+          <li>The content and information presented on this site may be <strong>subject to change</strong>.</li>
+          <li>Some features and sections may be incomplete or contain placeholder data.</li>
+          <li>The official Manchester LMC website at <a href="https://www.manchesterlmc.co.uk" target="_blank" rel="noopener noreferrer">manchesterlmc.co.uk</a> should be considered the authoritative source for information.</li>
+        </ul>
+        <div class="disclaimer-actions">
+          <button class="btn btn--primary" id="accept-disclaimer">I Understand — Continue to Site</button>
+          <button class="btn btn--outline" id="view-again-disclaimer">View Official Site Instead</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Disclaimer Overlay -->
 
 <script src="assets/js/main.js"></script>
 </body>

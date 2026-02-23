@@ -528,3 +528,88 @@
     }
   });
 })();
+
+/* ── Disclaimer Overlay System ───────────────────────────── */
+(function() {
+  // DOM Elements
+  const disclaimerOverlay = document.getElementById('disclaimer-overlay');
+  const acceptButton = document.getElementById('accept-disclaimer');
+  const declineButton = document.getElementById('view-again-disclaimer');
+  const closeButton = document.getElementById('disclaimer-close');
+
+  // Check if user has previously accepted disclaimer
+  const hasAcceptedDisclaimer = localStorage.getItem('manchesterlmc-disclaimer-accepted');
+
+  // If not accepted, show disclaimer
+  if (!hasAcceptedDisclaimer && disclaimerOverlay) {
+    setTimeout(() => {
+      disclaimerOverlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+
+      // Focus on accept button for accessibility
+      acceptButton.focus();
+    }, 100); // Small delay for page to render first
+  }
+
+  // Function to close disclaimer
+  function closeDisclaimer() {
+    disclaimerOverlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  // Function to accept disclaimer
+  function acceptDisclaimer() {
+    // Store acceptance in localStorage
+    localStorage.setItem('manchesterlmc-disclaimer-accepted', 'true');
+
+    // Close overlay
+    closeDisclaimer();
+  }
+
+  // Event Listeners
+  if (disclaimerOverlay) {
+    // Accept button
+    acceptButton.addEventListener('click', acceptDisclaimer);
+
+    // View official site button
+    if (declineButton) {
+      declineButton.addEventListener('click', function() {
+        window.location.href = 'https://www.manchesterlmc.co.uk';
+      });
+    }
+
+    // Close button
+    closeButton.addEventListener('click', closeDisclaimer);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && disclaimerOverlay.classList.contains('is-open')) {
+        closeDisclaimer();
+      }
+    });
+
+    // Click on backdrop to close
+    const backdrop = document.getElementById('disclaimer-backdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', closeDisclaimer);
+    }
+  }
+})();
+
+// Make functions available globally for external access if needed
+window.ManchesterLMC = window.ManchesterLMC || {};
+window.ManchesterLMC.closeDisclaimer = closeDisclaimer;
+window.ManchesterLMC.acceptDisclaimer = acceptDisclaimer;
+
+/* ── View disclaimer link in footer ───────────────────────── */
+document.addEventListener('DOMContentLoaded', function() {
+  const viewDisclaimerLink = document.getElementById('view-disclaimer-link');
+  if (viewDisclaimerLink) {
+    viewDisclaimerLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      localStorage.removeItem('manchesterlmc-disclaimer-accepted');
+      location.reload();
+    });
+  }
+});
+
