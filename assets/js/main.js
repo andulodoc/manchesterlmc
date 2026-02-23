@@ -105,7 +105,7 @@
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
       const value = Math.round(easeOut(progress) * target);
-      el.textContent = prefix + value.toLocaleString() + suffix;
+      el.textContent = prefix + ('noFormat' in el.dataset ? value : value.toLocaleString()) + suffix;
       if (progress < 1) requestAnimationFrame(step);
     };
 

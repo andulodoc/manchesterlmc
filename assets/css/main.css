@@ -618,6 +618,7 @@ strong { font-weight: 600; }
   position: relative;
   z-index: 1;
   max-width: 720px;
+  padding-top: var(--space-8);
 }
 
 .hero-eyebrow {
