@@ -1,0 +1,52 @@
+<div class="contact-strip">
+  <div class="container">
+    <div class="contact-strip-grid">
+
+      <div class="contact-strip-item">
+        <div class="contact-strip-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-strip-label">Address</div>
+          <div class="contact-strip-value">{{ site.address.line1 }}, {{ site.address.line2 }}, {{ site.address.line3 }}, {{ site.address.city }} {{ site.address.postcode }}</div>
+        </div>
+      </div>
+
+      <div class="contact-strip-item">
+        <div class="contact-strip-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.51 8.69a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+        </div>
+        <div>
+          <div class="contact-strip-label">Telephone</div>
+          <div class="contact-strip-value">
+            <a href="tel:{{ site.phone1 | replace(' ', '') }}">{{ site.phone1 }}</a><br>
+            <a href="tel:{{ site.phone2 | replace(' ', '') }}">{{ site.phone2 }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-strip-item">
+        <div class="contact-strip-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-strip-label">Email</div>
+          <div class="contact-strip-value">
+            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-strip-item">
+        <div class="contact-strip-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="contact-strip-label">Office Hours</div>
+          <div class="contact-strip-value">Mon–Fri: 09:00–17:00</div>
+        </div>
+      </div>
+
+    </div><!-- /contact-strip-grid -->
+  </div>
+</div>

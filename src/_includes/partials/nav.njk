@@ -1,0 +1,179 @@
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="/" class="nav-logo" aria-label="Manchester LMC home">
+        <img src="/assets/images/logo.svg" alt="" width="160" height="48">
+      </a>
+
+      <!-- Primary nav -->
+      <ul class="nav-primary" role="list">
+        <li class="nav-item{% if '/about/' in page.url %} nav-item--active{% endif %}">
+          <a href="/about/" class="nav-link"{% if '/about/' in page.url %} aria-current="page"{% endif %}>
+            About Us
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="/about/">About Manchester LMC</a>
+            <a href="/about/team.html">Our Team</a>
+            <a href="/about/funding.html">How We're Funded</a>
+            <a href="/about/funding.html#constitution">Constitution</a>
+          </div>
+        </li>
+        <li class="nav-item{% if '/support/' in page.url %} nav-item--active{% endif %}">
+          <a href="/support/" class="nav-link"{% if '/support/' in page.url %} aria-current="page"{% endif %}>
+            Support
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="/support/">What We Can Do For You</a>
+            <a href="/support/wellbeing.html">Wellbeing Hub</a>
+            <a href="/support/breach-report.html">Report a Breach</a>
+            <a href="/support/#confidential">Confidential Advisory</a>
+          </div>
+        </li>
+        <li class="nav-item{% if '/guidance/' in page.url %} nav-item--active{% endif %}">
+          <a href="/guidance/" class="nav-link"{% if '/guidance/' in page.url %} aria-current="page"{% endif %}>
+            Guidance
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="/guidance/">Resource Library</a>
+            <a href="/guidance/?cat=clinical">Clinical Guidance</a>
+            <a href="/guidance/?cat=policy">Policy Documents</a>
+          </div>
+        </li>
+        <li class="nav-item{% if '/news/' in page.url %} nav-item--active{% endif %}">
+          <a href="/news/" class="nav-link"{% if '/news/' in page.url %} aria-current="page"{% endif %}>
+            News
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="/news/">Latest News</a>
+            <a href="/news/#newsletters">Newsletters</a>
+          </div>
+        </li>
+        <li class="nav-item{% if '/events/' in page.url %} nav-item--active{% endif %}">
+          <a href="/events/" class="nav-link"{% if '/events/' in page.url %} aria-current="page"{% endif %}>
+            Events
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="/events/">Upcoming Events</a>
+            <a href="/events/#meetings">Meeting Dates</a>
+          </div>
+        </li>
+        <li class="nav-item{% if '/vacancies/' in page.url %} nav-item--active{% endif %}">
+          <a href="/vacancies/" class="nav-link"{% if '/vacancies/' in page.url %} aria-current="page"{% endif %}>
+            Vacancies
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="/vacancies/">Job Board</a>
+            <a href="/vacancies/#post">Post a Vacancy</a>
+          </div>
+        </li>
+        <li class="nav-item{% if '/contact/' in page.url %} nav-item--active{% endif %}">
+          <a href="/contact/" class="nav-link"{% if '/contact/' in page.url %} aria-current="page"{% endif %}>Contact</a>
+        </li>
+      </ul>
+
+      <!-- Utility bar -->
+      <div class="nav-utility">
+        <button class="nav-search-btn" aria-label="Search site">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <a href="/members/" class="nav-utility-btn nav-utility-btn--ghost">Login</a>
+        <a href="/members/#register" class="nav-utility-btn nav-utility-btn--primary">Register</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div><!-- /nav-inner -->
+  </div><!-- /container -->
+
+  <!-- Mobile nav -->
+  <div class="nav-mobile" aria-hidden="true">
+    <ul role="list">
+      <li class="nav-mobile-item">
+        <a href="/about/" class="nav-mobile-link" data-toggle="mob-about">
+          About Us
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-mobile-sub" id="mob-about" style="display:none">
+          <a href="/about/">About Manchester LMC</a>
+          <a href="/about/team.html">Our Team</a>
+          <a href="/about/funding.html">How We're Funded</a>
+          <a href="/about/funding.html#constitution">Constitution</a>
+        </div>
+      </li>
+      <li class="nav-mobile-item">
+        <a href="/support/" class="nav-mobile-link" data-toggle="mob-support">
+          Support
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-mobile-sub" id="mob-support" style="display:none">
+          <a href="/support/">What We Can Do For You</a>
+          <a href="/support/wellbeing.html">Wellbeing Hub</a>
+          <a href="/support/breach-report.html">Report a Breach</a>
+          <a href="/support/#confidential">Confidential Advisory</a>
+        </div>
+      </li>
+      <li class="nav-mobile-item">
+        <a href="/guidance/" class="nav-mobile-link" data-toggle="mob-guidance">
+          Guidance
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-mobile-sub" id="mob-guidance" style="display:none">
+          <a href="/guidance/">Resource Library</a>
+          <a href="/guidance/?cat=clinical">Clinical Guidance</a>
+          <a href="/guidance/?cat=policy">Policy Documents</a>
+        </div>
+      </li>
+      <li class="nav-mobile-item">
+        <a href="/news/" class="nav-mobile-link" data-toggle="mob-news">
+          News
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-mobile-sub" id="mob-news" style="display:none">
+          <a href="/news/">Latest News</a>
+          <a href="/news/#newsletters">Newsletters</a>
+        </div>
+      </li>
+      <li class="nav-mobile-item">
+        <a href="/events/" class="nav-mobile-link" data-toggle="mob-events">
+          Events
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-mobile-sub" id="mob-events" style="display:none">
+          <a href="/events/">Upcoming Events</a>
+          <a href="/events/#meetings">Meeting Dates</a>
+        </div>
+      </li>
+      <li class="nav-mobile-item">
+        <a href="/vacancies/" class="nav-mobile-link" data-toggle="mob-vacancies">
+          Vacancies
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-mobile-sub" id="mob-vacancies" style="display:none">
+          <a href="/vacancies/">Job Board</a>
+          <a href="/vacancies/#post">Post a Vacancy</a>
+        </div>
+      </li>
+      <li class="nav-mobile-item">
+        <a href="/contact/" class="nav-mobile-link">Contact</a>
+      </li>
+    </ul>
+    <div class="nav-mobile-utility">
+      <a href="/members/" class="btn btn--outline" style="justify-content:center">Login</a>
+      <a href="/members/#register" class="btn btn--primary" style="justify-content:center">Register as a Member</a>
+    </div>
+  </div>
+
+</nav><!-- /site-nav -->

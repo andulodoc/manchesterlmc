@@ -1,0 +1,19 @@
+{
+  "name": "Manchester LMC",
+  "tagline": "Representing and supporting general practice in Manchester since 1911.",
+  "url": "https://manchesterlmc.co.uk",
+  "email": "info@manchesterlmc.co.uk",
+  "phone1": "0161 223 0032",
+  "phone2": "0161 222 0088",
+  "address": {
+    "line1": "Oak House",
+    "line2": "47 Graham Street",
+    "line3": "Beswick",
+    "city": "Manchester",
+    "postcode": "M11 3BB"
+  },
+  "twitter": "https://twitter.com/manchesterlmc",
+  "facebook": "https://www.facebook.com",
+  "linkedin": "https://linkedin.com",
+  "copyright": "2026 Manchester Local Medical Committee. Registered charity. All rights reserved."
+}

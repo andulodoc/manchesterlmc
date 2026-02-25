@@ -1,0 +1,14 @@
+{
+  "name": "manchesterlmc",
+  "version": "1.0.0",
+  "description": "Manchester LMC website — Eleventy + Decap CMS",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "markdown-it": "^14.0.0"
+  }
+}
