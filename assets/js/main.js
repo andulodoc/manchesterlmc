@@ -594,12 +594,12 @@
       backdrop.addEventListener('click', closeDisclaimer);
     }
   }
-})();
 
-// Make functions available globally for external access if needed
-window.ManchesterLMC = window.ManchesterLMC || {};
-window.ManchesterLMC.closeDisclaimer = closeDisclaimer;
-window.ManchesterLMC.acceptDisclaimer = acceptDisclaimer;
+  // Expose functions globally for footer link or external use
+  window.ManchesterLMC = window.ManchesterLMC || {};
+  window.ManchesterLMC.closeDisclaimer = closeDisclaimer;
+  window.ManchesterLMC.acceptDisclaimer = acceptDisclaimer;
+})();
 
 /* ── View disclaimer link in footer ───────────────────────── */
 document.addEventListener('DOMContentLoaded', function() {
