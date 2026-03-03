@@ -26,7 +26,7 @@
 <!-- ── Main Content ────────────────────────────────────────── -->
 <main id="main-content"{% if mainClass %} class="{{ mainClass }}"{% endif %}>
 
-  {% block content %}{% endblock %}
+  {{ content | safe }}
 
   {% if showContactStrip %}{% include "partials/contact-strip.njk" %}{% endif %}
 

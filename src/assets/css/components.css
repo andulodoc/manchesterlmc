@@ -1573,3 +1573,113 @@
     display: none;
   }
 }
+
+/* ── Guidance / Document List ─────────────────────────────── */
+#document-list { display: flex; flex-direction: column; gap: var(--space-3); }
+
+/* ── Members Page ─────────────────────────────────────────── */
+.members-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .members-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--colour-border);
+  margin-bottom: 2rem;
+}
+
+.auth-tab-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--colour-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.auth-tab-btn.active {
+  color: var(--colour-primary);
+  border-bottom-color: var(--colour-primary);
+}
+
+.auth-panel { display: none; }
+.auth-panel.active { display: block; }
+
+.member-resource-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius);
+  background: var(--colour-white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.member-resource-item:hover {
+  border-color: var(--colour-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.member-resource-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--colour-neutral);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--colour-primary);
+}
+
+.member-resource-item a {
+  font-weight: 500;
+  color: var(--colour-primary);
+  text-decoration: none;
+}
+
+.member-resource-item a:hover { text-decoration: underline; }
+
+.member-resource-item .meta {
+  font-size: 0.8rem;
+  color: var(--colour-muted);
+  margin-top: 0.2rem;
+}
+
+.benefit-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--colour-border);
+}
+
+.benefit-row:last-child { border-bottom: none; }
+
+.benefit-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--colour-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}

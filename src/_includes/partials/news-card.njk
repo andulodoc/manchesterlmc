@@ -19,9 +19,9 @@
         <time datetime="{{ article.date | dateISO }}">{{ article.date | dateDisplay }}</time>
       </span>
     </div>
-    <h3><a href="#">{{ article.data.title }}</a></h3>
+    <h3><a href="{{ article.url }}">{{ article.data.title }}</a></h3>
     <p class="news-card-excerpt">{{ article.data.excerpt }}</p>
-    <a href="#" class="news-card-readmore" aria-label="Read more about {{ article.data.title }}">
+    <a href="{{ article.url }}" class="news-card-readmore" aria-label="Read more about {{ article.data.title }}">
       Read more
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>

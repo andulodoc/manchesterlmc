@@ -1,0 +1,234 @@
+---
+layout: layouts/base.njk
+title: Vacancies
+description: "GP and primary care vacancies across Manchester. Browse current roles or post a vacancy for your practice."
+mainClass: page-vacancies
+showContactStrip: true
+showDisclaimer: true
+---
+
+  <!-- Hero -->
+  <section class="page-hero" aria-label="Page header">
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span aria-current="page">Vacancies</span>
+        </nav>
+        <h1>Job Board</h1>
+        <p>Current GP and primary care vacancies across Manchester practices</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job listings -->
+  <section class="section" aria-labelledby="jobs-heading">
+    <div class="container">
+      <div class="section-header flex-between" style="margin-bottom:var(--space-8);">
+        <div>
+          <span class="section-eyebrow">Current Listings</span>
+          <h2 id="jobs-heading">Available Positions</h2>
+        </div>
+        <a href="#post" class="btn btn--primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Post a Vacancy
+        </a>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:var(--space-4);">
+
+        <div class="job-card reveal">
+          <div class="job-card-header">
+            <div>
+              <div class="job-card-title">Salaried GP — 6 Sessions per Week</div>
+              <div class="job-card-practice">Placeholder Medical Centre, Manchester [Postcode TBC]</div>
+            </div>
+            <span class="badge badge--contractual">Salaried GP</span>
+          </div>
+          <div class="job-card-meta">
+            <span class="job-card-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              6 sessions/week
+            </span>
+            <span class="job-card-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Salary TBC
+            </span>
+            <span class="job-card-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Location TBC
+            </span>
+          </div>
+          <p style="font-size:.9375rem;color:var(--colour-muted);margin-bottom:0;">[PLACEHOLDER] This vacancy listing is example content for development purposes. Replace with real vacancy details supplied by the recruiting practice.</p>
+          <div class="job-card-footer">
+            <span class="job-card-closing">Closing date: <strong>[Date TBC]</strong></span>
+            <a href="mailto:vacancies@example.com" class="btn btn--primary btn--sm">Apply / Enquire</a>
+          </div>
+        </div>
+
+        <div class="job-card reveal reveal-delay-1">
+          <div class="job-card-header">
+            <div>
+              <div class="job-card-title">GP Partner — Full or Part-time</div>
+              <div class="job-card-practice">Example Health Centre, Manchester [Postcode TBC]</div>
+            </div>
+            <span class="badge badge--primary">GP Partner</span>
+          </div>
+          <div class="job-card-meta">
+            <span class="job-card-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Full or part-time (min. 4 sessions)
+            </span>
+            <span class="job-card-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Location TBC
+            </span>
+          </div>
+          <p style="font-size:.9375rem;color:var(--colour-muted);margin-bottom:0;">[PLACEHOLDER] This vacancy listing is example content for development purposes. Replace with real vacancy details supplied by the recruiting practice.</p>
+          <div class="job-card-footer">
+            <span class="job-card-closing">Closing date: <strong>[Date TBC]</strong></span>
+            <a href="mailto:vacancies@example.com" class="btn btn--primary btn--sm">Apply / Enquire</a>
+          </div>
+        </div>
+
+        <div class="job-card reveal reveal-delay-2">
+          <div class="job-card-header">
+            <div>
+              <div class="job-card-title">Practice Manager</div>
+              <div class="job-card-practice">Specimen Group Practice, Manchester [Postcode TBC]</div>
+            </div>
+            <span class="badge badge--accent">Practice Manager</span>
+          </div>
+          <div class="job-card-meta">
+            <span class="job-card-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Full-time (37.5 hrs/week)
+            </span>
+            <span class="job-card-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Salary TBC
+            </span>
+            <span class="job-card-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Location TBC
+            </span>
+          </div>
+          <p style="font-size:.9375rem;color:var(--colour-muted);margin-bottom:0;">[PLACEHOLDER] This vacancy listing is example content for development purposes. Replace with real vacancy details supplied by the recruiting practice.</p>
+          <div class="job-card-footer">
+            <span class="job-card-closing">Closing date: <strong>[Date TBC]</strong></span>
+            <a href="mailto:vacancies@example.com" class="btn btn--primary btn--sm">Apply / Enquire</a>
+          </div>
+        </div>
+
+        <div class="job-card reveal">
+          <div class="job-card-header">
+            <div>
+              <div class="job-card-title">Salaried GP — Maternity Cover (12 months)</div>
+              <div class="job-card-practice">Hypothetical Health Centre, Manchester [Postcode TBC]</div>
+            </div>
+            <span class="badge badge--contractual">Salaried GP</span>
+          </div>
+          <div class="job-card-meta">
+            <span class="job-card-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              4 sessions/week
+            </span>
+            <span class="job-card-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Fixed term — dates TBC
+            </span>
+          </div>
+          <p style="font-size:.9375rem;color:var(--colour-muted);margin-bottom:0;">[PLACEHOLDER] This vacancy listing is example content for development purposes. Replace with real vacancy details supplied by the recruiting practice.</p>
+          <div class="job-card-footer">
+            <span class="job-card-closing">Closing date: <strong>[Date TBC]</strong></span>
+            <a href="mailto:vacancies@example.com" class="btn btn--primary btn--sm">Apply / Enquire</a>
+          </div>
+        </div>
+
+      </div><!-- /job listings -->
+    </div>
+  </section>
+
+  <!-- Post a vacancy -->
+  <section class="section section--neutral" id="post" aria-labelledby="post-heading">
+    <div class="container">
+      <div style="max-width:780px;margin:0 auto">
+        <div class="section-header" style="margin-bottom:var(--space-8)">
+          <span class="section-eyebrow">Recruiting?</span>
+          <h2 id="post-heading">Post a Vacancy</h2>
+          <p>Listing a role on the Manchester LMC job board is free for member practices and £50 for non-members. Listings remain live for 4 weeks or until you request removal.</p>
+        </div>
+
+        <!-- Auth gate -->
+        <div id="vacancy-auth-gate">
+          <div class="login-gate">
+            <div class="login-gate-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Members Only</h3>
+            <p>You must be logged in as a Manchester LMC subscriber to post a vacancy. If you are not yet a member, you can register for a free practice membership or a £100/year locum subscription.</p>
+            <div class="login-gate-actions">
+              <a href="/members/" class="btn btn--primary">Login to your account</a>
+              <a href="/members/#register" class="btn btn--outline">Register as a member</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vacancy form (shown when authenticated) -->
+        <div id="vacancy-form" style="display:none">
+          <form action="https://formspree.io/f/placeholder" method="POST" data-ajax novalidate aria-label="Post a vacancy form">
+
+            <div class="form-group">
+              <label class="form-label" for="job-title">Job Title <span class="required" aria-hidden="true">*</span></label>
+              <input class="form-input" type="text" id="job-title" name="job_title" required placeholder="e.g. Salaried GP — 6 Sessions">
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+              <div class="form-group">
+                <label class="form-label" for="practice-name">Practice Name <span class="required" aria-hidden="true">*</span></label>
+                <input class="form-input" type="text" id="practice-name" name="practice_name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="job-location">Location / Postcode <span class="required" aria-hidden="true">*</span></label>
+                <input class="form-input" type="text" id="job-location" name="location" required placeholder="e.g. Manchester M4">
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+              <div class="form-group">
+                <label class="form-label" for="contract-type">Contract Type</label>
+                <select class="form-select" id="contract-type" name="contract_type">
+                  <option value="" disabled selected>Select type</option>
+                  <option value="gp-partner">GP Partner</option>
+                  <option value="salaried-gp">Salaried GP</option>
+                  <option value="locum">Locum</option>
+                  <option value="practice-manager">Practice Manager</option>
+                  <option value="nurse">Nurse / AHP</option>
+                  <option value="admin">Administrative</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="closing-date">Closing Date</label>
+                <input class="form-input" type="date" id="closing-date" name="closing_date">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="job-description">Job Description <span class="required" aria-hidden="true">*</span></label>
+              <textarea class="form-textarea" id="job-description" name="job_description" rows="6" required placeholder="Describe the role, hours, salary (if applicable), and how to apply."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Application Contact Email <span class="required" aria-hidden="true">*</span></label>
+              <input class="form-input" type="email" id="contact-email" name="contact_email" required placeholder="Where should applications be sent?">
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg">Submit Vacancy Listing</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
