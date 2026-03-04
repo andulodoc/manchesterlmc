@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+title: News
+mainClass: page-news
+showContactStrip: true
+---
+
+<section class="section-hero section-hero--compact">
+  <div class="container">
+    <h1 class="reveal">News &amp; Updates</h1>
+    <p class="hero-subtitle reveal reveal-delay-1">The latest announcements, guidance, and policy updates for GPs in Manchester.</p>
+  </div>
+</section>
+
+<section class="section section-news">
+  <div class="container">
+
+    <div class="news-filters reveal" role="group" aria-label="Filter news by category">
+      <button class="filter-chip active" data-filter="all">All</button>
+      <button class="filter-chip" data-filter="announcement">Announcements</button>
+      <button class="filter-chip" data-filter="bma-gpc">BMA / GPC</button>
+      <button class="filter-chip" data-filter="nhs-policy">NHS Policy</button>
+      <button class="filter-chip" data-filter="local">Local</button>
+    </div>
+
+    {% if collections.news.length %}
+    <div class="news-grid" role="list" id="news-list">
+      {% for article in collections.news %}
+        {% include "partials/news-card.njk" %}
+      {% endfor %}
+    </div>
+    <p class="news-no-results" id="news-no-results" hidden>No news items match the selected filter.</p>
+    {% else %}
+    <p class="news-empty">No news posts yet — check back soon.</p>
+    {% endif %}
+
+  </div>
+</section>

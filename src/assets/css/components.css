@@ -270,6 +270,27 @@
   overflow: hidden;
 }
 
+.news-card-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--colour-secondary);
+  transition: gap var(--transition-base), color var(--transition-base);
+}
+
+.news-card-readmore:hover {
+  gap: var(--space-3);
+  color: var(--colour-primary);
+}
+
+.news-card-readmore svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
 /* ── Event Strip ──────────────────────────────────────────── */
 .event-item {
   display: flex;

@@ -33,7 +33,19 @@
     hamburger.classList.toggle('open', open);
     mobileNav.classList.toggle('open', open);
     hamburger.setAttribute('aria-expanded', String(open));
-    body.style.overflow = open ? 'hidden' : '';
+    if (open) {
+      const scrollY = window.scrollY;
+      body.style.position = 'fixed';
+      body.style.top = `-${scrollY}px`;
+      body.style.width = '100%';
+      body.dataset.scrollY = scrollY;
+    } else {
+      const savedY = parseInt(body.dataset.scrollY || '0', 10);
+      body.style.position = '';
+      body.style.top = '';
+      body.style.width = '';
+      window.scrollTo(0, savedY);
+    }
   };
 
   hamburger.addEventListener('click', () => {
@@ -356,7 +368,7 @@
   var input    = document.getElementById('search-input');
   var results  = document.getElementById('search-results');
   var closeBtn = document.getElementById('search-close');
-  var searchBtn = document.querySelector('.nav-search-btn');
+  var searchBtn = document.querySelector('.nav-utility .nav-search-btn');
 
   var fuse = null;
   var focusedIndex = -1;
@@ -513,9 +525,9 @@
   });
 
   // ── Wire up triggers ───────────────────────────────────────
-  if (searchBtn) {
-    searchBtn.addEventListener('click', openOverlay);
-  }
+  document.querySelectorAll('.nav-search-btn').forEach(function (btn) {
+    btn.addEventListener('click', openOverlay);
+  });
   closeBtn.addEventListener('click', closeOverlay);
   backdrop.addEventListener('click', closeOverlay);
 
