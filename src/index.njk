@@ -149,7 +149,7 @@ showDisclaimer: true
         </a>
       </div>
 
-      <div style="display:flex; flex-direction:column; gap:var(--space-4);">
+      <div class="events-list">
 
         <div class="event-item reveal">
           <div class="event-date-badge">
@@ -170,7 +170,7 @@ showDisclaimer: true
             </div>
             <p class="event-desc">Quarterly partners meeting. Agenda includes GP contract updates, local collective action guidance, and ICB liaison.</p>
           </div>
-          <a href="/events/" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">Register</a>
+          <a href="/events/" class="btn btn--outline btn--sm event-register-btn">Register</a>
         </div>
 
         <div class="event-item reveal reveal-delay-1">
@@ -192,7 +192,7 @@ showDisclaimer: true
             </div>
             <p class="event-desc">Open meeting for locum GPs in Manchester — LMC levy, IR35 updates, and peer networking. All locums welcome.</p>
           </div>
-          <a href="/events/" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">Register</a>
+          <a href="/events/" class="btn btn--outline btn--sm event-register-btn">Register</a>
         </div>
 
         <div class="event-item reveal reveal-delay-2">
@@ -214,7 +214,7 @@ showDisclaimer: true
             </div>
             <p class="event-desc">Practical workshop on CQC's new single assessment framework. For GPs, practice managers, and clinical leads.</p>
           </div>
-          <a href="/events/" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">Register</a>
+          <a href="/events/" class="btn btn--outline btn--sm event-register-btn">Register</a>
         </div>
 
       </div><!-- /events list -->
@@ -310,16 +310,16 @@ showDisclaimer: true
           <p class="newsletter-card-eyebrow">Newsletter</p>
           <h3 id="newsletter-heading">Manchester LMC Newsletter — Winter 2025/26</h3>
           <p>Our quarterly newsletter covers the latest from general practice in Manchester: contract updates, local policy news, wellbeing resources, and LMC committee actions.</p>
-          <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;margin-top:var(--space-6);">
+          <div class="newsletter-actions">
             <a href="/news/#newsletters" class="btn btn--secondary">Download Issue (PDF)</a>
-            <a href="/news/#newsletters" class="btn btn--outline btn--secondary" style="border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.85);">View Archive</a>
+            <a href="/news/#newsletters" class="btn btn--secondary">View Archive</a>
           </div>
         </div>
         <div class="newsletter-card-download">
           <div class="newsletter-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
           </div>
-          <span style="font-size:0.8125rem;color:rgba(255,255,255,0.6);">Issue 42 · Winter 2025</span>
+          <span class="newsletter-issue-label">Issue 42 · Winter 2025</span>
         </div>
       </div>
     </div>
@@ -328,15 +328,15 @@ showDisclaimer: true
   <!-- ── Twitter / Social embed area ────────────────────────── -->
   <section class="section" aria-labelledby="social-heading">
     <div class="container">
-      <div class="section-header section-header--center" style="margin-bottom:var(--space-8);">
+      <div class="section-header section-header--center section-header--compact">
         <span class="section-eyebrow">Social</span>
         <h2 id="social-heading">Follow Us on X (Twitter)</h2>
       </div>
-      <div style="max-width:550px;margin:0 auto;">
+      <div class="social-embed-placeholder">
         <!-- Placeholder for Twitter/X embed widget -->
-        <div style="background:var(--colour-neutral);border:1px solid var(--colour-border);border-radius:var(--radius-xl);padding:var(--space-10);text-align:center;color:var(--colour-muted);">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="margin:0 auto var(--space-4);" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.739l7.734-8.835L1.254 2.25H8.08l4.26 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          <p style="margin-bottom:var(--space-4);">Latest tweets from <strong>@ManchesterLMC</strong></p>
+        <div class="social-embed-box">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.739l7.734-8.835L1.254 2.25H8.08l4.26 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <p>Latest tweets from <strong>@ManchesterLMC</strong></p>
           <a href="https://twitter.com/manchesterlmc" class="btn btn--outline" target="_blank" rel="noopener noreferrer">View on X / Twitter</a>
         </div>
       </div>
