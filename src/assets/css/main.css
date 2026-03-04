@@ -4,30 +4,30 @@
    ============================================================ */
 
 /* ── Google Fonts ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;700&display=swap');
 
 /* ── Custom Properties ────────────────────────────────────── */
 :root {
   /* Colours */
-  --colour-primary:   #0d3d56;
-  --colour-secondary: #1a7fa0;
-  --colour-accent:    #e07b39;
-  --colour-neutral:   #f2f6f9;
-  --colour-text:      #1c2b36;
-  --colour-muted:     #536374;
+  --colour-primary:   #0891B2;
+  --colour-secondary: #22D3EE;
+  --colour-accent:    #22C55E;
+  --colour-neutral:   #F0FDFA;
+  --colour-text:      #134E4A;
+  --colour-muted:     #4B7B78;
   --colour-white:     #ffffff;
-  --colour-border:    #d4e1ea;
+  --colour-border:    #B2DFDB;
 
   /* Accent shades */
-  --colour-accent-dark:   #c06628;
-  --colour-accent-light:  #f5a066;
-  --colour-primary-dark:  #082b3d;
-  --colour-primary-light: #145078;
-  --colour-secondary-light: #2a9fca;
+  --colour-accent-dark:   #16A34A;
+  --colour-accent-light:  #4ADE80;
+  --colour-primary-dark:  #0E7490;
+  --colour-primary-light: #38BDF8;
+  --colour-secondary-light: #67E8F9;
 
   /* Typography */
-  --font-heading: 'Fraunces', Georgia, serif;
-  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Figtree', system-ui, -apple-system, sans-serif;
+  --font-body:    'Noto Sans', system-ui, -apple-system, sans-serif;
 
   /* Sizing */
   --max-width:    1200px;
@@ -55,10 +55,10 @@
   --radius-pill: 9999px;
 
   /* Shadows */
-  --shadow-sm:  0 1px 3px rgba(13, 61, 86, 0.08);
-  --shadow-md:  0 4px 16px rgba(13, 61, 86, 0.12);
-  --shadow-lg:  0 8px 32px rgba(13, 61, 86, 0.16);
-  --shadow-xl:  0 16px 48px rgba(13, 61, 86, 0.20);
+  --shadow-sm:  0 1px 3px rgba(8, 145, 178, 0.08);
+  --shadow-md:  0 4px 16px rgba(8, 145, 178, 0.12);
+  --shadow-lg:  0 8px 32px rgba(8, 145, 178, 0.16);
+  --shadow-xl:  0 16px 48px rgba(8, 145, 178, 0.20);
 
   /* Transitions */
   --transition-fast: 150ms ease;
