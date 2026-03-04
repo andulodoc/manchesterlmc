@@ -1,6 +1,11 @@
 import markdownIt from "markdown-it";
+import { HtmlBasePlugin } from "@11ty/eleventy";
 
 export default function (eleventyConfig) {
+  // Rewrites absolute paths in HTML output to include pathPrefix.
+  // Enabled when PATHPREFIX env var is set (e.g. in GitHub Actions).
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+
   // ── Passthrough copies ──────────────────────────────────────
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/admin");
@@ -81,6 +86,7 @@ export default function (eleventyConfig) {
 
   // ── Config ──────────────────────────────────────────────────
   return {
+    pathPrefix: process.env.PATHPREFIX || "/",
     dir: {
       input: "src",
       output: "_site",
