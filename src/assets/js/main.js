@@ -266,8 +266,9 @@
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
-      chips.forEach((c) => c.classList.remove('active'));
+      chips.forEach((c) => { c.classList.remove('active'); c.setAttribute('aria-pressed', 'false'); });
       chip.classList.add('active');
+      chip.setAttribute('aria-pressed', 'true');
       activeCategory = chip.dataset.category || 'all';
       render();
     });
@@ -290,8 +291,9 @@
 
     chips.forEach((chip) => {
       chip.addEventListener('click', () => {
-        chips.forEach((c) => c.classList.remove('active'));
+        chips.forEach((c) => { c.classList.remove('active'); c.setAttribute('aria-pressed', 'false'); });
         chip.classList.add('active');
+        chip.setAttribute('aria-pressed', 'true');
         const category = chip.dataset.category || 'all';
         list.querySelectorAll('[data-category]').forEach((item) => {
           const cat = (item.dataset.category || '').toLowerCase();
@@ -570,14 +572,28 @@
   // Check if user has previously accepted disclaimer
   const hasAcceptedDisclaimer = localStorage.getItem('manchesterlmc-disclaimer-accepted');
 
+  // Focus trap helpers
+  const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+  function trapFocus(e) {
+    const focusable = disclaimerOverlay.querySelectorAll(focusableSelectors);
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.key !== 'Tab') return;
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
+
   // If not accepted, show disclaimer
   if (!hasAcceptedDisclaimer && disclaimerOverlay) {
     setTimeout(() => {
       disclaimerOverlay.classList.add('is-open');
       document.body.style.overflow = 'hidden';
-
-      // Focus on accept button for accessibility
       acceptButton.focus();
+      disclaimerOverlay.addEventListener('keydown', trapFocus);
     }, 100); // Small delay for page to render first
   }
 
@@ -585,6 +601,7 @@
   function closeDisclaimer() {
     disclaimerOverlay.classList.remove('is-open');
     document.body.style.overflow = '';
+    disclaimerOverlay.removeEventListener('keydown', trapFocus);
   }
 
   // Function to accept disclaimer

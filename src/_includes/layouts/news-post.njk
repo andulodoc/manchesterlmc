@@ -24,7 +24,7 @@ mainClass: page-news-post
   {% if image %}
   <div class="news-post-image">
     <div class="container">
-      <img src="{{ image }}" alt="{{ title }}" loading="eager">
+      <img src="{{ image }}" alt="{{ imageAlt or title }}" loading="eager" decoding="async">
     </div>
   </div>
   {% endif %}

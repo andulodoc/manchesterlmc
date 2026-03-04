@@ -893,6 +893,7 @@
   background-color: var(--colour-primary);
   border-color: var(--colour-primary);
   color: var(--colour-white);
+  font-weight: 700;
 }
 
 .filter-results-count {

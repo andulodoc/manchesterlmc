@@ -36,7 +36,7 @@
 
 {% if showDisclaimer %}
 <!-- Disclaimer Overlay -->
-<div id="disclaimer-overlay" class="disclaimer-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
+<div id="disclaimer-overlay" class="disclaimer-overlay" role="alertdialog" aria-modal="true" aria-labelledby="disclaimer-title" aria-describedby="disclaimer-desc">
   <div class="disclaimer-backdrop" id="disclaimer-backdrop" aria-hidden="true"></div>
   <div class="disclaimer-dialog">
     <div class="disclaimer-content">
@@ -47,7 +47,7 @@
       </button>
       <h2 id="disclaimer-title">Website Under Development</h2>
       <div class="disclaimer-text">
-        <p>This website is currently <strong>under development</strong> and is being made available for testing and feedback purposes.</p>
+        <p id="disclaimer-desc">This website is currently <strong>under development</strong> and is being made available for testing and feedback purposes.</p>
         <p>Please be aware that:</p>
         <ul class="disclaimer-list">
           <li>The content and information presented on this site may be <strong>subject to change</strong>.</li>

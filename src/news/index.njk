@@ -16,11 +16,11 @@ showContactStrip: true
   <div class="container">
 
     <div class="news-filters reveal" role="group" aria-label="Filter news by category">
-      <button class="filter-chip active" data-filter="all">All</button>
-      <button class="filter-chip" data-filter="announcement">Announcements</button>
-      <button class="filter-chip" data-filter="bma-gpc">BMA / GPC</button>
-      <button class="filter-chip" data-filter="nhs-policy">NHS Policy</button>
-      <button class="filter-chip" data-filter="local">Local</button>
+      <button class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-chip" data-filter="announcement" aria-pressed="false">Announcements</button>
+      <button class="filter-chip" data-filter="bma-gpc" aria-pressed="false">BMA / GPC</button>
+      <button class="filter-chip" data-filter="nhs-policy" aria-pressed="false">NHS Policy</button>
+      <button class="filter-chip" data-filter="local" aria-pressed="false">Local</button>
     </div>
 
     {% if collections.news.length %}
