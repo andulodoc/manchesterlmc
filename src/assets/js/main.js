@@ -53,9 +53,10 @@
     toggle(!isOpen);
   });
 
-  // Close when clicking outside or on a link
+  // Close when clicking a navigation link, but not section headers (data-toggle)
   mobileNav.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') toggle(false);
+    const link = e.target.closest('a');
+    if (link && !link.dataset.toggle) toggle(false);
   });
 
   document.addEventListener('keydown', (e) => {
