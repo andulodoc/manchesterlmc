@@ -85,6 +85,11 @@
   const reveals = document.querySelectorAll('.reveal');
   if (!reveals.length) return;
 
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reveals.forEach((el) => el.classList.add('visible'));
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -104,6 +109,18 @@
 (function () {
   const counters = document.querySelectorAll('[data-count]');
   if (!counters.length) return;
+
+  const setFinalValue = (el) => {
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const target = parseInt(el.dataset.count, 10);
+    el.textContent = prefix + ('noFormat' in el.dataset ? target : target.toLocaleString()) + suffix;
+  };
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    counters.forEach(setFinalValue);
+    return;
+  }
 
   const easeOut = (t) => 1 - Math.pow(1 - t, 3);
 
