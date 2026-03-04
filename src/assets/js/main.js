@@ -1,6 +1,6 @@
 /* ============================================================
    Manchester LMC — main.js
-   Vanilla JS: nav, scroll, counter, reveal, tabs, accordion, filter
+   Vanilla JS: nav, tabs, accordion, filter, search, disclaimer
    ============================================================ */
 
 'use strict';
@@ -80,82 +80,6 @@
   });
 })();
 
-/* ── Scroll reveal ────────────────────────────────────────── */
-(function () {
-  const reveals = document.querySelectorAll('.reveal');
-  if (!reveals.length) return;
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    reveals.forEach((el) => el.classList.add('visible'));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  reveals.forEach((el) => observer.observe(el));
-})();
-
-/* ── Counter animation ────────────────────────────────────── */
-(function () {
-  const counters = document.querySelectorAll('[data-count]');
-  if (!counters.length) return;
-
-  const setFinalValue = (el) => {
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
-    const target = parseInt(el.dataset.count, 10);
-    el.textContent = prefix + ('noFormat' in el.dataset ? target : target.toLocaleString()) + suffix;
-  };
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    counters.forEach(setFinalValue);
-    return;
-  }
-
-  const easeOut = (t) => 1 - Math.pow(1 - t, 3);
-
-  const animateCounter = (el) => {
-    const target = parseInt(el.dataset.count, 10);
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
-    const duration = 1800;
-    const start = performance.now();
-
-    const step = (now) => {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const value = Math.round(easeOut(progress) * target);
-      el.textContent = prefix + ('noFormat' in el.dataset ? value : value.toLocaleString()) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    };
-
-    requestAnimationFrame(step);
-  };
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  counters.forEach((el) => observer.observe(el));
-})();
 
 /* ── Tab switcher ─────────────────────────────────────────── */
 (function () {

@@ -278,9 +278,7 @@ strong { font-weight: 600; }
 
 .site-nav.scrolled {
   box-shadow: var(--shadow-md);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--colour-white);
 }
 
 .nav-inner {
@@ -592,22 +590,7 @@ strong { font-weight: 600; }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    var(--colour-primary-dark) 0%,
-    var(--colour-primary) 45%,
-    var(--colour-primary-light) 100%
-  );
-}
-
-/* Subtle grain texture */
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  opacity: 0.4;
-  pointer-events: none;
+  background-color: var(--colour-primary-dark);
 }
 
 
@@ -955,23 +938,6 @@ strong { font-weight: 600; }
   }
 }
 
-/* ── Scroll Reveal ────────────────────────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-delay-1 { transition-delay: 100ms; }
-.reveal-delay-2 { transition-delay: 200ms; }
-.reveal-delay-3 { transition-delay: 300ms; }
-.reveal-delay-4 { transition-delay: 400ms; }
-.reveal-delay-5 { transition-delay: 500ms; }
 
 /* ── Accessibility ────────────────────────────────────────── */
 .sr-only {
@@ -1189,8 +1155,7 @@ strong { font-weight: 600; }
 .disclaimer-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(13, 61, 86, 0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(8, 145, 178, 0.88);
 }
 
 .disclaimer-dialog {
@@ -1297,12 +1262,6 @@ strong { font-weight: 600; }
 
 /* ── Reduced motion ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
   * {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;

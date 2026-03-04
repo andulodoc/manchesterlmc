@@ -40,7 +40,6 @@
 .role-card:hover {
   background-color: rgba(255, 255, 255, 0.14);
   border-color: var(--colour-accent);
-  transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -87,7 +86,7 @@
 
 /* ── Statistics Banner ────────────────────────────────────── */
 .stats-banner {
-  background: linear-gradient(135deg, var(--colour-secondary) 0%, var(--colour-primary) 100%);
+  background-color: var(--colour-primary);
   padding-block: var(--space-12);
   position: relative;
   overflow: hidden;
@@ -160,8 +159,8 @@
 }
 
 .card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--colour-secondary);
 }
 
 .card-body {
@@ -184,13 +183,13 @@
 }
 
 .news-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--colour-secondary);
 }
 
 .news-card-image {
   height: 200px;
-  background: linear-gradient(135deg, var(--colour-neutral), var(--colour-border));
+  background-color: var(--colour-neutral);
   overflow: hidden;
   position: relative;
 }
@@ -212,7 +211,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--colour-primary), var(--colour-secondary));
+  background-color: var(--colour-primary-dark);
   color: rgba(255, 255, 255, 0.3);
 }
 
@@ -395,8 +394,7 @@
 
 .service-card:hover {
   border-color: var(--colour-secondary);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 .service-card-icon {
@@ -540,7 +538,7 @@
 
 /* ── Newsletter Card ──────────────────────────────────────── */
 .newsletter-card {
-  background: linear-gradient(135deg, var(--colour-primary) 0%, var(--colour-secondary) 100%);
+  background-color: var(--colour-primary-dark);
   border-radius: var(--radius-xl);
   padding: var(--space-10);
   display: grid;
@@ -956,13 +954,13 @@
 }
 
 .profile-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--colour-secondary);
 }
 
 .profile-card-photo {
   height: 220px;
-  background: linear-gradient(135deg, var(--colour-neutral), var(--colour-border));
+  background-color: var(--colour-neutral);
   overflow: hidden;
   position: relative;
 }
@@ -980,7 +978,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--colour-primary), var(--colour-secondary));
+  background-color: var(--colour-primary-dark);
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -1046,7 +1044,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, var(--colour-secondary), var(--colour-border));
+  background-color: var(--colour-border);
 }
 
 .timeline-item {
@@ -1231,7 +1229,7 @@
 .login-gate {
   text-align: center;
   padding: var(--space-16) var(--space-8);
-  background: linear-gradient(135deg, var(--colour-neutral), var(--colour-white));
+  background-color: var(--colour-neutral);
   border: 1px solid var(--colour-border);
   border-radius: var(--radius-xl);
 }
@@ -1272,19 +1270,10 @@
 
 /* ── Page Hero (internal pages) ───────────────────────────── */
 .page-hero {
-  background: linear-gradient(135deg, var(--colour-primary-dark) 0%, var(--colour-primary) 100%);
+  background-color: var(--colour-primary-dark);
   padding-block: var(--space-12) var(--space-10);
   position: relative;
   overflow: hidden;
-}
-
-.page-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
-  opacity: 0.5;
-  pointer-events: none;
 }
 
 .page-hero-content {
@@ -1371,7 +1360,7 @@
 }
 
 .featured-article-image {
-  background: linear-gradient(135deg, var(--colour-primary), var(--colour-secondary));
+  background-color: var(--colour-primary-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1441,8 +1430,7 @@
 .search-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(8, 43, 61, 0.72);
-  backdrop-filter: blur(2px);
+  background: rgba(8, 43, 61, 0.85);
 }
 
 .search-dialog {

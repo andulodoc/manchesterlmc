@@ -1,4 +1,4 @@
-<article class="news-card reveal{% if loop.index0 % 3 == 1 %} reveal-delay-1{% elif loop.index0 % 3 == 2 %} reveal-delay-2{% endif %}" data-category="{{ article.data.category }}" role="listitem">
+<article class="news-card{% if loop.index0 % 3 == 1 %}{% elif loop.index0 % 3 == 2 %}{% endif %}" data-category="{{ article.data.category }}" role="listitem">
   <div class="news-card-image">
     {% if article.data.image %}
       <img src="{{ article.data.image }}" alt="{{ article.data.imageAlt or '' }}" loading="lazy" decoding="async">
