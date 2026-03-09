@@ -105,4 +105,34 @@
 - Contrast ≥ WCAG AA (4.5:1 for text)
 
 ### Pages to verify
-Home, About, Support, News (list + single post), Events
+Home, About, About/Funding, Support, News (list + single post), Events, Contact, Guidance, Members, Vacancies
+
+---
+
+## Commit Log
+
+| Commit | Issues | Description |
+|--------|--------|-------------|
+| `8ba95ef` | #1, #2, #8, #10, #12, #13 | CSS — hero mobile padding, event mobile layout, news styles, post template, breadcrumb, accordion radius |
+| `1dfe867` | #6, #9, #10, #11, #12 | Templates — breadcrumb partial, news filters, post layout, accordion, £ icon |
+| `22c7ad2` | #3, #4, #5, #7 | Icons and support page spacing |
+| `edb1a99` | #12, #13 | Funding page breadcrumb + accordion to native details/summary |
+| `72ec7b3` | #12 | Breadcrumb consistency — contact, guidance, members, vacancies |
+
+## Acceptance Criteria Status
+
+| Issue | Status | Commit(s) |
+|-------|--------|-----------|
+| #1 Hero pill mobile | Done | `8ba95ef` |
+| #2 Events mobile | Done | `8ba95ef` |
+| #3 Home icons | Done | `22c7ad2` |
+| #4 About icons | Done | `22c7ad2` |
+| #5 Support spacing | Done | `22c7ad2` |
+| #6 Cameron Fund £ | Done | `1dfe867` |
+| #7 Key contact padding | Done | `22c7ad2` |
+| #8 News layout | Done | `8ba95ef` |
+| #9 News filters | Done | `1dfe867` |
+| #10 News post template | Done | `8ba95ef`, `1dfe867` |
+| #11 Events accordion | Done | `1dfe867` |
+| #12 Breadcrumbs | Done | `8ba95ef`, `1dfe867`, `edb1a99`, `72ec7b3` |
+| #13 Accordion radius | Done | `8ba95ef`, `edb1a99` |
