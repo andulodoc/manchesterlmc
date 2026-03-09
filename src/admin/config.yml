@@ -1,0 +1,29 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: src/assets/images/uploads
+public_folder: /assets/images/uploads
+
+collections:
+  - name: news
+    label: News
+    label_singular: News Post
+    folder: src/content/news
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false }
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: Announcement, value: announcement }
+          - { label: BMA / GPC, value: bma-gpc }
+          - { label: NHS Policy, value: nhs-policy }
+          - { label: Local, value: local }
+      - { label: Excerpt, name: excerpt, widget: text, hint: "Short summary shown on the news listing page." }
+      - { label: Featured, name: featured, widget: boolean, default: false, hint: "Featured posts appear highlighted on the homepage." }
+      - { label: Body, name: body, widget: markdown }
