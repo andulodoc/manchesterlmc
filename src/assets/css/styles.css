@@ -6,7 +6,7 @@
 /* ── Self-hosted fonts ────────────────────────────────────── */
 @font-face {
   font-family: 'Figtree';
-  src: url('/assets/fonts/figtree-latin-ext.woff2') format('woff2');
+  src: url('../fonts/figtree-latin-ext.woff2') format('woff2');
   font-weight: 300 700;
   font-style: normal;
   font-display: swap;
@@ -14,7 +14,7 @@
 }
 @font-face {
   font-family: 'Figtree';
-  src: url('/assets/fonts/figtree-latin.woff2') format('woff2');
+  src: url('../fonts/figtree-latin.woff2') format('woff2');
   font-weight: 300 700;
   font-style: normal;
   font-display: swap;
@@ -22,7 +22,7 @@
 }
 @font-face {
   font-family: 'Noto Sans';
-  src: url('/assets/fonts/noto-sans-latin.woff2') format('woff2');
+  src: url('../fonts/noto-sans-latin.woff2') format('woff2');
   font-weight: 300 700;
   font-style: normal;
   font-display: swap;
