@@ -2,9 +2,10 @@
 title: "GP Contract Update: Key Changes for 2026"
 date: 2026-02-28
 category: bma-gpc
-excerpt: "A summary of the significant changes to the GP contract coming into effect this spring, and what they mean for practices in Manchester."
-image: ""
+excerpt: A summary of the significant changes to the GP contract coming into
+  effect this spring, and what they mean for practices in Manchester.
 featured: true
+image: https://images.pexels.com/photos/7841458/pexels-photo-7841458.jpeg
 ---
 
 The BMA's General Practitioners Committee has reached agreement on the updated GP contract for 2026, bringing several significant changes that will affect practices across Manchester.
