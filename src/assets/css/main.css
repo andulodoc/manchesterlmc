@@ -84,6 +84,10 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+body.nav-open {
+  overflow: hidden;
+}
+
 body {
   font-family: var(--font-body);
   font-size: 1rem;
@@ -1130,56 +1134,21 @@ strong { font-weight: 600; }
   transform: translateX(3px);
 }
 
-/* ============================================
-   Disclaimer Overlay System
-   ============================================ */
-
-.disclaimer-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-  opacity: 0;
-  background: var(--colour-black);
-  transition: opacity var(--transition-base);
-}
-
-.disclaimer-overlay.is-open {
-  visibility: visible;
-  opacity: 1;
-}
-
-.disclaimer-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(8, 145, 178, 0.88);
-}
+/* ── Disclaimer ────────────────────────────────────────────── */
 
 .disclaimer-dialog {
-  position: relative;
   width: 90%;
   max-width: 640px;
-  background: var(--colour-white);
+  border: none;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
   padding: var(--space-10);
   text-align: center;
   overflow: hidden;
-  animation: modalIn 0.3s ease-out;
 }
 
-@keyframes modalIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.disclaimer-dialog::backdrop {
+  background: rgba(8, 145, 178, 0.88);
 }
 
 .disclaimer-close {
@@ -1252,7 +1221,6 @@ strong { font-weight: 600; }
   margin-top: var(--space-8);
 }
 
-/* Responsive adjustments */
 @media (max-width: 640px) {
   .disclaimer-dialog {
     width: 95%;

@@ -1,0 +1,9 @@
+---
+permalink: /assets/js/search-index.json
+eleventyExcludeFromCollections: true
+---
+[{%- set comma = joiner(",") -%}
+{%- for item in collections.all -%}
+{{ comma() }}{"title":{{ (item.data.title or item.fileSlug) | dump | safe }},"url":{{ item.url | dump | safe }},"description":{{ (item.data.description or "") | dump | safe }},"category":{{ (item.data.category or "") | dump | safe }},"type":"{{ "news" if item.data.tags and "news" in item.data.tags else "page" }}"}
+{%- endfor -%}
+]

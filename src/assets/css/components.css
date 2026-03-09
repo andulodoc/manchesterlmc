@@ -783,7 +783,7 @@
   display: block;
 }
 
-/* ── Accordion ────────────────────────────────────────────── */
+/* ── Accordion (native <details>/<summary>) ───────────────── */
 .accordion {
   border: 1px solid var(--colour-border);
   border-radius: var(--radius-lg);
@@ -809,18 +809,20 @@
   font-weight: 600;
   color: var(--colour-primary);
   background: none;
-  border: none;
   cursor: pointer;
   text-align: left;
   transition: background-color var(--transition-base);
   gap: var(--space-4);
+  list-style: none;
 }
+
+.accordion-btn::-webkit-details-marker { display: none; }
 
 .accordion-btn:hover {
   background-color: var(--colour-neutral);
 }
 
-.accordion-btn.open {
+details[open] > .accordion-btn {
   background-color: var(--colour-neutral);
 }
 
@@ -832,20 +834,15 @@
   transition: transform var(--transition-base);
 }
 
-.accordion-btn.open .accordion-icon {
+details[open] > .accordion-btn .accordion-icon {
   transform: rotate(180deg);
 }
 
 .accordion-panel {
-  display: none;
   padding: 0 var(--space-6) var(--space-5);
   font-size: 0.9375rem;
   color: var(--colour-muted);
   line-height: 1.7;
-}
-
-.accordion-panel.open {
-  display: block;
 }
 
 .accordion-panel p,
