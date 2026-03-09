@@ -1,10 +1,13 @@
 ---
-title: "Manchester ICB Meeting — February 2026 Update"
+title: Manchester ICB Meeting — February 2026 Update
 date: 2026-02-10
-tags: [news]
+tags:
+  - news
 category: local
+excerpt: Key outcomes from the February ICB meeting, including updates on
+  integrated neighbourhood teams, ARRS funding allocations, and CQC inspections.
 featured: true
-excerpt: "Key outcomes from the February ICB meeting, including updates on integrated neighbourhood teams, ARRS funding allocations, and CQC inspections."
+image: https://images.pexels.com/photos/7433824/pexels-photo-7433824.jpeg
 ---
 
 The February 2026 meeting of Manchester Integrated Care Board covered several areas of significant interest to general practice across the city.
