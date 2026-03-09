@@ -85,4 +85,4 @@ collections:
         options:
           - { label: PDF, value: pdf }
           - { label: Word, value: word }
-      - { label: "Download URL (SharePoint)", name: downloadUrl, widget: string, hint: "Paste the SharePoint shareable link for this document." }
+      - { label: "Download URL", name: downloadUrl, widget: string, hint: "Paste a publicly shareable link to the document (OneDrive, SharePoint, Google Drive, Dropbox, etc.). Ensure the sharing permission is set to 'Anyone with the link can view' — links that require a login will not work for site visitors." }
