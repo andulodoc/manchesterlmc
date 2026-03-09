@@ -56,3 +56,33 @@ collections:
       - { label: "Application Contact Email", name: contactEmail, widget: string }
       - { label: Active, name: active, widget: boolean, default: true, hint: "Uncheck to hide this vacancy without deleting it." }
       - { label: Description, name: body, widget: markdown }
+
+  - name: guidance
+    label: Guidance
+    label_singular: Guidance Document
+    folder: src/content/guidance
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: Clinical, value: clinical }
+          - { label: Contractual, value: contractual }
+          - { label: CQC, value: cqc }
+          - { label: Legal, value: legal }
+          - { label: Prescribing, value: prescribing }
+          - { label: Workforce, value: workforce }
+          - { label: "COVID / Pandemic", value: covid }
+          - { label: Collective Action, value: collective-action }
+      - { label: Date, name: date, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, hint: "Used for the 'Month Year' display and sort order. Use the first of the month." }
+      - label: File Type
+        name: fileType
+        widget: select
+        options:
+          - { label: PDF, value: pdf }
+          - { label: Word, value: word }
+      - { label: "Download URL (SharePoint)", name: downloadUrl, widget: string, hint: "Paste the SharePoint shareable link for this document." }

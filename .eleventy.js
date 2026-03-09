@@ -92,6 +92,50 @@ export default function (eleventyConfig) {
     return map[category] || category;
   });
 
+  eleventyConfig.addCollection("guidance", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("guidance")
+      .sort((a, b) => b.date - a.date);
+  });
+
+  // Map guidance category slug → badge CSS modifier class
+  eleventyConfig.addFilter("guidanceBadgeClass", function (category) {
+    const map = {
+      "clinical": "badge--clinical",
+      "contractual": "badge--contractual",
+      "cqc": "badge--cqc",
+      "legal": "badge--legal",
+      "prescribing": "badge--prescribing",
+      "workforce": "badge--workforce",
+      "covid": "badge--accent",
+      "collective-action": "badge--primary",
+    };
+    return map[category] || "badge--primary";
+  });
+
+  // Map guidance category slug → display name
+  eleventyConfig.addFilter("guidanceCategoryName", function (category) {
+    const map = {
+      "clinical": "Clinical",
+      "contractual": "Contractual",
+      "cqc": "CQC",
+      "legal": "Legal",
+      "prescribing": "Prescribing",
+      "workforce": "Workforce",
+      "covid": "COVID / Pandemic",
+      "collective-action": "Collective Action",
+    };
+    return map[category] || category;
+  });
+
+  // "January 2026" — used by the guidance document library
+  eleventyConfig.addFilter("dateMonthYear", function (date) {
+    return new Date(date).toLocaleDateString("en-GB", {
+      month: "long",
+      year: "numeric",
+    });
+  });
+
   // Map vacancy contract type slug → badge CSS modifier class
   eleventyConfig.addFilter("vacancyBadgeClass", function (contractType) {
     const map = {
