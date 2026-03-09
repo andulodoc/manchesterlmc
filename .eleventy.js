@@ -27,6 +27,19 @@ export default function (eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  eleventyConfig.addCollection("vacancies", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("vacancies")
+      .filter((item) => item.data.active !== false)
+      .sort((a, b) => {
+        // Sort by closing date ascending (soonest first); no date goes last
+        if (!a.data.closingDate && !b.data.closingDate) return 0;
+        if (!a.data.closingDate) return 1;
+        if (!b.data.closingDate) return -1;
+        return new Date(a.data.closingDate) - new Date(b.data.closingDate);
+      });
+  });
+
   // ── Filters ─────────────────────────────────────────────────
 
   // "10 Feb 2026"
@@ -77,6 +90,34 @@ export default function (eleventyConfig) {
       local: "Local",
     };
     return map[category] || category;
+  });
+
+  // Map vacancy contract type slug → badge CSS modifier class
+  eleventyConfig.addFilter("vacancyBadgeClass", function (contractType) {
+    const map = {
+      "gp-partner": "badge--primary",
+      "salaried-gp": "badge--contractual",
+      "locum": "badge--secondary",
+      "practice-manager": "badge--accent",
+      "nurse-ahp": "badge--clinical",
+      "administrative": "badge--cqc",
+      "other": "badge--primary",
+    };
+    return map[contractType] || "badge--primary";
+  });
+
+  // Map vacancy contract type slug → display label
+  eleventyConfig.addFilter("vacancyLabel", function (contractType) {
+    const map = {
+      "gp-partner": "GP Partner",
+      "salaried-gp": "Salaried GP",
+      "locum": "Locum",
+      "practice-manager": "Practice Manager",
+      "nurse-ahp": "Nurse / AHP",
+      "administrative": "Administrative",
+      "other": "Other",
+    };
+    return map[contractType] || contractType;
   });
 
   // Render a markdown string to HTML

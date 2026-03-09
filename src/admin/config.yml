@@ -27,3 +27,32 @@ collections:
       - { label: Excerpt, name: excerpt, widget: text, hint: "Short summary shown on the news listing page." }
       - { label: Featured, name: featured, widget: boolean, default: false, hint: "Featured posts appear highlighted on the homepage." }
       - { label: Body, name: body, widget: markdown }
+
+  - name: vacancies
+    label: Vacancies
+    label_singular: Vacancy
+    folder: src/content/vacancies
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: Job Title, name: title, widget: string }
+      - { label: Practice Name, name: practice, widget: string }
+      - { label: "Location / Postcode", name: location, widget: string }
+      - label: Contract Type
+        name: contractType
+        widget: select
+        options:
+          - { label: GP Partner, value: gp-partner }
+          - { label: Salaried GP, value: salaried-gp }
+          - { label: Locum, value: locum }
+          - { label: Practice Manager, value: practice-manager }
+          - { label: "Nurse / AHP", value: nurse-ahp }
+          - { label: Administrative, value: administrative }
+          - { label: Other, value: other }
+      - { label: "Sessions / Hours", name: sessions, widget: string, required: false, hint: "e.g. 6 sessions/week or Full-time (37.5 hrs/week)" }
+      - { label: Salary, name: salary, widget: string, required: false, hint: "Leave blank if not specified." }
+      - { label: Closing Date, name: closingDate, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, required: false }
+      - { label: "Application Contact Email", name: contactEmail, widget: string }
+      - { label: Active, name: active, widget: boolean, default: true, hint: "Uncheck to hide this vacancy without deleting it." }
+      - { label: Description, name: body, widget: markdown }
