@@ -7,6 +7,8 @@ showContactStrip: true
 
 <section class="section-hero section-hero--compact">
   <div class="container">
+    {% set breadcrumbs = [{label: "News"}] %}
+    {% include "partials/breadcrumb.njk" %}
     <h1>News &amp; Updates</h1>
     <p class="hero-subtitle">The latest announcements, guidance, and policy updates for GPs in Manchester.</p>
   </div>
@@ -15,12 +17,12 @@ showContactStrip: true
 <section class="section section-news">
   <div class="container">
 
-    <div class="news-filters" role="group" aria-label="Filter news by category">
-      <button class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
-      <button class="filter-chip" data-filter="announcement" aria-pressed="false">Announcements</button>
-      <button class="filter-chip" data-filter="bma-gpc" aria-pressed="false">BMA / GPC</button>
-      <button class="filter-chip" data-filter="nhs-policy" aria-pressed="false">NHS Policy</button>
-      <button class="filter-chip" data-filter="local" aria-pressed="false">Local</button>
+    <div class="news-filters" role="group" aria-label="Filter news by category" data-filter-group="news-list">
+      <button class="filter-chip active" data-category="all" aria-pressed="true">All</button>
+      <button class="filter-chip" data-category="announcement" aria-pressed="false">Announcements</button>
+      <button class="filter-chip" data-category="bma-gpc" aria-pressed="false">BMA / GPC</button>
+      <button class="filter-chip" data-category="nhs-policy" aria-pressed="false">NHS Policy</button>
+      <button class="filter-chip" data-category="local" aria-pressed="false">Local</button>
     </div>
 
     {% if collections.news.length %}
