@@ -26,6 +26,8 @@ collections:
           - { label: Local, value: local }
       - { label: Excerpt, name: excerpt, widget: text, hint: "Short summary shown on the news listing page." }
       - { label: Featured, name: featured, widget: boolean, default: false, hint: "Featured posts appear highlighted on the homepage." }
+      - { label: Image, name: image, widget: image, required: false, hint: "Optional. Displayed at the top of the post and on the news listing card." }
+      - { label: "Image Alt Text", name: imageAlt, widget: string, required: false, hint: "Describe the image for screen readers. Required if an image is uploaded." }
       - { label: Body, name: body, widget: markdown }
 
   - name: vacancies
