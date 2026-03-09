@@ -12,13 +12,8 @@ permalink: /support/wellbeing/
   <section class="page-hero" aria-label="Page header">
     <div class="container">
       <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="breadcrumb-sep" aria-hidden="true">›</span>
-          <a href="/support/">Support</a>
-          <span class="breadcrumb-sep" aria-hidden="true">›</span>
-          <span aria-current="page">Wellbeing Hub</span>
-        </nav>
+        {% set breadcrumbs = [{url: "/support/", label: "Support"}, {label: "Wellbeing Hub"}] %}
+        {% include "partials/breadcrumb.njk" %}
         <h1>Wellbeing Hub</h1>
         <p>We care about the people who care for Manchester.</p>
       </div>
