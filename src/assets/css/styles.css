@@ -3224,6 +3224,52 @@ details[open] > .accordion-btn .accordion-icon {
   color: var(--colour-text);
 }
 
+/* ── Support Page ────────────────────────────────────────── */
+.support-intro {
+  max-width: 780px;
+}
+
+.support-intro-lead {
+  font-size: 1.125rem;
+  color: var(--colour-muted);
+  line-height: 1.8;
+}
+
+.support-intro-sub {
+  margin-top: var(--space-5);
+  color: var(--colour-muted);
+  line-height: 1.8;
+}
+
+.support-confidence-alert {
+  max-width: 780px;
+  margin-top: var(--space-6);
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.support-confidence-alert svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Key Contact Box ─────────────────────────────────────── */
+.key-contact-box {
+  background: linear-gradient(135deg, var(--colour-primary-dark) 0%, var(--colour-primary) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  color: var(--colour-white);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .key-contact-box {
+    padding: var(--space-6);
+  }
+}
+
 /* ── Accordion — boxy variant (issue #13) ────────────────── */
 .accordion--boxy {
   border-radius: var(--radius-md);
