@@ -576,6 +576,10 @@ strong { font-weight: 600; }
   .nav-search-mobile-btn { display: flex; margin-left: auto; }
 }
 
+@media (max-width: 400px) {
+  .nav-logo-text { display: none; }
+}
+
 /* ── Page offset for fixed nav ────────────────────────────── */
 .page-content {
   padding-top: var(--nav-height);
