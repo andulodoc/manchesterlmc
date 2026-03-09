@@ -687,12 +687,14 @@ strong { font-weight: 600; }
   .hero {
     min-height: 480px;
     text-align: center;
+    padding-bottom: var(--space-8);
   }
   .hero-actions {
     justify-content: center;
   }
   .hero-content {
     max-width: 100%;
+    padding-bottom: var(--space-6);
   }
 }
 
@@ -2004,7 +2006,7 @@ strong { font-weight: 600; }
 /* ── Accordion (native <details>/<summary>) ───────────────── */
 .accordion {
   border: 1px solid var(--colour-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
@@ -2926,4 +2928,307 @@ details[open] > .accordion-btn .accordion-icon {
   justify-content: center;
   flex-shrink: 0;
   margin-top: 1px;
+}
+
+/* ── Event Item — Mobile ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .event-item {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .event-date-badge {
+    flex-direction: row;
+    gap: var(--space-2);
+    min-width: auto;
+    padding: var(--space-2) var(--space-4);
+    align-self: flex-start;
+  }
+  .event-date-day {
+    font-size: 1.25rem;
+  }
+  .event-date-month {
+    margin-top: 0;
+    line-height: 1.25rem;
+  }
+  .event-register-btn,
+  .event-item > .btn {
+    align-self: flex-start;
+  }
+}
+
+/* ── Section Hero (compact, for internal pages like News) ── */
+.section-hero {
+  background-color: var(--colour-primary-dark);
+  padding-block: var(--space-12) var(--space-10);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-hero--compact {
+  padding-block: var(--space-10) var(--space-8);
+}
+
+.section-hero h1 {
+  color: var(--colour-white);
+  margin-bottom: var(--space-4);
+}
+
+.section-hero .hero-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 65ch;
+  margin-bottom: 0;
+}
+
+/* ── News Page ───────────────────────────────────────────── */
+.news-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: compact list layout for news */
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .news-grid .news-card {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+  .news-grid .news-card:first-child {
+    border-top: 1px solid var(--colour-border);
+  }
+  .news-grid .news-card:last-child {
+    border-bottom: 1px solid var(--colour-border);
+  }
+  .news-grid .news-card-image {
+    display: none;
+  }
+  .news-grid .news-card-body {
+    padding: var(--space-5) 0;
+  }
+}
+
+.news-no-results {
+  text-align: center;
+  padding: var(--space-12) var(--space-4);
+  color: var(--colour-muted);
+  font-size: 0.9375rem;
+}
+
+/* ── News Post ───────────────────────────────────────────── */
+.news-post-header {
+  background-color: var(--colour-primary-dark);
+  padding-block: var(--space-10) var(--space-8);
+}
+
+.news-post-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-5);
+}
+
+.news-post-date {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.news-post-date svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.news-post-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--colour-white);
+  margin-bottom: var(--space-4);
+  max-width: 70ch;
+}
+
+.news-post-excerpt {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 65ch;
+}
+
+.news-post-image {
+  margin-top: calc(-1 * var(--space-4));
+  margin-bottom: var(--space-8);
+}
+
+.news-post-image img {
+  border-radius: var(--radius-lg);
+  max-height: 480px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.news-post-body {
+  padding-block: var(--space-10);
+}
+
+.news-post-content {
+  max-width: 70ch;
+}
+
+.news-post-content h2 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+.news-post-content h3 {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.news-post-content p {
+  margin-bottom: var(--space-5);
+  line-height: 1.75;
+}
+
+.news-post-content ul,
+.news-post-content ol {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-5);
+}
+
+.news-post-content ul {
+  list-style: disc;
+}
+
+.news-post-content ol {
+  list-style: decimal;
+}
+
+.news-post-content li {
+  margin-bottom: var(--space-2);
+  line-height: 1.7;
+}
+
+.news-post-content blockquote {
+  border-left: 4px solid var(--colour-secondary);
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-6) 0;
+  background-color: var(--colour-neutral);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 1.0625rem;
+  color: var(--colour-muted);
+}
+
+.news-post-content img {
+  border-radius: var(--radius-md);
+  margin-block: var(--space-6);
+}
+
+.news-post-content a {
+  color: var(--colour-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.news-post-content a:hover {
+  color: var(--colour-primary);
+}
+
+.news-post-footer {
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--colour-border);
+}
+
+.news-post-back {
+  gap: var(--space-2);
+}
+
+.news-post-back svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ── Breadcrumb (reusable) ───────────────────────────────── */
+.breadcrumb-nav {
+  margin-bottom: var(--space-5);
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-list a {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color var(--transition-base);
+}
+
+.breadcrumb-list a:hover {
+  color: var(--colour-white);
+}
+
+.breadcrumb-list .breadcrumb-sep {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.75rem;
+}
+
+.breadcrumb-list [aria-current="page"] {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Light background variant */
+.breadcrumb-nav--light .breadcrumb-list {
+  color: var(--colour-muted);
+}
+
+.breadcrumb-nav--light .breadcrumb-list a {
+  color: var(--colour-muted);
+}
+
+.breadcrumb-nav--light .breadcrumb-list a:hover {
+  color: var(--colour-primary);
+}
+
+.breadcrumb-nav--light .breadcrumb-list .breadcrumb-sep {
+  color: var(--colour-border);
+}
+
+.breadcrumb-nav--light .breadcrumb-list [aria-current="page"] {
+  color: var(--colour-text);
+}
+
+/* ── Accordion — boxy variant (issue #13) ────────────────── */
+.accordion--boxy {
+  border-radius: var(--radius-md);
+}
+
+.accordion--boxy .accordion-btn {
+  border: none;
 }
