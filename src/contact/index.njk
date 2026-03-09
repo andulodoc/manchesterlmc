@@ -11,11 +11,8 @@ showDisclaimer: true
   <section class="page-hero" aria-label="Page header">
     <div class="container">
       <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="breadcrumb-sep" aria-hidden="true">›</span>
-          <span aria-current="page">Contact</span>
-        </nav>
+        {% set breadcrumbs = [{label: "Contact"}] %}
+        {% include "partials/breadcrumb.njk" %}
         <h1>Contact Us</h1>
         <p>We're here to help. Reach our team by phone, email, or using the form below.</p>
       </div>

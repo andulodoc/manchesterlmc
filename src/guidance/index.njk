@@ -10,11 +10,8 @@ showDisclaimer: true
   <section class="page-hero" aria-label="Page header">
     <div class="container">
       <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="breadcrumb-sep" aria-hidden="true">›</span>
-          <span aria-current="page">Resource Library</span>
-        </nav>
+        {% set breadcrumbs = [{label: "Guidance Library"}] %}
+        {% include "partials/breadcrumb.njk" %}
         <h1>Resource Library</h1>
         <p>Searchable guidance, policies, and clinical resources for Manchester GPs and practice staff</p>
       </div>
