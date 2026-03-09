@@ -11,13 +11,8 @@ permalink: /about/funding/
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
-      <nav aria-label="Breadcrumb">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about/">About Us</a></li>
-          <li aria-current="page">How We're Funded</li>
-        </ol>
-      </nav>
+      {% set breadcrumbs = [{url: "/about/", label: "About Us"}, {label: "How We're Funded"}] %}
+      {% include "partials/breadcrumb.njk" %}
       <h1>How We're Funded</h1>
       <p>Manchester LMC is funded entirely by the GPs and practices it represents — with no government subsidy or commercial income.</p>
     </div>
@@ -208,55 +203,55 @@ permalink: /about/funding/
       <h2>Common Questions</h2>
       <div class="accordion">
 
-        <div class="accordion-item">
-          <button class="accordion-btn" aria-expanded="false">
+        <details class="accordion-item">
+          <summary class="accordion-btn">
             Can a practice opt out of paying the levy?
             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="accordion-panel" hidden>
+          </summary>
+          <div class="accordion-panel">
             <p>No. The LMC levy is a statutory obligation for all practices holding NHS contracts in the area. It is set by regulation under the NHS Act 2006. If you have concerns about the levy or feel it is incorrectly calculated for your practice, contact us and we will review it.</p>
           </div>
-        </div>
+        </details>
 
-        <div class="accordion-item">
-          <button class="accordion-btn" aria-expanded="false">
+        <details class="accordion-item">
+          <summary class="accordion-btn">
             Does the LMC receive any NHS or government funding?
             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="accordion-panel" hidden>
+          </summary>
+          <div class="accordion-panel">
             <p>No. The LMC receives no direct funding from NHS England, the ICB, or any other statutory body. This financial independence is critical to our ability to represent GPs robustly and challenge commissioners when necessary.</p>
           </div>
-        </div>
+        </details>
 
-        <div class="accordion-item">
-          <button class="accordion-btn" aria-expanded="false">
+        <details class="accordion-item">
+          <summary class="accordion-btn">
             How are committee members reimbursed?
             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="accordion-panel" hidden>
+          </summary>
+          <div class="accordion-panel">
             <p>Committee members are not paid a salary. Elected GPs who attend LMC meetings are entitled to reimbursement of reasonable locum costs incurred while attending official LMC business, in accordance with national BMA/LMC guidance. Travel expenses may also be claimed at standard HMRC mileage rates.</p>
           </div>
-        </div>
+        </details>
 
-        <div class="accordion-item">
-          <button class="accordion-btn" aria-expanded="false">
+        <details class="accordion-item">
+          <summary class="accordion-btn">
             Where can I see the LMC's accounts?
             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="accordion-panel" hidden>
+          </summary>
+          <div class="accordion-panel">
             <p>Annual accounts are presented at the AGM and are available to all member practices on request. Subscriber-only documents including accounts and AGM papers are accessible via the <a href="/members/">Members Area</a>. If you would like a copy and cannot access the members area, email us at <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a>.</p>
           </div>
-        </div>
+        </details>
 
-        <div class="accordion-item">
-          <button class="accordion-btn" aria-expanded="false">
+        <details class="accordion-item">
+          <summary class="accordion-btn">
             I'm a locum GP — do I have to pay the £100 subscription?
             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="accordion-panel" hidden>
+          </summary>
+          <div class="accordion-panel">
             <p>No — the locum subscription is entirely voluntary. However, by subscribing you gain access to the full members area, subscriber-only communications, and can receive confidential advisory support. You also help fund the work the LMC does on behalf of all GPs in Manchester, including locums. Many locums find the advisory service alone is worth well in excess of £100.</p>
           </div>
-        </div>
+        </details>
 
       </div>
     </div>
