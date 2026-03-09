@@ -1,10 +1,14 @@
 ---
 title: "Collective Action: Guidance on NHSE Requests"
 date: 2026-02-05
-tags: [news]
-category: nhs-policy
+excerpt: Following the BMA ballot result, Manchester LMC has issued guidance on
+  participating in collective action and responding to NHSE data requests.
 featured: true
-excerpt: "Following the BMA ballot result, Manchester LMC has issued guidance on participating in collective action and responding to NHSE data requests."
+imageAlt: Person Signing on a Paper
+tags:
+  - news
+category: nhs-policy
+image: https://images.pexels.com/photos/7567600/pexels-photo-7567600.jpeg
 ---
 
 Following the BMA's ballot result, Manchester LMC has prepared the following guidance for member practices considering participation in collective action.
