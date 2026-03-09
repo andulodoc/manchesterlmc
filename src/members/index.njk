@@ -10,12 +10,8 @@ showDisclaimer: true
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
-      <nav aria-label="Breadcrumb">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
-          <li aria-current="page">Members Area</li>
-        </ol>
-      </nav>
+      {% set breadcrumbs = [{label: "Members Area"}] %}
+      {% include "partials/breadcrumb.njk" %}
       <h1>Members Area</h1>
       <p>Exclusive resources for Manchester LMC members — agenda papers, meeting minutes, the open forum, and subscriber-only guidance.</p>
     </div>
