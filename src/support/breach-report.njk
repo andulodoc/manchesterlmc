@@ -11,13 +11,8 @@ permalink: /support/breach-report/
   <section class="page-hero" aria-label="Page header">
     <div class="container">
       <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="breadcrumb-sep" aria-hidden="true">›</span>
-          <a href="/support/">Support</a>
-          <span class="breadcrumb-sep" aria-hidden="true">›</span>
-          <span aria-current="page">Report a Contractual Breach</span>
-        </nav>
+        {% set breadcrumbs = [{url: "/support/", label: "Support"}, {label: "Report a Contractual Breach"}] %}
+        {% include "partials/breadcrumb.njk" %}
         <h1>Report a Contractual Breach</h1>
         <p>Submit a confidential breach report to Manchester LMC for investigation</p>
       </div>

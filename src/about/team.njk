@@ -11,13 +11,8 @@ permalink: /about/team/
   <section class="page-hero" aria-label="Page header">
     <div class="container">
       <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="breadcrumb-sep" aria-hidden="true">›</span>
-          <a href="/about/">About Us</a>
-          <span class="breadcrumb-sep" aria-hidden="true">›</span>
-          <span aria-current="page">Our Team</span>
-        </nav>
+        {% set breadcrumbs = [{url: "/about/", label: "About Us"}, {label: "Our Team"}] %}
+        {% include "partials/breadcrumb.njk" %}
         <h1>Meet the Team</h1>
         <p>Manchester LMC is led by elected GP representatives and supported by a dedicated administrative team</p>
       </div>

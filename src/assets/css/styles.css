@@ -600,7 +600,7 @@ strong { font-weight: 600; }
 }
 
 /* ── Page offset for fixed nav ────────────────────────────── */
-.page-content {
+#main-content {
   padding-top: var(--nav-height);
 }
 
