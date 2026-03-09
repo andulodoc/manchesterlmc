@@ -11,11 +11,8 @@ showDisclaimer: true
   <section class="page-hero" aria-label="Page header">
     <div class="container">
       <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="breadcrumb-sep" aria-hidden="true">›</span>
-          <span aria-current="page">Events &amp; Meetings</span>
-        </nav>
+        {% set breadcrumbs = [{label: "Events & Meetings"}] %}
+        {% include "partials/breadcrumb.njk" %}
         <h1>Events &amp; Meetings</h1>
         <p>Upcoming LMC meetings, educational events, and external sessions for Manchester GPs and practice staff</p>
       </div>
@@ -337,11 +334,11 @@ showDisclaimer: true
 
       <div class="accordion">
 
-        <div class="accordion-item">
-          <button class="accordion-btn" aria-expanded="false">
+        <details class="accordion-item">
+          <summary class="accordion-btn">
             2025 Partners Meeting Minutes
             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
+          </summary>
           <div class="accordion-panel">
             <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3);">
               <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--colour-border);">
@@ -362,13 +359,13 @@ showDisclaimer: true
               </li>
             </ul>
           </div>
-        </div>
+        </details>
 
-        <div class="accordion-item">
-          <button class="accordion-btn" aria-expanded="false">
+        <details class="accordion-item">
+          <summary class="accordion-btn">
             2024 Partners Meeting Minutes
             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
+          </summary>
           <div class="accordion-panel">
             <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3);">
               <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--colour-border);">
@@ -385,17 +382,17 @@ showDisclaimer: true
               </li>
             </ul>
           </div>
-        </div>
+        </details>
 
-        <div class="accordion-item">
-          <button class="accordion-btn" aria-expanded="false">
+        <details class="accordion-item">
+          <summary class="accordion-btn">
             Older Minutes (2022–2023)
             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
+          </summary>
           <div class="accordion-panel">
             <p>Minutes from 2022–2023 are available on request. Please contact <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a>.</p>
           </div>
-        </div>
+        </details>
 
       </div><!-- /accordion -->
 

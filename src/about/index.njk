@@ -11,11 +11,8 @@ showDisclaimer: true
   <section class="page-hero" aria-label="Page header">
     <div class="container">
       <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="breadcrumb-sep" aria-hidden="true">›</span>
-          <span aria-current="page">About Manchester LMC</span>
-        </nav>
+        {% set breadcrumbs = [{label: "About Manchester LMC"}] %}
+        {% include "partials/breadcrumb.njk" %}
         <h1>About Manchester LMC</h1>
         <p>Your statutory representative body for general practice across Manchester — established 1911</p>
       </div>
