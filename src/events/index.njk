@@ -19,7 +19,7 @@ showDisclaimer: true
     </div>
   </section>
 
-  <!-- Upcoming events -->
+  {# ── Upcoming events ── #}
   <section class="section" aria-labelledby="upcoming-heading">
     <div class="container">
       <div class="section-header">
@@ -28,7 +28,7 @@ showDisclaimer: true
       </div>
 
       <div style="display:flex;flex-direction:column;gap:var(--space-4);">
-        {% for event in collections.events %}
+        {% for event in collections.upcomingEvents %}
         <div class="event-item">
           <div class="event-date-badge">
             <span class="event-date-day">{{ event.date | dateDay }}</span>
@@ -62,7 +62,7 @@ showDisclaimer: true
     </div>
   </section>
 
-  <!-- Meeting calendar tabs -->
+  {# ── Meeting calendar tabs ── #}
   <section class="section section--neutral" id="meetings" aria-labelledby="meetings-heading">
     <div class="container">
       <div class="section-header">
@@ -87,104 +87,59 @@ showDisclaimer: true
           </button>
         </div>
 
-        {# ── Partners tab ── #}
-        {% set tab = meetings.partners %}
+        {# Macro: renders a meeting-date table for a given audience #}
+        {% macro meetingTable(audience, columns) %}
+          <div style="overflow-x:auto;margin-top:var(--space-6);">
+            <table style="width:100%;border-collapse:collapse;font-size:.9375rem;">
+              <thead>
+                <tr style="border-bottom:2px solid var(--colour-border);">
+                  {% for col in columns %}
+                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">{{ col }}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in collections.meetingDates %}
+                {% if row.data.audience == audience %}
+                <tr style="border-bottom:1px solid var(--colour-border);">
+                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">{{ row.date | dateFull }}</td>
+                  <td style="padding:var(--space-4);color:var(--colour-muted);">{{ row.data.time or "TBC" }}</td>
+                  <td style="padding:var(--space-4);">{{ row.data.venue }}</td>
+                  <td style="padding:var(--space-4);">
+                    {% if row.data.registerUrl %}
+                    <a href="{{ row.data.registerUrl }}" class="link-arrow" style="font-size:.875rem;">{{ row.data.registerLabel }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                    {% else %}
+                    <span style="color:var(--colour-muted);">TBC</span>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endmacro %}
+
         <div class="tab-panel" id="tab-partners" role="tabpanel" hidden>
-          <div style="overflow-x:auto;margin-top:var(--space-6);">
-            <table style="width:100%;border-collapse:collapse;font-size:.9375rem;">
-              <thead>
-                <tr style="border-bottom:2px solid var(--colour-border);">
-                  {% for col in tab.columns %}
-                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">{{ col }}</th>
-                  {% endfor %}
-                </tr>
-              </thead>
-              <tbody>
-                {% for row in tab.dates %}
-                <tr{% if not loop.last %} style="border-bottom:1px solid var(--colour-border);"{% endif %}>
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">{{ row.date }}</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">{{ row.time }}</td>
-                  <td style="padding:var(--space-4);">{{ row.venue }}</td>
-                  <td style="padding:var(--space-4);">
-                    {% if row.papersUrl %}
-                    <a href="{{ row.papersUrl }}" class="link-arrow" style="font-size:.875rem;">{{ row.papersLabel }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                    {% else %}
-                    <span style="color:var(--colour-muted);">TBC</span>
-                    {% endif %}
-                  </td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-          {% if tab.note %}<div class="alert alert--info" style="margin-top:var(--space-6);">{{ tab.note | safe }}</div>{% endif %}
+          {{ meetingTable("partners-salaried", ["Date", "Time", "Venue", "Papers"]) }}
         </div>
 
-        {# ── Locum tab ── #}
-        {% set tab = meetings.locum %}
         <div class="tab-panel" id="tab-locum" role="tabpanel" hidden>
-          <div style="overflow-x:auto;margin-top:var(--space-6);">
-            <table style="width:100%;border-collapse:collapse;font-size:.9375rem;">
-              <thead>
-                <tr style="border-bottom:2px solid var(--colour-border);">
-                  {% for col in tab.columns %}
-                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">{{ col }}</th>
-                  {% endfor %}
-                </tr>
-              </thead>
-              <tbody>
-                {% for row in tab.dates %}
-                <tr{% if not loop.last %} style="border-bottom:1px solid var(--colour-border);"{% endif %}>
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">{{ row.date }}</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">{{ row.time }}</td>
-                  <td style="padding:var(--space-4);">{{ row.venue }}</td>
-                  <td style="padding:var(--space-4);">
-                    {% if row.papersUrl %}
-                    <a href="{{ row.papersUrl }}" class="link-arrow" style="font-size:.875rem;">{{ row.papersLabel }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                    {% else %}
-                    <span style="color:var(--colour-muted);">TBC</span>
-                    {% endif %}
-                  </td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
+          {{ meetingTable("locum", ["Date", "Time", "Format", "Join"]) }}
+          <div class="alert alert--info" style="margin-top:var(--space-6);">
+            Locum GP meetings are open to all locums in the Manchester area — no prior registration needed. Join link sent to subscribers; non-subscribers contact <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a>.
           </div>
-          {% if tab.note %}<div class="alert alert--info" style="margin-top:var(--space-6);">{{ tab.note | safe }}</div>{% endif %}
         </div>
 
-        {# ── External tab ── #}
-        {% set tab = meetings.external %}
         <div class="tab-panel" id="tab-external" role="tabpanel" hidden>
-          <div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-6);">
-            {% for evt in tab.events %}
-            <div class="event-item">
-              <div class="event-date-badge">
-                <span class="event-date-day">{{ evt.day }}</span>
-                <span class="event-date-month">{{ evt.month }}</span>
-              </div>
-              <div class="event-content">
-                <h4>{% if evt.external %}<a href="{{ evt.registerUrl }}" target="_blank" rel="noopener">{{ evt.title }}</a>{% else %}{{ evt.title }}{% endif %}</h4>
-                <div class="event-meta">
-                  {% if evt.time %}<span class="event-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>{{ evt.time }}</span>{% endif %}
-                  <span class="event-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>{{ evt.venue }}</span>
-                  <span class="badge {{ evt.badgeClass }}">{{ evt.badge }}</span>
-                </div>
-                <p class="event-desc">{{ evt.description }}</p>
-              </div>
-              {% if evt.registerUrl %}
-              <a href="{{ evt.registerUrl }}"{% if evt.external %} target="_blank" rel="noopener"{% endif %} class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">{{ evt.registerLabel }}</a>
-              {% endif %}
-            </div>
-            {% endfor %}
-          </div>
+          {{ meetingTable("external", ["Date", "Time", "Venue", "Link"]) }}
         </div>
 
       </div><!-- /tabs -->
     </div>
   </section>
 
-  <!-- Past meeting minutes -->
+  {# ── Past meeting minutes ── #}
   <section class="section" aria-labelledby="minutes-heading">
     <div class="container">
       <div class="section-header">
@@ -194,25 +149,21 @@ showDisclaimer: true
       </div>
 
       <div class="accordion">
-        {% for group in minutes %}
+        {% for group in collections.pastMinutes | groupByYear %}
         <details class="accordion-item">
           <summary class="accordion-btn">
-            {{ group.label }}
+            {{ group.year }} Partners Meeting Minutes
             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <div class="accordion-panel">
-            {% if group.note %}
-              <p>{{ group.note | safe }}</p>
-            {% elif group.items %}
-              <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3);">
-                {% for item in group.items %}
-                <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;{% if not loop.last %}border-bottom:1px solid var(--colour-border);{% endif %}">
-                  <span>{{ item.title }}</span>
-                  <a href="{{ item.downloadUrl }}" class="btn btn--sm btn--outline">Download PDF</a>
-                </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3);">
+              {% for item in group.items %}
+              <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;{% if not loop.last %}border-bottom:1px solid var(--colour-border);{% endif %}">
+                <span>{{ item.data.title }}</span>
+                <a href="{{ item.data.downloadUrl }}" class="btn btn--sm btn--outline">Download PDF</a>
+              </li>
+              {% endfor %}
+            </ul>
           </div>
         </details>
         {% endfor %}

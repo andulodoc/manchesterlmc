@@ -1,4 +1,5 @@
 ---
+type: event
 title: Manchester LMC Theoretical Annual General Meeting
 date: 2026-04-01
 time: "Time TBC"

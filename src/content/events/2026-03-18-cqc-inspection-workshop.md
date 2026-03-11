@@ -1,4 +1,5 @@
 ---
+type: event
 title: Theoretical CQC Inspection Readiness Workshop
 date: 2026-03-18
 time: "Time TBC"

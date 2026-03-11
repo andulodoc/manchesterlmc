@@ -92,11 +92,34 @@ export default function (eleventyConfig) {
     return map[category] || category;
   });
 
+  // All active events tagged "events", sorted by date ascending
   eleventyConfig.addCollection("events", function (collectionApi) {
     return collectionApi
       .getFilteredByTag("events")
       .filter((item) => item.data.active !== false)
       .sort((a, b) => a.date - b.date);
+  });
+
+  // Sub-collections filtered by type
+  eleventyConfig.addCollection("upcomingEvents", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("events")
+      .filter((item) => item.data.active !== false && item.data.type === "event")
+      .sort((a, b) => a.date - b.date);
+  });
+
+  eleventyConfig.addCollection("meetingDates", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("events")
+      .filter((item) => item.data.active !== false && item.data.type === "meeting-date")
+      .sort((a, b) => a.date - b.date);
+  });
+
+  eleventyConfig.addCollection("pastMinutes", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("events")
+      .filter((item) => item.data.active !== false && item.data.type === "past-minutes")
+      .sort((a, b) => b.date - a.date);
   });
 
   eleventyConfig.addCollection("guidance", function (collectionApi) {
@@ -179,6 +202,22 @@ export default function (eleventyConfig) {
   // Extract short month from a date (e.g. "Feb")
   eleventyConfig.addFilter("dateMonthShort", function (date) {
     return new Date(date).toLocaleDateString("en-GB", { month: "short" });
+  });
+
+  // Extract year from a date (e.g. 2025)
+  eleventyConfig.addFilter("dateYear", function (date) {
+    return new Date(date).getFullYear();
+  });
+
+  // Group an array of items by year (returns array of {year, items})
+  eleventyConfig.addFilter("groupByYear", function (items) {
+    const groups = {};
+    for (const item of items) {
+      const year = new Date(item.date).getFullYear();
+      if (!groups[year]) groups[year] = { year, items: [] };
+      groups[year].items.push(item);
+    }
+    return Object.values(groups).sort((a, b) => b.year - a.year);
   });
 
   // Map event audience slug → badge CSS modifier class

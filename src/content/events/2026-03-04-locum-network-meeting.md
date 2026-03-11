@@ -1,4 +1,5 @@
 ---
+type: event
 title: Locum GP Network Meeting
 date: 2026-03-04
 time: "Time TBC"

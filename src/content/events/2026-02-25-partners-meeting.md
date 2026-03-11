@@ -1,4 +1,5 @@
 ---
+type: event
 title: Manchester LMC Partners Meeting
 date: 2026-02-25
 time: "Time TBC"
