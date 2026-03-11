@@ -1,8 +1,10 @@
 ---
-title: "Collective Action: Guidance on NHSE Requests"
+title: "Collective Action: Guidance on NHSE Requests (example post)"
 date: 2026-02-05
-excerpt: Following the BMA ballot result, Manchester LMC has issued guidance on
-  participating in collective action and responding to NHSE data requests.
+excerpt: This is an example post for the purposes of demonstrating the website
+  during development. Following the BMA ballot result, Manchester LMC has issued
+  guidance on participating in collective action and responding to NHSE data
+  requests.
 featured: true
 imageAlt: Person Signing on a Paper
 tags:
