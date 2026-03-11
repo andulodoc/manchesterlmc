@@ -247,67 +247,28 @@ showDisclaimer: true
       </div>
 
       <div class="accordion">
-
+        {% for group in minutes %}
         <details class="accordion-item">
           <summary class="accordion-btn">
-            2025 Partners Meeting Minutes
+            {{ group.label }}
             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <div class="accordion-panel">
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3);">
-              <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--colour-border);">
-                <span>November 2025 — Partners Meeting Minutes</span>
-                <a href="#" class="btn btn--sm btn--outline">Download PDF</a>
-              </li>
-              <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--colour-border);">
-                <span>September 2025 — Partners Meeting Minutes</span>
-                <a href="#" class="btn btn--sm btn--outline">Download PDF</a>
-              </li>
-              <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--colour-border);">
-                <span>June 2025 — Partners Meeting Minutes</span>
-                <a href="#" class="btn btn--sm btn--outline">Download PDF</a>
-              </li>
-              <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;">
-                <span>April 2025 — Partners Meeting Minutes</span>
-                <a href="#" class="btn btn--sm btn--outline">Download PDF</a>
-              </li>
-            </ul>
+            {% if group.note %}
+              <p>{{ group.note | safe }}</p>
+            {% elif group.items %}
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3);">
+                {% for item in group.items %}
+                <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;{% if not loop.last %}border-bottom:1px solid var(--colour-border);{% endif %}">
+                  <span>{{ item.title }}</span>
+                  <a href="{{ item.downloadUrl }}" class="btn btn--sm btn--outline">Download PDF</a>
+                </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
           </div>
         </details>
-
-        <details class="accordion-item">
-          <summary class="accordion-btn">
-            2024 Partners Meeting Minutes
-            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="accordion-panel">
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3);">
-              <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--colour-border);">
-                <span>November 2024 — Partners Meeting Minutes</span>
-                <a href="#" class="btn btn--sm btn--outline">Download PDF</a>
-              </li>
-              <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--colour-border);">
-                <span>September 2024 — Partners Meeting Minutes</span>
-                <a href="#" class="btn btn--sm btn--outline">Download PDF</a>
-              </li>
-              <li style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;">
-                <span>June 2024 — Partners Meeting Minutes</span>
-                <a href="#" class="btn btn--sm btn--outline">Download PDF</a>
-              </li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion-item">
-          <summary class="accordion-btn">
-            Older Minutes (2022–2023)
-            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="accordion-panel">
-            <p>Minutes from 2022–2023 are available on request. Please contact <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a>.</p>
-          </div>
-        </details>
-
+        {% endfor %}
       </div><!-- /accordion -->
 
       <div class="alert alert--info" style="margin-top:var(--space-8);">

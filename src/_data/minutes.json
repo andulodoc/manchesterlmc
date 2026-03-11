@@ -1,0 +1,47 @@
+[
+  {
+    "year": "2025",
+    "label": "2025 Partners Meeting Minutes",
+    "items": [
+      {
+        "title": "November 2025 — Partners Meeting Minutes",
+        "downloadUrl": "#"
+      },
+      {
+        "title": "September 2025 — Partners Meeting Minutes",
+        "downloadUrl": "#"
+      },
+      {
+        "title": "June 2025 — Partners Meeting Minutes",
+        "downloadUrl": "#"
+      },
+      {
+        "title": "April 2025 — Partners Meeting Minutes",
+        "downloadUrl": "#"
+      }
+    ]
+  },
+  {
+    "year": "2024",
+    "label": "2024 Partners Meeting Minutes",
+    "items": [
+      {
+        "title": "November 2024 — Partners Meeting Minutes",
+        "downloadUrl": "#"
+      },
+      {
+        "title": "September 2024 — Partners Meeting Minutes",
+        "downloadUrl": "#"
+      },
+      {
+        "title": "June 2024 — Partners Meeting Minutes",
+        "downloadUrl": "#"
+      }
+    ]
+  },
+  {
+    "year": "older",
+    "label": "Older Minutes (2022–2023)",
+    "note": "Minutes from 2022–2023 are available on request. Please contact <a href=\"mailto:info@manchesterlmc.co.uk\">info@manchesterlmc.co.uk</a>."
+  }
+]

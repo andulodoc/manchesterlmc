@@ -121,3 +121,29 @@ collections:
       - { label: "Registration / Join URL", name: registerUrl, widget: string, required: false, hint: "Link to register or join. Leave blank if not yet available." }
       - { label: "Button Label", name: registerLabel, widget: string, default: Register, required: false, hint: "Text for the registration button (e.g. Register, Join link, BMA website)." }
       - { label: Active, name: active, widget: boolean, default: true, hint: "Uncheck to hide this event without deleting it." }
+
+  - name: data
+    label: Data Files
+    files:
+      - name: minutes
+        label: Past Meeting Minutes
+        file: src/_data/minutes.json
+        fields:
+          - label: Year Groups
+            name: items
+            widget: list
+            fields:
+              - { label: Year, name: year, widget: string, hint: "e.g. 2025 or older" }
+              - { label: Label, name: label, widget: string, hint: "Accordion heading, e.g. 2025 Partners Meeting Minutes" }
+              - label: Note
+                name: note
+                widget: text
+                required: false
+                hint: "If set, shows this text instead of a download list. HTML allowed (e.g. for email links)."
+              - label: Minutes
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - { label: Title, name: title, widget: string, hint: "e.g. November 2025 — Partners Meeting Minutes" }
+                  - { label: "Download URL", name: downloadUrl, widget: string, hint: "SharePoint or other download link." }
