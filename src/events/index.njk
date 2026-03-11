@@ -87,149 +87,96 @@ showDisclaimer: true
           </button>
         </div>
 
-        <!-- Partners tab -->
+        {# ── Partners tab ── #}
+        {% set tab = meetings.partners %}
         <div class="tab-panel" id="tab-partners" role="tabpanel" hidden>
           <div style="overflow-x:auto;margin-top:var(--space-6);">
             <table style="width:100%;border-collapse:collapse;font-size:.9375rem;">
               <thead>
                 <tr style="border-bottom:2px solid var(--colour-border);">
-                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">Date</th>
-                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">Time</th>
-                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">Venue</th>
-                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">Papers</th>
+                  {% for col in tab.columns %}
+                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">{{ col }}</th>
+                  {% endfor %}
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-bottom:1px solid var(--colour-border);">
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">25 Feb 2026</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">18:30–20:00</td>
-                  <td style="padding:var(--space-4);">Placeholder Venue (TBC)</td>
-                  <td style="padding:var(--space-4);"><a href="/members/" class="link-arrow" style="font-size:.875rem;">Member login<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></td>
+                {% for row in tab.dates %}
+                <tr{% if not loop.last %} style="border-bottom:1px solid var(--colour-border);"{% endif %}>
+                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">{{ row.date }}</td>
+                  <td style="padding:var(--space-4);color:var(--colour-muted);">{{ row.time }}</td>
+                  <td style="padding:var(--space-4);">{{ row.venue }}</td>
+                  <td style="padding:var(--space-4);">
+                    {% if row.papersUrl %}
+                    <a href="{{ row.papersUrl }}" class="link-arrow" style="font-size:.875rem;">{{ row.papersLabel }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                    {% else %}
+                    <span style="color:var(--colour-muted);">TBC</span>
+                    {% endif %}
+                  </td>
                 </tr>
-                <tr style="border-bottom:1px solid var(--colour-border);">
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">28 Apr 2026</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">18:30–20:00</td>
-                  <td style="padding:var(--space-4);">Placeholder Venue (TBC)</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">TBC</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--colour-border);">
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">23 Jun 2026</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">18:30–20:00</td>
-                  <td style="padding:var(--space-4);">Placeholder Venue (TBC)</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">TBC</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--colour-border);">
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">22 Sep 2026</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">18:30–20:00</td>
-                  <td style="padding:var(--space-4);">Placeholder Venue (TBC)</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">TBC</td>
-                </tr>
-                <tr>
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">24 Nov 2026</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">18:30–20:00</td>
-                  <td style="padding:var(--space-4);">Placeholder Venue (TBC)</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">TBC</td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
+          {% if tab.note %}<div class="alert alert--info" style="margin-top:var(--space-6);">{{ tab.note | safe }}</div>{% endif %}
         </div>
 
-        <!-- Locum tab -->
+        {# ── Locum tab ── #}
+        {% set tab = meetings.locum %}
         <div class="tab-panel" id="tab-locum" role="tabpanel" hidden>
           <div style="overflow-x:auto;margin-top:var(--space-6);">
             <table style="width:100%;border-collapse:collapse;font-size:.9375rem;">
               <thead>
                 <tr style="border-bottom:2px solid var(--colour-border);">
-                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">Date</th>
-                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">Time</th>
-                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">Format</th>
-                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">Join</th>
+                  {% for col in tab.columns %}
+                  <th style="text-align:left;padding:var(--space-3) var(--space-4);color:var(--colour-muted);font-weight:600;font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;">{{ col }}</th>
+                  {% endfor %}
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-bottom:1px solid var(--colour-border);">
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">4 Mar 2026</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">13:00–14:30</td>
-                  <td style="padding:var(--space-4);">Online (Teams)</td>
-                  <td style="padding:var(--space-4);"><a href="#" class="link-arrow" style="font-size:.875rem;">Teams link<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></td>
+                {% for row in tab.dates %}
+                <tr{% if not loop.last %} style="border-bottom:1px solid var(--colour-border);"{% endif %}>
+                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">{{ row.date }}</td>
+                  <td style="padding:var(--space-4);color:var(--colour-muted);">{{ row.time }}</td>
+                  <td style="padding:var(--space-4);">{{ row.venue }}</td>
+                  <td style="padding:var(--space-4);">
+                    {% if row.papersUrl %}
+                    <a href="{{ row.papersUrl }}" class="link-arrow" style="font-size:.875rem;">{{ row.papersLabel }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                    {% else %}
+                    <span style="color:var(--colour-muted);">TBC</span>
+                    {% endif %}
+                  </td>
                 </tr>
-                <tr style="border-bottom:1px solid var(--colour-border);">
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">3 Jun 2026</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">13:00–14:30</td>
-                  <td style="padding:var(--space-4);">Online (Teams)</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">TBC</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--colour-border);">
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">2 Sep 2026</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">13:00–14:30</td>
-                  <td style="padding:var(--space-4);">Online (Teams)</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">TBC</td>
-                </tr>
-                <tr>
-                  <td style="padding:var(--space-4);font-weight:600;color:var(--colour-primary);">2 Dec 2026</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">13:00–14:30</td>
-                  <td style="padding:var(--space-4);">Online (Teams)</td>
-                  <td style="padding:var(--space-4);color:var(--colour-muted);">TBC</td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
-          <div class="alert alert--info" style="margin-top:var(--space-6);">
-            Locum GP meetings are open to all locums in the Manchester area — no prior registration needed. Join link sent to subscribers; non-subscribers contact <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a>.
-          </div>
+          {% if tab.note %}<div class="alert alert--info" style="margin-top:var(--space-6);">{{ tab.note | safe }}</div>{% endif %}
         </div>
 
-        <!-- External tab -->
+        {# ── External tab ── #}
+        {% set tab = meetings.external %}
         <div class="tab-panel" id="tab-external" role="tabpanel" hidden>
           <div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-6);">
+            {% for evt in tab.events %}
             <div class="event-item">
               <div class="event-date-badge">
-                <span class="event-date-day">18</span>
-                <span class="event-date-month">Mar</span>
+                <span class="event-date-day">{{ evt.day }}</span>
+                <span class="event-date-month">{{ evt.month }}</span>
               </div>
               <div class="event-content">
-                <h4><a href="#">Theoretical CQC Inspection Readiness Workshop</a></h4>
+                <h4>{% if evt.external %}<a href="{{ evt.registerUrl }}" target="_blank" rel="noopener">{{ evt.title }}</a>{% else %}{{ evt.title }}{% endif %}</h4>
                 <div class="event-meta">
-                  <span class="event-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Time TBC</span>
-                  <span class="event-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Placeholder Venue (TBC)</span>
-                  <span class="badge badge--accent">External</span>
+                  {% if evt.time %}<span class="event-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>{{ evt.time }}</span>{% endif %}
+                  <span class="event-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>{{ evt.venue }}</span>
+                  <span class="badge {{ evt.badgeClass }}">{{ evt.badge }}</span>
                 </div>
-                <p class="event-desc">[PLACEHOLDER] Example external event listing. Replace with real event details once confirmed.</p>
+                <p class="event-desc">{{ evt.description }}</p>
               </div>
-              <a href="#" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">Register</a>
+              {% if evt.registerUrl %}
+              <a href="{{ evt.registerUrl }}"{% if evt.external %} target="_blank" rel="noopener"{% endif %} class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">{{ evt.registerLabel }}</a>
+              {% endif %}
             </div>
-            <div class="event-item">
-              <div class="event-date-badge">
-                <span class="event-date-day">22</span>
-                <span class="event-date-month">Apr</span>
-              </div>
-              <div class="event-content">
-                <h4><a href="#">Notional GP Wellbeing &amp; Resilience Study Day</a></h4>
-                <div class="event-meta">
-                  <span class="event-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Time TBC</span>
-                  <span class="event-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Placeholder Venue (TBC)</span>
-                  <span class="badge badge--accent">Free for Members</span>
-                </div>
-                <p class="event-desc">[PLACEHOLDER] Example wellbeing study day listing. Replace with real event details once confirmed.</p>
-              </div>
-              <a href="#" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">Register</a>
-            </div>
-            <div class="event-item">
-              <div class="event-date-badge">
-                <span class="event-date-day">15</span>
-                <span class="event-date-month">May</span>
-              </div>
-              <div class="event-content">
-                <h4><a href="https://www.bma.org.uk" target="_blank" rel="noopener">BMA Annual Representative Meeting [Year TBC]</a></h4>
-                <div class="event-meta">
-                  <span class="event-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Venue TBC — see BMA website</span>
-                  <span class="badge badge--primary">External — BMA</span>
-                </div>
-                <p class="event-desc">[PLACEHOLDER] Annual democratic conference of the BMA. Replace date and venue with confirmed details from the BMA website. Manchester LMC delegates attend and report back.</p>
-              </div>
-              <a href="https://www.bma.org.uk" target="_blank" rel="noopener" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">BMA website</a>
-            </div>
+            {% endfor %}
           </div>
         </div>
 

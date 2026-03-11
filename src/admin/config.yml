@@ -147,3 +147,71 @@ collections:
                 fields:
                   - { label: Title, name: title, widget: string, hint: "e.g. November 2025 — Partners Meeting Minutes" }
                   - { label: "Download URL", name: downloadUrl, widget: string, hint: "SharePoint or other download link." }
+
+      - name: meetings
+        label: Meeting Calendar
+        file: src/_data/meetings.json
+        fields:
+          - label: Partners
+            name: partners
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - label: Columns
+                name: columns
+                widget: list
+                field: { label: Column, name: col, widget: string }
+              - label: Dates
+                name: dates
+                widget: list
+                fields:
+                  - { label: Date, name: date, widget: string, hint: "e.g. 25 Feb 2026" }
+                  - { label: Time, name: time, widget: string, hint: "e.g. 18:30–20:00" }
+                  - { label: Venue, name: venue, widget: string }
+                  - { label: "Papers URL", name: papersUrl, widget: string, required: false }
+                  - { label: "Papers Label", name: papersLabel, widget: string, required: false, hint: "e.g. Member login, Download" }
+          - label: Locum
+            name: locum
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - label: Columns
+                name: columns
+                widget: list
+                field: { label: Column, name: col, widget: string }
+              - { label: Note, name: note, widget: text, required: false, hint: "Info message shown below the table. HTML allowed." }
+              - label: Dates
+                name: dates
+                widget: list
+                fields:
+                  - { label: Date, name: date, widget: string, hint: "e.g. 4 Mar 2026" }
+                  - { label: Time, name: time, widget: string, hint: "e.g. 13:00–14:30" }
+                  - { label: Venue, name: venue, widget: string, hint: "e.g. Online (Teams)" }
+                  - { label: "Join URL", name: papersUrl, widget: string, required: false }
+                  - { label: "Join Label", name: papersLabel, widget: string, required: false, hint: "e.g. Teams link" }
+          - label: External
+            name: external
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - label: Events
+                name: events
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Day, name: day, widget: string, hint: "Day number, e.g. 18" }
+                  - { label: Month, name: month, widget: string, hint: "Short month, e.g. Mar" }
+                  - { label: Time, name: time, widget: string, required: false }
+                  - { label: Venue, name: venue, widget: string }
+                  - { label: Badge Text, name: badge, widget: string, hint: "e.g. External, Free for Members" }
+                  - label: Badge Style
+                    name: badgeClass
+                    widget: select
+                    options:
+                      - { label: Primary (teal), value: "badge--primary" }
+                      - { label: Secondary (cyan), value: "badge--secondary" }
+                      - { label: Accent (green), value: "badge--accent" }
+                  - { label: Description, name: description, widget: text }
+                  - { label: "Link URL", name: registerUrl, widget: string, required: false }
+                  - { label: "Button Label", name: registerLabel, widget: string, required: false, hint: "e.g. Register, BMA website" }
+                  - { label: "External Link", name: external, widget: boolean, default: false, hint: "Opens in new tab if checked." }
