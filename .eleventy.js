@@ -92,6 +92,13 @@ export default function (eleventyConfig) {
     return map[category] || category;
   });
 
+  eleventyConfig.addCollection("events", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("events")
+      .filter((item) => item.data.active !== false)
+      .sort((a, b) => a.date - b.date);
+  });
+
   eleventyConfig.addCollection("guidance", function (collectionApi) {
     return collectionApi
       .getFilteredByTag("guidance")
@@ -162,6 +169,40 @@ export default function (eleventyConfig) {
       "other": "Other",
     };
     return map[contractType] || contractType;
+  });
+
+  // Extract day number from a date (e.g. 25)
+  eleventyConfig.addFilter("dateDay", function (date) {
+    return new Date(date).getDate();
+  });
+
+  // Extract short month from a date (e.g. "Feb")
+  eleventyConfig.addFilter("dateMonthShort", function (date) {
+    return new Date(date).toLocaleDateString("en-GB", { month: "short" });
+  });
+
+  // Map event audience slug → badge CSS modifier class
+  eleventyConfig.addFilter("audienceBadgeClass", function (audience) {
+    const map = {
+      "partners-salaried": "badge--primary",
+      "locum": "badge--secondary",
+      "all-roles": "badge--accent",
+      "members-only": "badge--primary",
+      "external": "badge--accent",
+    };
+    return map[audience] || "badge--primary";
+  });
+
+  // Map event audience slug → display label
+  eleventyConfig.addFilter("audienceLabel", function (audience) {
+    const map = {
+      "partners-salaried": "Partners / Salaried GPs",
+      "locum": "Locum GPs",
+      "all-roles": "All Roles",
+      "members-only": "Members Only",
+      "external": "External",
+    };
+    return map[audience] || audience;
   });
 
   // Render a markdown string to HTML

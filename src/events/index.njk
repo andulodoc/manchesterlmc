@@ -28,122 +28,36 @@ showDisclaimer: true
       </div>
 
       <div style="display:flex;flex-direction:column;gap:var(--space-4);">
-
+        {% for event in collections.events %}
         <div class="event-item">
           <div class="event-date-badge">
-            <span class="event-date-day">25</span>
-            <span class="event-date-month">Feb</span>
+            <span class="event-date-day">{{ event.date | dateDay }}</span>
+            <span class="event-date-month">{{ event.date | dateMonthShort }}</span>
           </div>
           <div class="event-content">
-            <h3><a href="#">Manchester LMC Partners Meeting</a></h3>
+            <h3>{{ event.data.title }}</h3>
             <div class="event-meta">
               <span class="event-meta-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Time TBC
+                {{ event.data.time }}
               </span>
               <span class="event-meta-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Venue TBC
-              </span>
-              <span class="badge badge--primary">Partners / Salaried GPs</span>
-            </div>
-            <p class="event-desc">[PLACEHOLDER] Quarterly partners meeting — agenda and venue to be confirmed. Agenda circulated to members 1 week in advance.</p>
-          </div>
-          <a href="#" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">Register</a>
-        </div>
-
-        <div class="event-item">
-          <div class="event-date-badge">
-            <span class="event-date-day">4</span>
-            <span class="event-date-month">Mar</span>
-          </div>
-          <div class="event-content">
-            <h3><a href="#">Locum GP Network Meeting</a></h3>
-            <div class="event-meta">
-              <span class="event-meta-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Time TBC
-              </span>
-              <span class="event-meta-item">
+                {% if event.data.format == "online" %}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                Online — link TBC
-              </span>
-              <span class="badge badge--secondary">Locum GPs</span>
-            </div>
-            <p class="event-desc">[PLACEHOLDER] Open network meeting for locum GPs in Manchester — topics and join link to be confirmed. All locums welcome.</p>
-          </div>
-          <a href="#" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">Join link</a>
-        </div>
-
-        <div class="event-item">
-          <div class="event-date-badge">
-            <span class="event-date-day">18</span>
-            <span class="event-date-month">Mar</span>
-          </div>
-          <div class="event-content">
-            <h3><a href="#">Theoretical CQC Inspection Readiness Workshop</a></h3>
-            <div class="event-meta">
-              <span class="event-meta-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Time TBC
-              </span>
-              <span class="event-meta-item">
+                {% else %}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Placeholder Venue (TBC)
+                {% endif %}
+                {{ event.data.venue }}
               </span>
-              <span class="badge badge--accent">All Roles</span>
+              <span class="badge {{ event.data.audience | audienceBadgeClass }}">{{ event.data.audience | audienceLabel }}</span>
             </div>
-            <p class="event-desc">[PLACEHOLDER] Example educational workshop listing. Replace with real event details — title, venue, description, and registration link to be confirmed.</p>
+            <p class="event-desc">{{ event.data.description }}</p>
           </div>
-          <a href="#" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">Register</a>
+          {% if event.data.registerUrl %}
+          <a href="{{ event.data.registerUrl }}" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">{{ event.data.registerLabel or "Register" }}</a>
+          {% endif %}
         </div>
-
-        <div class="event-item">
-          <div class="event-date-badge">
-            <span class="event-date-day">1</span>
-            <span class="event-date-month">Apr</span>
-          </div>
-          <div class="event-content">
-            <h3><a href="#">Manchester LMC Theoretical Annual General Meeting</a></h3>
-            <div class="event-meta">
-              <span class="event-meta-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Time TBC
-              </span>
-              <span class="event-meta-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Placeholder Venue (TBC)
-              </span>
-              <span class="badge badge--primary">Members Only</span>
-            </div>
-            <p class="event-desc">[PLACEHOLDER] Example AGM listing. Replace with real AGM date, venue, and agenda details once confirmed. All LMC members are encouraged to attend.</p>
-          </div>
-          <a href="/members/" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">Login to register</a>
-        </div>
-
-        <div class="event-item">
-          <div class="event-date-badge">
-            <span class="event-date-day">22</span>
-            <span class="event-date-month">Apr</span>
-          </div>
-          <div class="event-content">
-            <h3><a href="#">Notional GP Wellbeing &amp; Resilience Study Day</a></h3>
-            <div class="event-meta">
-              <span class="event-meta-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Time TBC
-              </span>
-              <span class="event-meta-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Placeholder Venue (TBC)
-              </span>
-              <span class="badge badge--accent">All Roles</span>
-            </div>
-            <p class="event-desc">[PLACEHOLDER] Example wellbeing study day listing. Replace with real event details — venue, speakers, and registration link to be confirmed.</p>
-          </div>
-          <a href="#" class="btn btn--outline btn--sm" style="flex-shrink:0;align-self:center;">Register</a>
-        </div>
-
+        {% endfor %}
       </div>
     </div>
   </section>

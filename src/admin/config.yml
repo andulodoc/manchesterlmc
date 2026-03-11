@@ -88,3 +88,36 @@ collections:
           - { label: PDF, value: pdf }
           - { label: Word, value: word }
       - { label: "Download URL", name: downloadUrl, widget: string, hint: "Paste a publicly shareable link to the document (OneDrive, SharePoint, Google Drive, Dropbox, etc.). Ensure the sharing permission is set to 'Anyone with the link can view' — links that require a login will not work for site visitors." }
+
+  - name: events
+    label: Events
+    label_singular: Event
+    folder: src/content/events
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false }
+      - { label: Time, name: time, widget: string, hint: "e.g. 18:30–20:00 or Time TBC" }
+      - { label: Venue, name: venue, widget: string, hint: "e.g. Oak House, Manchester or Online — Teams link TBC" }
+      - label: Format
+        name: format
+        widget: select
+        options:
+          - { label: In-person, value: in-person }
+          - { label: Online, value: online }
+          - { label: Hybrid, value: hybrid }
+      - label: Audience
+        name: audience
+        widget: select
+        options:
+          - { label: "Partners / Salaried GPs", value: partners-salaried }
+          - { label: Locum GPs, value: locum }
+          - { label: All Roles, value: all-roles }
+          - { label: Members Only, value: members-only }
+          - { label: External, value: external }
+      - { label: Description, name: description, widget: text, hint: "Short description shown on the events listing page." }
+      - { label: "Registration / Join URL", name: registerUrl, widget: string, required: false, hint: "Link to register or join. Leave blank if not yet available." }
+      - { label: "Button Label", name: registerLabel, widget: string, default: Register, required: false, hint: "Text for the registration button (e.g. Register, Join link, BMA website)." }
+      - { label: Active, name: active, widget: boolean, default: true, hint: "Uncheck to hide this event without deleting it." }
