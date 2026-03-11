@@ -1,11 +1,12 @@
 ---
-title: Manchester ICB Meeting — February 2026 Update
+title: Test post - Manchester ICB Meeting — February 2026 Update
 date: 2026-02-10
 tags:
   - news
 category: local
-excerpt: Key outcomes from the February ICB meeting, including updates on
-  integrated neighbourhood teams, ARRS funding allocations, and CQC inspections.
+excerpt: This post is for demo purposes only. Key outcomes from the February ICB
+  meeting, including updates on integrated neighbourhood teams, ARRS funding
+  allocations, and CQC inspections.
 featured: true
 image: https://images.pexels.com/photos/7433824/pexels-photo-7433824.jpeg
 ---
