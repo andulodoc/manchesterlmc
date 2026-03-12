@@ -24,7 +24,7 @@ collections:
           - { label: Site Name, name: name, widget: string }
           - { label: Tagline, name: tagline, widget: string }
           - { label: URL, name: url, widget: string, hint: "Full site URL including https://" }
-          - { label: Email, name: email, widget: string, pattern: ['^.+@.+\\..+$', "Must be a valid email address"] }
+          - { label: Email, name: email, widget: string, pattern: ['^.+@.+\..+$', "Must be a valid email address"] }
           - { label: "Phone (main)", name: phone1, widget: string }
           - { label: "Phone (secondary)", name: phone2, widget: string, required: false }
           - label: Address
@@ -321,7 +321,7 @@ collections:
           - { label: Administrative Staff, value: admin }
       - { label: Photo, name: photo, widget: image, required: false }
       - { label: Bio, name: body, widget: markdown, hint: "A short biography — 2–3 sentences." }
-      - { label: Email, name: email, widget: string, required: false, pattern: ['^.+@.+\\..+$', "Must be a valid email address"] }
+      - { label: Email, name: email, widget: string, required: false, pattern: ['^.+@.+\..+$', "Must be a valid email address"] }
       - { label: Phone, name: phone, widget: string, required: false }
       - label: Tags
         name: tags
