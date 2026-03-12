@@ -1,0 +1,18 @@
+<section class="section section--neutral">
+  <div class="container" style="max-width:760px;">
+    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+    <div class="accordion">
+      {% for item in section.items %}
+      <details class="accordion-item">
+        <summary class="accordion-btn">
+          {{ item.q }}
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="accordion-panel">
+          {{ item.a | markdown | safe }}
+        </div>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>

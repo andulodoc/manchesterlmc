@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "eyebrow": "Manchester LMC",
+    "heading": "Representing and Supporting General Practice in Manchester",
+    "lead": "Your statutory representative body — standing up for 400 GPs across 87 practices, providing expert guidance, confidential support, and a strong collective voice for primary care.",
+    "ctas": [
+      { "label": "How We Can Help", "url": "/support/", "style": "primary" },
+      { "label": "Member Login", "url": "/members/", "style": "secondary" }
+    ]
+  },
+  "roleCards": [
+    { "title": "GP Partner", "subtitle": "Contracts, governance & representation", "url": "/support/#partner" },
+    { "title": "Salaried GP", "subtitle": "Employment rights & support", "url": "/support/#salaried" },
+    { "title": "Locum GP", "subtitle": "Membership, IR35 & LMC levy", "url": "/support/#locum" },
+    { "title": "Practice Manager", "subtitle": "Operational guidance & HR", "url": "/support/#manager" },
+    { "title": "Nurse / AHP", "subtitle": "ARRS roles & wellbeing", "url": "/support/#nurse" }
+  ],
+  "stats": [
+    { "number": "400+", "label": "GPs Represented" },
+    { "number": "87", "label": "GP Practices" },
+    { "number": "1911", "label": "Established" },
+    { "number": "100+", "label": "Years of Service" }
+  ],
+  "serviceCards": [
+    {
+      "title": "Guidance Library",
+      "text": "Access our searchable library of clinical guidance, contractual documents, CQC templates, and policy resources.",
+      "url": "/guidance/",
+      "linkText": "Browse resources"
+    },
+    {
+      "title": "GP Support",
+      "text": "Confidential advisory service for GMC concerns, complaints, suspension, partnership disputes, and CQC inspections.",
+      "url": "/support/",
+      "linkText": "Get support"
+    },
+    {
+      "title": "Wellbeing Hub",
+      "text": "Mental health resources, peer support programmes, free apps, and crisis contacts for GPs and practice staff.",
+      "url": "/support/wellbeing/",
+      "linkText": "Explore wellbeing"
+    },
+    {
+      "title": "Vacancies",
+      "text": "Browse GP and primary care vacancies across Manchester, or post your own practice vacancy to reach local candidates.",
+      "url": "/vacancies/",
+      "linkText": "View jobs"
+    },
+    {
+      "title": "Events & Meetings",
+      "text": "LMC committee meetings, educational events, and networking sessions — in-person and online throughout the year.",
+      "url": "/events/",
+      "linkText": "See calendar"
+    },
+    {
+      "title": "Members Area",
+      "text": "Subscriber-only resources, meeting agendas, minutes archive, open forum, and the Manchester GP Network.",
+      "url": "/members/",
+      "linkText": "Members login"
+    }
+  ],
+  "newsletter": {
+    "title": "Manchester LMC Newsletter — Winter 2025/26",
+    "description": "Our quarterly newsletter covers the latest from general practice in Manchester: contract updates, local policy news, wellbeing resources, and LMC committee actions.",
+    "issueLabel": "Issue 42 · Winter 2025",
+    "downloadUrl": "/news/#newsletters",
+    "archiveUrl": "/news/#newsletters"
+  }
+}

@@ -13,7 +13,7 @@
 
       <!-- Primary nav -->
       <ul class="nav-primary" role="list">
-        {% for item in nav %}
+        {% for item in settings.navigation.headerNav %}
         <li class="nav-item{% if item.href in page.url %} nav-item--active{% endif %}">
           <a href="{{ item.href }}" class="nav-link"{% if item.href in page.url %} aria-current="page"{% endif %}>
             {{ item.label }}
@@ -61,7 +61,7 @@
   <!-- Mobile nav -->
   <div class="nav-mobile" aria-hidden="true">
     <ul role="list">
-      {% for item in nav %}
+      {% for item in settings.navigation.headerNav %}
       <li class="nav-mobile-item">
         <a href="{{ item.href }}" class="nav-mobile-link"{% if item.dropdown %} data-toggle="{{ item.mobileId }}"{% endif %}>
           {{ item.label }}

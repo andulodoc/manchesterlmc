@@ -1,0 +1,25 @@
+<section class="section section--neutral">
+  <div class="container">
+    {% if section.heading %}
+    <div class="section-header">
+      <h2>{{ section.heading }}</h2>
+    </div>
+    {% endif %}
+    <div class="grid-3">
+      {% for item in section.items %}
+      {% if item.link %}
+      <a href="{{ item.link }}" class="service-card">
+      {% else %}
+      <div class="service-card">
+      {% endif %}
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      {% if item.link %}
+      </a>
+      {% else %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

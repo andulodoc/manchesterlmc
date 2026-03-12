@@ -1,0 +1,67 @@
+{% set listingLimit = section.limit or 6 %}
+{% set listingTag = section.filterTag %}
+
+<section class="section">
+  <div class="container">
+
+    {% if section.source === "people" %}
+    <div class="grid-3">
+      {% for person in collections.people %}
+        {% if not listingTag or listingTag in person.data.tags %}
+          {% if loop.index <= listingLimit %}
+            {% include "partials/person-card.njk" %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% elif section.source === "news" %}
+    <div class="grid-3" role="list">
+      {% for article in collections.news | limit(listingLimit) %}
+        {% include "partials/news-card.njk" %}
+      {% endfor %}
+    </div>
+
+    {% elif section.source === "events" %}
+    <div class="events-list">
+      {% for event in collections.upcomingEvents | limit(listingLimit) %}
+      <div class="event-item">
+        <div class="event-date-badge">
+          <span class="event-date-day">{{ event.date | dateDay }}</span>
+          <span class="event-date-month">{{ event.date | dateMonthShort }}</span>
+        </div>
+        <div class="event-content">
+          <h4><a href="/events/">{{ event.data.title }}</a></h4>
+          {% if event.data.description %}<p class="event-desc">{{ event.data.description }}</p>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% elif section.source === "vacancies" %}
+    <div class="vacancies-list">
+      {% for vacancy in collections.vacancies | limit(listingLimit) %}
+      <div class="vacancy-card">
+        <h4>{{ vacancy.data.title }}</h4>
+        <p>{{ vacancy.data.practice }} — {{ vacancy.data.location }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% elif section.source === "guidance" %}
+    <div class="guidance-list">
+      {% for doc in collections.guidance | limit(listingLimit) %}
+      <div class="doc-card">
+        <div class="doc-card__body">
+          <h3 class="doc-card__title">{{ doc.data.title }}</h3>
+        </div>
+        {% if doc.data.downloadUrl %}
+        <a href="{{ doc.data.downloadUrl }}" class="btn btn--sm btn--outline" target="_blank" rel="noopener noreferrer">Download</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>

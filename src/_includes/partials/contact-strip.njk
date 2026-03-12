@@ -7,7 +7,7 @@
         <div class="contact-strip-icon">{{ location() }}</div>
         <div>
           <div class="contact-strip-label">Address</div>
-          <div class="contact-strip-value">{{ site.address.line1 }}, {{ site.address.line2 }}, {{ site.address.line3 }}, {{ site.address.city }} {{ site.address.postcode }}</div>
+          <div class="contact-strip-value">{{ settings.site.address.line1 }}, {{ settings.site.address.line2 }}, {{ settings.site.address.line3 }}, {{ settings.site.address.city }} {{ settings.site.address.postcode }}</div>
         </div>
       </div>
 
@@ -16,8 +16,8 @@
         <div>
           <div class="contact-strip-label">Telephone</div>
           <div class="contact-strip-value">
-            <a href="tel:{{ site.phone1 | replace(' ', '') }}">{{ site.phone1 }}</a><br>
-            <a href="tel:{{ site.phone2 | replace(' ', '') }}">{{ site.phone2 }}</a>
+            <a href="tel:{{ settings.site.phone1 | replace(' ', '') }}">{{ settings.site.phone1 }}</a><br>
+            <a href="tel:{{ settings.site.phone2 | replace(' ', '') }}">{{ settings.site.phone2 }}</a>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
         <div>
           <div class="contact-strip-label">Email</div>
           <div class="contact-strip-value">
-            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+            <a href="mailto:{{ settings.site.email }}">{{ settings.site.email }}</a>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
         <div class="contact-strip-icon">{{ clock() }}</div>
         <div>
           <div class="contact-strip-label">Office Hours</div>
-          <div class="contact-strip-value">{{ site.officeHours }}</div>
+          <div class="contact-strip-value">{{ settings.site.officeHours }}</div>
         </div>
       </div>
 

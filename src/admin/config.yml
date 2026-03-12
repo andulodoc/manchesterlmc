@@ -2,10 +2,132 @@ backend:
   name: git-gateway
   branch: main
 
+publish_mode: editorial_workflow
+
 media_folder: src/assets/images/uploads
 public_folder: /assets/images/uploads
 
 collections:
+
+  # ─── Settings (file collection) ────────────────────────────────────
+  - name: settings
+    label: "Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+
+      - name: site
+        label: Site Info
+        file: src/_data/settings/site.json
+        fields:
+          - { label: Site Name, name: name, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: URL, name: url, widget: string, hint: "Full site URL including https://" }
+          - { label: Email, name: email, widget: string, pattern: ['^.+@.+\\..+$', "Must be a valid email address"] }
+          - { label: "Phone (main)", name: phone1, widget: string }
+          - { label: "Phone (secondary)", name: phone2, widget: string, required: false }
+          - label: Address
+            name: address
+            widget: object
+            fields:
+              - { label: Line 1, name: line1, widget: string }
+              - { label: Line 2, name: line2, widget: string, required: false }
+              - { label: Line 3, name: line3, widget: string, required: false }
+              - { label: City, name: city, widget: string }
+              - { label: Postcode, name: postcode, widget: string }
+          - { label: "Twitter / X URL", name: twitter, widget: string, required: false }
+          - { label: "Facebook URL", name: facebook, widget: string, required: false }
+          - { label: "LinkedIn URL", name: linkedin, widget: string, required: false }
+          - { label: Office Hours, name: officeHours, widget: string, hint: "e.g. Mon–Fri: 09:00–17:00" }
+          - { label: Copyright Notice, name: copyright, widget: string }
+
+      - name: navigation
+        label: Navigation
+        file: src/_data/settings/navigation.json
+        fields:
+          - label: Header Navigation
+            name: headerNav
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: href, widget: string }
+              - { label: Key, name: key, widget: string, hint: "URL identifier used for active-page highlighting, e.g. 'about'" }
+              - { label: Mobile ID, name: mobileId, widget: string, required: false }
+              - label: Dropdown Items
+                name: dropdown
+                widget: list
+                required: false
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+
+  # ─── Homepage (file collection) ────────────────────────────────────
+  - name: homepage
+    label: "Homepage"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: homepage
+        label: Homepage Content
+        file: src/_data/homepage.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Manchester LMC" }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Lead Text, name: lead, widget: text }
+              - label: CTA Buttons
+                name: ctas
+                widget: list
+                max: 2
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }
+                  - { label: Style, name: style, widget: select, options: [primary, secondary], default: primary }
+
+          - label: Role Cards
+            name: roleCards
+            widget: list
+            hint: "The 'I am a…' cards below the hero."
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: string }
+              - { label: Link URL, name: url, widget: string }
+
+          - label: Statistics
+            name: stats
+            widget: list
+            max: 4
+            fields:
+              - { label: Number, name: number, widget: string, hint: "e.g. 400+ or 87" }
+              - { label: Label, name: label, widget: string }
+
+          - label: Service Cards
+            name: serviceCards
+            widget: list
+            hint: "The 'How We Support You' grid."
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: text, widget: text }
+              - { label: Link URL, name: url, widget: string }
+              - { label: Link Text, name: linkText, widget: string, default: "Learn more" }
+
+          - label: Newsletter
+            name: newsletter
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Issue Label, name: issueLabel, widget: string, hint: "e.g. Issue 42 · Winter 2025" }
+              - { label: Download URL, name: downloadUrl, widget: string, required: false }
+              - { label: Archive URL, name: archiveUrl, widget: string, required: false }
+
+  # ─── News ─────────────────────────────────────────────────────────
   - name: news
     label: News
     label_singular: News Post
@@ -29,66 +151,18 @@ collections:
       - { label: Image, name: image, widget: image, required: false, hint: "Optional. Displayed at the top of the post and on the news listing card." }
       - { label: "Image Alt Text", name: imageAlt, widget: string, required: false, hint: "Describe the image for screen readers. Required if an image is uploaded." }
       - { label: Body, name: body, widget: markdown }
+      - label: SEO Override
+        name: seo
+        widget: object
+        collapsed: true
+        required: false
+        hint: "Leave blank to use the page title and description."
+        fields:
+          - { label: Meta Title, name: metaTitle, widget: string, required: false, hint: "Overrides the page title in search results. Max 60 chars." }
+          - { label: Meta Description, name: metaDescription, widget: text, required: false, hint: "Overrides the description in search results. Max 155 chars." }
+          - { label: Social Image, name: ogImage, widget: image, required: false, hint: "Image shown when shared on social media. 1200x630px recommended." }
 
-  - name: vacancies
-    label: Vacancies
-    label_singular: Vacancy
-    folder: src/content/vacancies
-    create: true
-    slug: "{{slug}}"
-    extension: md
-    fields:
-      - { label: Job Title, name: title, widget: string }
-      - { label: Practice Name, name: practice, widget: string }
-      - { label: "Location / Postcode", name: location, widget: string }
-      - label: Contract Type
-        name: contractType
-        widget: select
-        options:
-          - { label: GP Partner, value: gp-partner }
-          - { label: Salaried GP, value: salaried-gp }
-          - { label: Locum, value: locum }
-          - { label: Practice Manager, value: practice-manager }
-          - { label: "Nurse / AHP", value: nurse-ahp }
-          - { label: Administrative, value: administrative }
-          - { label: Other, value: other }
-      - { label: "Sessions / Hours", name: sessions, widget: string, required: false, hint: "e.g. 6 sessions/week or Full-time (37.5 hrs/week)" }
-      - { label: Salary, name: salary, widget: string, required: false, hint: "Leave blank if not specified." }
-      - { label: Closing Date, name: closingDate, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, required: false }
-      - { label: "Application Contact Email", name: contactEmail, widget: string }
-      - { label: Active, name: active, widget: boolean, default: true, hint: "Uncheck to hide this vacancy without deleting it." }
-      - { label: Description, name: body, widget: markdown }
-
-  - name: guidance
-    label: Guidance
-    label_singular: Guidance Document
-    folder: src/content/guidance
-    create: true
-    slug: "{{slug}}"
-    extension: md
-    fields:
-      - { label: Title, name: title, widget: string }
-      - label: Category
-        name: category
-        widget: select
-        options:
-          - { label: Clinical, value: clinical }
-          - { label: Contractual, value: contractual }
-          - { label: CQC, value: cqc }
-          - { label: Legal, value: legal }
-          - { label: Prescribing, value: prescribing }
-          - { label: Workforce, value: workforce }
-          - { label: "COVID / Pandemic", value: covid }
-          - { label: Collective Action, value: collective-action }
-      - { label: Date, name: date, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, hint: "Used for the 'Month Year' display and sort order. Use the first of the month." }
-      - label: File Type
-        name: fileType
-        widget: select
-        options:
-          - { label: PDF, value: pdf }
-          - { label: Word, value: word }
-      - { label: "Download URL", name: downloadUrl, widget: string, hint: "Paste a publicly shareable link to the document (OneDrive, SharePoint, Google Drive, Dropbox, etc.). Ensure the sharing permission is set to 'Anyone with the link can view' — links that require a login will not work for site visitors." }
-
+  # ─── Events ───────────────────────────────────────────────────────
   - name: events
     label: Events
     label_singular: Event
@@ -134,3 +208,278 @@ collections:
       - { label: "Link Label", name: registerLabel, widget: string, required: false, hint: "Button text, e.g. Register, Teams link, Member login, Download PDF." }
       - { label: "Download URL", name: downloadUrl, widget: string, required: false, hint: "For past minutes only — link to the PDF download." }
       - { label: Active, name: active, widget: boolean, default: true, hint: "Uncheck to hide without deleting." }
+      - label: SEO Override
+        name: seo
+        widget: object
+        collapsed: true
+        required: false
+        hint: "Leave blank to use the page title and description."
+        fields:
+          - { label: Meta Title, name: metaTitle, widget: string, required: false }
+          - { label: Meta Description, name: metaDescription, widget: text, required: false }
+          - { label: Social Image, name: ogImage, widget: image, required: false }
+
+  # ─── Vacancies ─────────────────────────────────────────────────────
+  - name: vacancies
+    label: Vacancies
+    label_singular: Vacancy
+    folder: src/content/vacancies
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: Job Title, name: title, widget: string }
+      - { label: Practice Name, name: practice, widget: string }
+      - { label: "Location / Postcode", name: location, widget: string }
+      - label: Contract Type
+        name: contractType
+        widget: select
+        options:
+          - { label: GP Partner, value: gp-partner }
+          - { label: Salaried GP, value: salaried-gp }
+          - { label: Locum, value: locum }
+          - { label: Practice Manager, value: practice-manager }
+          - { label: "Nurse / AHP", value: nurse-ahp }
+          - { label: Administrative, value: administrative }
+          - { label: Other, value: other }
+      - { label: "Sessions / Hours", name: sessions, widget: string, required: false, hint: "e.g. 6 sessions/week or Full-time (37.5 hrs/week)" }
+      - { label: Salary, name: salary, widget: string, required: false, hint: "Leave blank if not specified." }
+      - { label: Closing Date, name: closingDate, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, required: false }
+      - { label: "Application Contact Email", name: contactEmail, widget: string }
+      - { label: Active, name: active, widget: boolean, default: true, hint: "Uncheck to hide this vacancy without deleting it." }
+      - { label: Description, name: body, widget: markdown }
+      - label: SEO Override
+        name: seo
+        widget: object
+        collapsed: true
+        required: false
+        hint: "Leave blank to use the page title and description."
+        fields:
+          - { label: Meta Title, name: metaTitle, widget: string, required: false }
+          - { label: Meta Description, name: metaDescription, widget: text, required: false }
+          - { label: Social Image, name: ogImage, widget: image, required: false }
+
+  # ─── Guidance ──────────────────────────────────────────────────────
+  - name: guidance
+    label: Guidance
+    label_singular: Guidance Document
+    folder: src/content/guidance
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: Clinical, value: clinical }
+          - { label: Contractual, value: contractual }
+          - { label: CQC, value: cqc }
+          - { label: Legal, value: legal }
+          - { label: Prescribing, value: prescribing }
+          - { label: Workforce, value: workforce }
+          - { label: "COVID / Pandemic", value: covid }
+          - { label: Collective Action, value: collective-action }
+      - { label: Date, name: date, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, hint: "Used for the 'Month Year' display and sort order. Use the first of the month." }
+      - label: File Type
+        name: fileType
+        widget: select
+        options:
+          - { label: PDF, value: pdf }
+          - { label: Word, value: word }
+      - { label: "Download URL", name: downloadUrl, widget: string, hint: "Paste a publicly shareable link to the document (OneDrive, SharePoint, Google Drive, Dropbox, etc.). Ensure the sharing permission is set to 'Anyone with the link can view' — links that require a login will not work for site visitors." }
+      - label: SEO Override
+        name: seo
+        widget: object
+        collapsed: true
+        required: false
+        hint: "Leave blank to use the page title and description."
+        fields:
+          - { label: Meta Title, name: metaTitle, widget: string, required: false }
+          - { label: Meta Description, name: metaDescription, widget: text, required: false }
+          - { label: Social Image, name: ogImage, widget: image, required: false }
+
+  # ─── People ────────────────────────────────────────────────────────
+  - name: people
+    label: People
+    label_singular: Person
+    folder: src/content/people
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: Name, name: title, widget: string, hint: "Full name, e.g. Dr Jane Smith" }
+      - { label: "Role / Title", name: role, widget: string, hint: "e.g. LMC Chair, Committee Member — North Manchester, Managing Director" }
+      - label: Group
+        name: group
+        widget: select
+        hint: "Determines which section they appear in on the team page."
+        options:
+          - { label: Executive Officer, value: officer }
+          - { label: Committee Member, value: committee }
+          - { label: Administrative Staff, value: admin }
+      - { label: Photo, name: photo, widget: image, required: false }
+      - { label: Bio, name: body, widget: markdown, hint: "A short biography — 2–3 sentences." }
+      - { label: Email, name: email, widget: string, required: false, pattern: ['^.+@.+\\..+$', "Must be a valid email address"] }
+      - { label: Phone, name: phone, widget: string, required: false }
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        hint: "Used for filtering on pages. e.g. prescribing, workforce, north-manchester"
+      - { label: Sort Order, name: sortOrder, widget: number, default: 50, hint: "Lower numbers appear first. Officers: 1–10, Committee: 20–40, Admin: 50–70." }
+
+  # ─── Pages ─────────────────────────────────────────────────────────
+  - name: pages
+    label: Pages
+    label_singular: Page
+    folder: src/content/pages
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Permalink, name: permalink, widget: string, hint: "The URL path for this page, e.g. /about/ or /support/wellbeing/. Must start and end with /." }
+      - { label: Description, name: description, widget: text, hint: "Shown in search results and social shares." }
+      - label: Hero
+        name: hero
+        widget: object
+        required: false
+        fields:
+          - { label: Heading, name: heading, widget: string, required: false, hint: "Defaults to the page title if left blank." }
+          - { label: Subheading, name: subheading, widget: text, required: false }
+          - { label: Image, name: image, widget: image, required: false }
+      - label: Breadcrumbs
+        name: breadcrumbs
+        widget: list
+        required: false
+        hint: "Breadcrumb trail. Last item should be the current page (no URL)."
+        fields:
+          - { label: Label, name: label, widget: string }
+          - { label: URL, name: url, widget: string, required: false }
+      - label: Sections
+        name: sections
+        widget: list
+        types:
+          - label: Rich Text
+            name: markdown
+            widget: object
+            summary: "{{fields.heading}}"
+            fields:
+              - { label: Heading, name: heading, widget: string, required: false }
+              - { label: Body, name: body, widget: markdown }
+
+          - label: Callout
+            name: callout
+            widget: object
+            summary: "{{fields.style}} — {{fields.text}}"
+            fields:
+              - label: Style
+                name: style
+                widget: select
+                options:
+                  - { label: Info (blue), value: info }
+                  - { label: Warning (amber), value: warning }
+                  - { label: Success (green), value: success }
+                  - { label: Neutral (grey), value: neutral }
+              - { label: Text, name: text, widget: markdown }
+
+          - label: Cards
+            name: cards
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string, required: false }
+              - label: Items
+                name: items
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Text, name: text, widget: text }
+                  - { label: Link URL, name: link, widget: string, required: false }
+
+          - label: Image
+            name: image
+            widget: object
+            fields:
+              - { label: Image, name: src, widget: image }
+              - { label: Alt Text, name: alt, widget: string, hint: "Describe the image for screen readers." }
+              - { label: Caption, name: caption, widget: string, required: false }
+
+          - label: Two/Three Columns
+            name: columns
+            widget: object
+            fields:
+              - label: Columns
+                name: count
+                widget: select
+                options: ["2", "3"]
+                default: "2"
+              - label: Column Content
+                name: items
+                widget: list
+                max: 3
+                fields:
+                  - { label: Content, name: body, widget: markdown }
+
+          - label: FAQ / Accordion
+            name: faq
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string, required: false }
+              - label: Items
+                name: items
+                widget: list
+                fields:
+                  - { label: Question, name: q, widget: string }
+                  - { label: Answer, name: a, widget: markdown }
+
+          - label: Button Row
+            name: button_row
+            widget: object
+            fields:
+              - label: Buttons
+                name: buttons
+                widget: list
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }
+                  - label: Style
+                    name: style
+                    widget: select
+                    default: primary
+                    options:
+                      - { label: Primary, value: primary }
+                      - { label: Secondary, value: secondary }
+                      - { label: Outline, value: outline }
+
+          - label: Listing (auto-populated)
+            name: listing
+            widget: object
+            hint: "Pulls items from an existing collection. Rendered automatically at build time."
+            fields:
+              - label: Source
+                name: source
+                widget: select
+                options:
+                  - { label: News, value: news }
+                  - { label: Events, value: events }
+                  - { label: Guidance, value: guidance }
+                  - { label: Vacancies, value: vacancies }
+                  - { label: People, value: people }
+              - { label: Limit, name: limit, widget: number, default: 6, hint: "Max items to show." }
+              - { label: Filter Tag, name: filterTag, widget: string, required: false, hint: "Optional. Only show items matching this tag." }
+
+      - { label: Show Contact Strip, name: showContactStrip, widget: boolean, default: true }
+      - { label: Navigation Order, name: order, widget: number, required: false }
+      - { label: Hide from Navigation, name: hideFromNav, widget: boolean, default: false }
+      - label: SEO Override
+        name: seo
+        widget: object
+        collapsed: true
+        required: false
+        hint: "Leave blank to use the page title and description."
+        fields:
+          - { label: Meta Title, name: metaTitle, widget: string, required: false }
+          - { label: Meta Description, name: metaDescription, widget: text, required: false }
+          - { label: Social Image, name: ogImage, widget: image, required: false }

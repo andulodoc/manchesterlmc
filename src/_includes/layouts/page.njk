@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+---
+
+  <!-- Page Hero -->
+  <section class="page-hero" aria-label="Page header">
+    <div class="container">
+      <div class="page-hero-content">
+        {% if breadcrumbs %}
+          {% set breadcrumbItems = breadcrumbs %}
+          {% include "partials/breadcrumb.njk" %}
+        {% endif %}
+        <h1>{{ hero.heading or title }}</h1>
+        {% if hero.subheading %}<p>{{ hero.subheading }}</p>{% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Sections -->
+  {% for section in sections %}
+  {% set sectionType = section.type %}
+
+  {% if sectionType === "markdown" %}
+    {% include "partials/sections/markdown.njk" %}
+  {% elif sectionType === "callout" %}
+    {% include "partials/sections/callout.njk" %}
+  {% elif sectionType === "cards" %}
+    {% include "partials/sections/cards.njk" %}
+  {% elif sectionType === "image" %}
+    {% include "partials/sections/image.njk" %}
+  {% elif sectionType === "columns" %}
+    {% include "partials/sections/columns.njk" %}
+  {% elif sectionType === "faq" %}
+    {% include "partials/sections/faq.njk" %}
+  {% elif sectionType === "button_row" %}
+    {% include "partials/sections/button-row.njk" %}
+  {% elif sectionType === "listing" %}
+    {% include "partials/sections/listing.njk" %}
+  {% endif %}
+
+  {% endfor %}

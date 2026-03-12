@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ description or site.tagline }}">
-  <title>{% if title %}{{ title }} — {% endif %}{{ site.name }}</title>
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  <meta property="og:title" content="{% if title %}{{ title }} — {% endif %}{{ site.name }}">
-  <meta property="og:description" content="{{ description or site.tagline }}">
+  <meta name="description" content="{{ seo.metaDescription if seo.metaDescription else (description or settings.site.tagline) }}">
+  <title>{% if seo.metaTitle %}{{ seo.metaTitle }}{% elif title %}{{ title }} — {{ settings.site.name }}{% else %}{{ settings.site.name }}{% endif %}</title>
+  <link rel="canonical" href="{{ settings.site.url }}{{ page.url }}">
+  <meta property="og:title" content="{% if seo.metaTitle %}{{ seo.metaTitle }}{% elif title %}{{ title }} — {{ settings.site.name }}{% else %}{{ settings.site.name }}{% endif %}">
+  <meta property="og:description" content="{{ seo.metaDescription if seo.metaDescription else (description or settings.site.tagline) }}">
+  {% if seo.ogImage %}<meta property="og:image" content="{{ settings.site.url }}{{ seo.ogImage }}">{% endif %}
   <meta property="og:type" content="{% if tags and 'news' in tags %}article{% else %}website{% endif %}">
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:url" content="{{ settings.site.url }}{{ page.url }}">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@manchesterlmc">
 
@@ -67,22 +68,22 @@
 {
   "@context": "https://schema.org",
   "@type": "MedicalOrganization",
-  "name": "{{ site.name }}",
-  "url": "{{ site.url }}",
-  "description": "{{ site.tagline }}",
-  "telephone": "{{ site.phone1 }}",
-  "email": "{{ site.email }}",
+  "name": "{{ settings.site.name }}",
+  "url": "{{ settings.site.url }}",
+  "description": "{{ settings.site.tagline }}",
+  "telephone": "{{ settings.site.phone1 }}",
+  "email": "{{ settings.site.email }}",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "{{ site.address.line1 }}, {{ site.address.line2 }}, {{ site.address.line3 }}",
-    "addressLocality": "{{ site.address.city }}",
-    "postalCode": "{{ site.address.postcode }}",
+    "streetAddress": "{{ settings.site.address.line1 }}, {{ settings.site.address.line2 }}, {{ settings.site.address.line3 }}",
+    "addressLocality": "{{ settings.site.address.city }}",
+    "postalCode": "{{ settings.site.address.postcode }}",
     "addressCountry": "GB"
   },
   "sameAs": [
-    "{{ site.twitter }}",
-    "{{ site.facebook }}",
-    "{{ site.linkedin }}"
+    "{{ settings.site.twitter }}",
+    "{{ settings.site.facebook }}",
+    "{{ settings.site.linkedin }}"
   ]
 }
 </script>

@@ -1,0 +1,9 @@
+<section class="section">
+  <div class="container">
+    <div class="grid-{{ section.count or '2' }}">
+      {% for col in section.items %}
+      <div class="prose">{{ col.body | markdown | safe }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

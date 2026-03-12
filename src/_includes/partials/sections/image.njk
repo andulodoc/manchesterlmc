@@ -1,0 +1,8 @@
+<section class="section">
+  <div class="container">
+    <figure>
+      <img src="{{ section.src }}" alt="{{ section.alt }}" loading="lazy" style="width:100%;border-radius:var(--radius-lg);">
+      {% if section.caption %}<figcaption>{{ section.caption }}</figcaption>{% endif %}
+    </figure>
+  </div>
+</section>

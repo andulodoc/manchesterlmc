@@ -128,6 +128,41 @@ export default function (eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  // People collection — all, sorted by sortOrder then title
+  eleventyConfig.addCollection("people", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("people")
+      .sort((a, b) => (a.data.sortOrder || 99) - (b.data.sortOrder || 99));
+  });
+
+  eleventyConfig.addCollection("officers", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("people")
+      .filter((item) => item.data.group === "officer")
+      .sort((a, b) => (a.data.sortOrder || 99) - (b.data.sortOrder || 99));
+  });
+
+  eleventyConfig.addCollection("committeeMembers", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("people")
+      .filter((item) => item.data.group === "committee")
+      .sort((a, b) => (a.data.sortOrder || 99) - (b.data.sortOrder || 99));
+  });
+
+  eleventyConfig.addCollection("adminStaff", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("people")
+      .filter((item) => item.data.group === "admin")
+      .sort((a, b) => (a.data.sortOrder || 99) - (b.data.sortOrder || 99));
+  });
+
+  // Pages collection
+  eleventyConfig.addCollection("pages", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("pages")
+      .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+  });
+
   // Map guidance category slug → badge CSS modifier class
   eleventyConfig.addFilter("guidanceBadgeClass", function (category) {
     const map = {

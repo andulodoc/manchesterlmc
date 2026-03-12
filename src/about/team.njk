@@ -29,58 +29,9 @@ permalink: /about/team/
       </div>
 
       <div class="grid-3">
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">LMC Chair</div>
-            <div class="profile-card-name">Dr [Chair Name]</div>
-            <p class="profile-card-bio">GP Partner at [Practice], Manchester. Elected Chair since [year]. Leads LMC representation at ICB and NHS England forums and chairs the quarterly partners meeting.</p>
-            <a href="mailto:chair@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              chair@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Deputy Chair</div>
-            <div class="profile-card-name">Dr [Deputy Name]</div>
-            <p class="profile-card-bio">Salaried GP at [Practice], Manchester. Represents salaried and locum GPs on the committee and leads on workforce matters and the LMC wellbeing agenda.</p>
-            <a href="mailto:deputy@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              deputy@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Honorary Treasurer</div>
-            <div class="profile-card-name">Dr [Treasurer Name]</div>
-            <p class="profile-card-bio">GP Partner at [Practice], Manchester. Oversees the LMC's financial affairs, levy collection, and annual accounts. Reports to the committee at each quarterly meeting.</p>
-            <a href="mailto:treasurer@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              treasurer@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
+        {% for person in collections.officers %}
+          {% include "partials/person-card.njk" %}
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -95,109 +46,9 @@ permalink: /about/team/
       </div>
 
       <div class="grid-3">
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Committee Member — North Manchester</div>
-            <div class="profile-card-name">Dr [Name]</div>
-            <p class="profile-card-bio">GP Partner. Represents practices in north Manchester including Cheetham Hill, Moston, and Newton Heath. Lead on prescribing and medicines management.</p>
-            <a href="mailto:info@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              info@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Committee Member — Central Manchester</div>
-            <div class="profile-card-name">Dr [Name]</div>
-            <p class="profile-card-bio">Salaried GP. Represents practices in central Manchester including Hulme, Moss Side, and Ardwick. Lead on CQC and quality improvement.</p>
-            <a href="mailto:info@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              info@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Committee Member — South Manchester</div>
-            <div class="profile-card-name">Dr [Name]</div>
-            <p class="profile-card-bio">GP Partner. Represents practices in south Manchester including Didsbury, Withington, and Wythenshawe. Lead on training practice matters and GP recruitment.</p>
-            <a href="mailto:info@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              info@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Committee Member — East Manchester</div>
-            <div class="profile-card-name">Dr [Name]</div>
-            <p class="profile-card-bio">Locum GP. Represents locum and freelance GPs across Manchester. Lead on LMC levy matters and locum network engagement.</p>
-            <a href="mailto:info@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              info@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Committee Member — West Manchester</div>
-            <div class="profile-card-name">Dr [Name]</div>
-            <p class="profile-card-bio">GP Partner. Represents practices in west Manchester. Lead on ARRS workforce matters and PCN engagement at the ICB primary care forum.</p>
-            <a href="mailto:info@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              info@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Committee Member</div>
-            <div class="profile-card-name">Dr [Name]</div>
-            <p class="profile-card-bio">GP Partner. Leads on the LMC's relationship with Manchester University NHS Foundation Trust and secondary care interface issues.</p>
-            <a href="mailto:info@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              info@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
+        {% for person in collections.committeeMembers %}
+          {% include "partials/person-card.njk" %}
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -212,58 +63,9 @@ permalink: /about/team/
       </div>
 
       <div class="grid-3">
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Managing Director</div>
-            <div class="profile-card-name">Nicola Holland</div>
-            <p class="profile-card-bio">Nicola leads the day-to-day management of Manchester LMC. She is the first point of contact for member enquiries, advises on contractual and operational matters, and supports the committee officers.</p>
-            <a href="mailto:nicola.holland@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              nicola.holland@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Administrative Officer</div>
-            <div class="profile-card-name">[Name]</div>
-            <p class="profile-card-bio">Manages member communications, meeting logistics, the subscriber database, and website content. Point of contact for newsletter subscriptions and event registrations.</p>
-            <a href="mailto:admin@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              admin@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="profile-card-photo">
-            <div class="profile-card-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-          </div>
-          <div class="profile-card-body">
-            <div class="profile-card-role">Finance &amp; Levy Officer</div>
-            <div class="profile-card-name">[Name]</div>
-            <p class="profile-card-bio">Manages the LMC levy process, practice finance queries, locum subscriptions, and liaison with NHS England regarding levy deductions and funding allocations.</p>
-            <a href="mailto:finance@manchesterlmc.co.uk" class="profile-card-email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              finance@manchesterlmc.co.uk
-            </a>
-          </div>
-        </div>
-
+        {% for person in collections.adminStaff %}
+          {% include "partials/person-card.njk" %}
+        {% endfor %}
       </div>
 
       <div class="alert alert--info" style="margin-top:var(--space-8);">
