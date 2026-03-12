@@ -67,8 +67,6 @@ collections:
   - name: homepage
     label: "Homepage"
     delete: false
-    editor:
-      preview: false
     files:
       - name: homepage
         label: Homepage Content
