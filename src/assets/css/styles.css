@@ -666,21 +666,40 @@ strong { font-weight: 600; }
 }
 
 .hero-visual {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  right: -4%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-logo-mark {
-  width: 220px;
-  height: 220px;
+  width: 700px;
+  height: 700px;
+  opacity: 0.1;
 }
 
 @media (max-width: 768px) {
-  .hero-visual { display: none; }
+  .hero-visual {
+    right: -20%;
+  }
+
+  .hero-logo-mark {
+    width: 520px;
+    height: 520px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-visual {
+    right: -30%;
+  }
+
+  .hero-logo-mark {
+    width: 420px;
+    height: 420px;
+  }
 }
 
 @media (max-width: 480px) {

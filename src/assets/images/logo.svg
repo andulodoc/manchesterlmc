@@ -1,6 +1,6 @@
 <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Manchester LMC logo">
   <!-- Outer ring -->
-  <circle cx="100" cy="100" r="97" fill="#1a6b8a" />
+  <circle cx="100" cy="100" r="97" fill="#0891B2" />
   <!-- Main dark background -->
   <circle cx="100" cy="100" r="91" fill="#0d3d56" />
 
