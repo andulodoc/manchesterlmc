@@ -30,7 +30,7 @@ showDisclaimer: true
           <p>Manchester LMC represents approximately <strong>400 GPs</strong> across <strong>87 practices</strong> in the Manchester area. We are independent of management structures and wholly committed to representing the interests of GPs and the patients they serve.</p>
           <p>We are elected by the GPs we serve and funded through a statutory levy on NHS primary care contracts — meaning there is no subscription required for practice-based GPs and salaried GPs. Locum GPs can subscribe separately for £100 per year.</p>
           <a href="/about/funding/" class="link-arrow mt-6" style="display:inline-flex">How we are funded
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right" %}
           </a>
         </div>
         <div>
@@ -71,28 +71,28 @@ showDisclaimer: true
       <div class="grid-2">
         <div class="service-card">
           <div class="service-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+            {% icon "radio" %}
           </div>
           <h3>Representation</h3>
           <p>We attend ICB meetings, NHS England forums, and joint negotiating committees on your behalf. We give GPs a collective voice in decisions that affect how general practice operates in Manchester.</p>
         </div>
         <div class="service-card">
           <div class="service-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            {% icon "shield" %}
           </div>
           <h3>Confidential Advice</h3>
           <p>Individual GPs can contact us in confidence about GMC investigations, NHS complaints, partnership disputes, CQC inspections, and employment matters. We are on your side.</p>
         </div>
         <div class="service-card">
           <div class="service-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            {% icon "book-open" %}
           </div>
           <h3>Guidance &amp; Resources</h3>
           <p>We produce, curate, and distribute practical guidance on clinical, contractual, legal, and regulatory matters — saving practices time and ensuring they have access to up-to-date information.</p>
         </div>
         <div class="service-card">
           <div class="service-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            {% icon "heart" %}
           </div>
           <h3>Wellbeing Support</h3>
           <p>We signpost GPs and practice staff to mental health, peer support, and financial assistance resources. GP wellbeing is not optional — it is essential to safe, high-quality patient care.</p>
@@ -139,8 +139,8 @@ showDisclaimer: true
           <p style="color:var(--colour-muted);font-size:.9rem;">If you are unsure whether your practice falls within Manchester LMC's area, please <a href="/contact/">contact us</a> and we will confirm your LMC.</p>
         </div>
         <!-- Map placeholder -->
-        <div style="height:320px;background:linear-gradient(135deg,var(--colour-neutral),var(--colour-border));border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:var(--space-4);border:1px solid var(--colour-border);">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div style="height:320px;background:linear-gradient(135deg,var(--colour-neutral),var(--colour-border));border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:var(--space-4);border:1px solid var(--colour-border);color:var(--colour-secondary);">
+          {% icon "map-pin", 48 %}
           <p style="color:var(--colour-muted);font-size:.9rem;margin:0;text-align:center;">Manchester ward map<br><span style="font-size:.8125rem;">Replace with static SVG or embed</span></p>
         </div>
       </div>
@@ -164,28 +164,28 @@ showDisclaimer: true
             <h3 style="font-size:1.125rem;margin-bottom:var(--space-4);">Statutory Consultation</h3>
             <p style="font-size:.9rem;color:var(--colour-muted);margin-bottom:var(--space-4);">The 1911 Act required the Local Insurance Committee to consult all GPs on a wide range of matters via the LMC. This statutory right to consultation has continued through NHS reorganisations.</p>
             <div style="display:flex;flex-direction:column;gap:var(--space-2);font-size:.875rem;color:var(--colour-muted);">
-              <div style="display:flex;align-items:center;gap:var(--space-2);">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div style="display:flex;align-items:center;gap:var(--space-2);color:var(--colour-primary);">
+                {% icon "check", 16 %}
                 <span>NHS Executive Council</span>
               </div>
-              <div style="display:flex;align-items:center;gap:var(--space-2);">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div style="display:flex;align-items:center;gap:var(--space-2);color:var(--colour-primary);">
+                {% icon "check", 16 %}
                 <span>Family Practitioner Committee</span>
               </div>
-              <div style="display:flex;align-items:center;gap:var(--space-2);">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div style="display:flex;align-items:center;gap:var(--space-2);color:var(--colour-primary);">
+                {% icon "check", 16 %}
                 <span>Family Health Services Authority</span>
               </div>
-              <div style="display:flex;align-items:center;gap:var(--space-2);">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div style="display:flex;align-items:center;gap:var(--space-2);color:var(--colour-primary);">
+                {% icon "check", 16 %}
                 <span>Health Authorities</span>
               </div>
-              <div style="display:flex;align-items:center;gap:var(--space-2);">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div style="display:flex;align-items:center;gap:var(--space-2);color:var(--colour-primary);">
+                {% icon "check", 16 %}
                 <span>Primary Care Trusts (PCTs)</span>
               </div>
-              <div style="display:flex;align-items:center;gap:var(--space-2);">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--colour-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div style="display:flex;align-items:center;gap:var(--space-2);color:var(--colour-accent);">
+                {% icon "check", 16 %}
                 <span>Integrated Care Boards (ICBs)</span>
               </div>
             </div>
@@ -292,20 +292,20 @@ showDisclaimer: true
             <h3 style="font-size:1.125rem;margin-bottom:var(--space-4);color:white;">How the Fund Works</h3>
             <div style="display:flex;flex-direction:column;gap:var(--space-5);">
               <div style="display:flex;gap:var(--space-4);">
-                <div style="flex-shrink:0;padding-top:4px;">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--colour-accent-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <div style="flex-shrink:0;padding-top:4px;color:var(--colour-accent-light);">
+                  {% icon "heart", 20 %}
                 </div>
                 <div style="font-size:.9375rem;color:rgba(255,255,255,.85);"><strong>Bereavement Grants</strong> — Financial support for spouses of deceased subscribing GPs</div>
               </div>
               <div style="display:flex;gap:var(--space-4);">
-                <div style="flex-shrink:0;padding-top:4px;">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--colour-accent-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div style="flex-shrink:0;padding-top:4px;color:var(--colour-accent-light);">
+                  {% icon "map-pin", 20 %}
                 </div>
                 <div style="font-size:.9375rem;color:rgba(255,255,255,.85);"><strong>Charitable Donations</strong> — Support for local and medical charities</div>
               </div>
               <div style="display:flex;gap:var(--space-4);">
-                <div style="flex-shrink:0;padding-top:4px;">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--colour-accent-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <div style="flex-shrink:0;padding-top:4px;color:var(--colour-accent-light);">
+                  {% icon "briefcase", 20 %}
                 </div>
                 <div style="font-size:.9375rem;color:rgba(255,255,255,.85);"><strong>Annual Review</strong> — Decisions made by Executive and Finance Committee in May</div>
               </div>
@@ -333,8 +333,8 @@ showDisclaimer: true
             <p style="font-size:.9rem;color:var(--colour-muted);">Should the complainant wish to appeal against the outcome of the investigation, the Executive and Finance Committee will consider the complaint at their next following meeting.</p>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--space-10);background:var(--colour-neutral);border-radius:var(--radius-lg);border:1px solid var(--colour-border);">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:var(--space-4);"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--space-10);background:var(--colour-neutral);border-radius:var(--radius-lg);border:1px solid var(--colour-border);color:var(--colour-secondary);">
+          <span style="margin-bottom:var(--space-4);">{% icon "heart", 64 %}</span>
           <p style="font-size:.9rem;color:var(--colour-muted);text-align:center;max-width:32ch;margin:0;">If you have any questions about the Compassionate Fund, please contact the LMC office.</p>
           <a href="/contact/" class="btn btn--primary" style="margin-top:var(--space-6);">Contact the LMC Office</a>
         </div>

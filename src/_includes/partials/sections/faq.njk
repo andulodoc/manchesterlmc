@@ -6,7 +6,7 @@
       <details class="accordion-item">
         <summary class="accordion-btn">
           {{ item.q }}
-          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          <span class="accordion-icon">{% icon "chevron-down" %}</span>
         </summary>
         <div class="accordion-panel">
           {{ item.a | markdown | safe }}

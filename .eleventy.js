@@ -1,10 +1,27 @@
 import markdownIt from "markdown-it";
+import feather from "feather-icons";
 import { HtmlBasePlugin } from "@11ty/eleventy";
 
 export default function (eleventyConfig) {
   // Rewrites absolute paths in HTML output to include pathPrefix.
   // Enabled when PATHPREFIX env var is set (e.g. in GitHub Actions).
   eleventyConfig.addPlugin(HtmlBasePlugin);
+
+  // ── Icon shortcode (Feather Icons) ────────────────────────────
+  eleventyConfig.addShortcode("icon", function (name, size, style) {
+    const icon = feather.icons[name];
+    if (!icon) return `<!-- icon "${name}" not found -->`;
+    const opts = {
+      width: size || 24,
+      height: size || 24,
+      "aria-hidden": "true",
+    };
+    if (style === "fill") {
+      opts.fill = "currentColor";
+      opts.stroke = "none";
+    }
+    return icon.toSvg(opts);
+  });
 
   // ── Passthrough copies ──────────────────────────────────────
   eleventyConfig.addPassthroughCopy("src/assets");

@@ -37,9 +37,7 @@ permalink: /support/wellbeing/
 
         <!-- Crisis alert -->
         <div class="alert" role="alert" style="margin-top: var(--space-7); background-color: #fff3e0; border-color: var(--colour-accent); color: #bf360c; display: flex; gap: var(--space-4); align-items: flex-start;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;" aria-hidden="true">
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-          </svg>
+          <span style="flex-shrink: 0; margin-top: 1px;">{% icon "alert-triangle", 22 %}</span>
           <div>
             <strong>If you are in crisis right now, please call Samaritans on <a href="tel:116123" style="color: inherit; font-weight: 700;">116 123</a></strong> (free, 24/7) or the Manchester Mental Health Crisis Line on <a href="tel:08009530285" style="color: inherit; font-weight: 700;">0800 953 0285</a>.
             If there is an immediate risk to life, call <strong>999</strong>.
@@ -68,9 +66,7 @@ permalink: /support/wellbeing/
       <div class="section-header" style="margin-bottom: var(--space-8);">
         <div style="display: inline-flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
           <div style="width: 40px; height: 40px; background-color: var(--colour-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--colour-white);" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
+            {% icon "heart", 20 %}
           </div>
           <h2 id="mental-health-heading" style="margin: 0;">Mental Health Support</h2>
         </div>
@@ -82,10 +78,8 @@ permalink: /support/wellbeing/
         <!-- NHS Practitioner Health -->
         <article class="resource-card" aria-labelledby="res-nph-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "activity", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-nph-title">NHS Practitioner Health</h3>
@@ -96,7 +90,7 @@ permalink: /support/wellbeing/
           <div class="resource-card-actions">
             <a href="https://www.practitionerhealth.nhs.uk" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit NHS Practitioner Health website (opens in new tab)">
               Visit Website
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {% icon "external-link", 12 %}
             </a>
           </div>
         </article>
@@ -104,10 +98,8 @@ permalink: /support/wellbeing/
         <!-- BMA Counselling -->
         <article class="resource-card" aria-labelledby="res-bma-counsel-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "message-square", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-bma-counsel-title">BMA 24/7 Counselling</h3>
@@ -117,7 +109,7 @@ permalink: /support/wellbeing/
           <p class="resource-card-desc">The BMA's counselling and peer support service is free for all doctors, medical students, and their immediate families. Trained counsellors are available around the clock — no appointment needed.</p>
           <div class="resource-card-actions">
             <a href="tel:03301231245" class="btn btn--primary btn--sm" aria-label="Call BMA 24/7 counselling on 0330 123 1245">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.51 8.69a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+              {% icon "phone", 12 %}
               0330 123 1245
             </a>
             <a href="https://www.bma.org.uk/advice-and-support/your-wellbeing" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit BMA wellbeing page (opens in new tab)">More info</a>
@@ -127,10 +119,8 @@ permalink: /support/wellbeing/
         <!-- Samaritans -->
         <article class="resource-card" aria-labelledby="res-samaritans-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "heart", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-samaritans-title">Samaritans</h3>
@@ -140,7 +130,7 @@ permalink: /support/wellbeing/
           <p class="resource-card-desc">Samaritans provide confidential listening support to anyone in emotional distress or struggling to cope — including doctors. No judgement, no advice, just someone there to listen at any time of day or night.</p>
           <div class="resource-card-actions">
             <a href="tel:116123" class="btn btn--primary btn--sm" aria-label="Call Samaritans on 116 123 (free)">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.51 8.69a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+              {% icon "phone", 12 %}
               116 123
             </a>
             <a href="https://www.samaritans.org" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit Samaritans website (opens in new tab)">More info</a>
@@ -158,9 +148,7 @@ permalink: /support/wellbeing/
       <div class="section-header" style="margin-bottom: var(--space-8);">
         <div style="display: inline-flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
           <div style="width: 40px; height: 40px; background-color: var(--colour-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--colour-white);" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
+            {% icon "users", 20 %}
           </div>
           <h2 id="peer-support-heading" style="margin: 0;">Peer Support &amp; Mentoring</h2>
         </div>
@@ -172,10 +160,8 @@ permalink: /support/wellbeing/
         <!-- GP Support -->
         <article class="resource-card" aria-labelledby="res-gps-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "users", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-gps-title">GP Support (GP-S)</h3>
@@ -186,7 +172,7 @@ permalink: /support/wellbeing/
           <div class="resource-card-actions">
             <a href="https://www.gp-s.org.uk" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit GP-S website (opens in new tab)">
               Visit GP-S
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {% icon "external-link", 12 %}
             </a>
           </div>
         </article>
@@ -194,10 +180,8 @@ permalink: /support/wellbeing/
         <!-- BMA Peer Support Groups -->
         <article class="resource-card" aria-labelledby="res-bma-peer-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "globe", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-bma-peer-title">BMA Peer Support Groups</h3>
@@ -208,7 +192,7 @@ permalink: /support/wellbeing/
           <div class="resource-card-actions">
             <a href="https://www.bma.org.uk/advice-and-support/your-wellbeing/peer-support" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit BMA peer support groups page (opens in new tab)">
               Find a Group
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {% icon "external-link", 12 %}
             </a>
           </div>
         </article>
@@ -216,10 +200,8 @@ permalink: /support/wellbeing/
         <!-- NHS Leadership Academy Mentoring -->
         <article class="resource-card" aria-labelledby="res-nhsla-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "activity", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-nhsla-title">NHS Leadership Academy Mentoring</h3>
@@ -230,7 +212,7 @@ permalink: /support/wellbeing/
           <div class="resource-card-actions">
             <a href="https://www.leadershipacademy.nhs.uk/programmes/mentoring/" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit NHS Leadership Academy mentoring programme (opens in new tab)">
               Apply for Mentoring
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {% icon "external-link", 12 %}
             </a>
           </div>
         </article>
@@ -246,9 +228,7 @@ permalink: /support/wellbeing/
       <div class="section-header" style="margin-bottom: var(--space-8);">
         <div style="display: inline-flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
           <div style="width: 40px; height: 40px; background-color: #c62828; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--colour-white);" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-            </svg>
+            {% icon "alert-triangle", 20 %}
           </div>
           <h2 id="crisis-heading" style="margin: 0;">Crisis Support</h2>
         </div>
@@ -261,9 +241,7 @@ permalink: /support/wellbeing/
         <article class="resource-card" style="border-color: #ef9a9a;" aria-labelledby="res-mcr-crisis-title">
           <div class="resource-card-header">
             <div class="resource-card-logo" style="background-color: #ffebee; color: #c62828;" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.51 8.69a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/>
-              </svg>
+              {% icon "phone", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-mcr-crisis-title">Manchester Mental Health Crisis Line</h3>
@@ -273,7 +251,7 @@ permalink: /support/wellbeing/
           <p class="resource-card-desc">Manchester's dedicated mental health crisis line connects you to a trained crisis worker any time of day or night. Available to anyone in Manchester experiencing a mental health crisis, including healthcare workers.</p>
           <div class="resource-card-actions">
             <a href="tel:08009530285" class="btn btn--sm" style="background-color: #c62828; color: white; border: none;" aria-label="Call Manchester Mental Health Crisis Line on 0800 953 0285 (free)">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.51 8.69a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+              {% icon "phone", 12 %}
               0800 953 0285
             </a>
           </div>
@@ -283,9 +261,7 @@ permalink: /support/wellbeing/
         <article class="resource-card" style="border-color: #ef9a9a;" aria-labelledby="res-nsphuk-title">
           <div class="resource-card-header">
             <div class="resource-card-logo" style="background-color: #ffebee; color: #c62828;" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.51 8.69a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/>
-              </svg>
+              {% icon "phone", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-nsphuk-title">National Suicide Prevention Helpline UK</h3>
@@ -295,7 +271,7 @@ permalink: /support/wellbeing/
           <p class="resource-card-desc">The National Suicide Prevention Helpline UK offers a safe, non-judgmental space for anyone struggling with suicidal thoughts or distress. Trained volunteers provide confidential support — available every evening from 6pm to midnight.</p>
           <div class="resource-card-actions">
             <a href="tel:08006895652" class="btn btn--sm" style="background-color: #c62828; color: white; border: none;" aria-label="Call National Suicide Prevention Helpline UK on 0800 689 5652 (free)">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.51 8.69a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+              {% icon "phone", 12 %}
               0800 689 5652
             </a>
             <a href="https://www.spuk.org.uk" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit National Suicide Prevention Helpline UK website (opens in new tab)">More info</a>
@@ -306,9 +282,7 @@ permalink: /support/wellbeing/
         <article class="resource-card" style="border-color: #ef9a9a;" aria-labelledby="res-shout-title">
           <div class="resource-card-header">
             <div class="resource-card-logo" style="background-color: #ffebee; color: #c62828;" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
+              {% icon "message-square", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-shout-title">Shout Text Service</h3>
@@ -318,7 +292,7 @@ permalink: /support/wellbeing/
           <p class="resource-card-desc">If you're struggling but don't feel able to talk, text SHOUT to 85258. Shout's trained crisis volunteers offer confidential text-based support for anyone in crisis — available any time, entirely free.</p>
           <div class="resource-card-actions">
             <div class="btn btn--sm" style="background-color: #c62828; color: white; border: none; cursor: default;" aria-label="Text SHOUT to 85258">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              {% icon "message-square", 12 %}
               Text SHOUT to 85258
             </div>
             <a href="https://giveusashout.org" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit Shout website (opens in new tab)">More info</a>
@@ -336,9 +310,7 @@ permalink: /support/wellbeing/
       <div class="section-header" style="margin-bottom: var(--space-8);">
         <div style="display: inline-flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
           <div style="width: 40px; height: 40px; background-color: var(--colour-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--colour-white);" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
-            </svg>
+            {% icon "smartphone", 20 %}
           </div>
           <h2 id="apps-heading" style="margin: 0;">Free Apps &amp; Digital Tools</h2>
         </div>
@@ -350,10 +322,8 @@ permalink: /support/wellbeing/
         <!-- SilverCloud -->
         <article class="resource-card" aria-labelledby="res-silvercloud-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "cloud", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-silvercloud-title">SilverCloud</h3>
@@ -364,7 +334,7 @@ permalink: /support/wellbeing/
           <div class="resource-card-actions">
             <a href="https://www.silvercloudhealth.com/uk" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit SilverCloud website (opens in new tab)">
               Access SilverCloud
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {% icon "external-link", 12 %}
             </a>
           </div>
         </article>
@@ -372,10 +342,8 @@ permalink: /support/wellbeing/
         <!-- Headspace -->
         <article class="resource-card" aria-labelledby="res-headspace-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "disc", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-headspace-title">Headspace</h3>
@@ -386,7 +354,7 @@ permalink: /support/wellbeing/
           <div class="resource-card-actions">
             <a href="https://www.headspace.com/nhs" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Access Headspace for NHS (opens in new tab)">
               Get Free Access
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {% icon "external-link", 12 %}
             </a>
           </div>
         </article>
@@ -394,10 +362,8 @@ permalink: /support/wellbeing/
         <!-- Unmind -->
         <article class="resource-card" aria-labelledby="res-unmind-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "activity", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-unmind-title">Unmind</h3>
@@ -408,7 +374,7 @@ permalink: /support/wellbeing/
           <div class="resource-card-actions">
             <a href="https://unmind.com/nhs" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Access Unmind for NHS staff (opens in new tab)">
               Access Unmind
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {% icon "external-link", 12 %}
             </a>
           </div>
         </article>
@@ -424,9 +390,7 @@ permalink: /support/wellbeing/
       <div class="section-header" style="margin-bottom: var(--space-8);">
         <div style="display: inline-flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
           <div style="width: 40px; height: 40px; background-color: var(--colour-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--colour-white);" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-            </svg>
+            {% icon "dollar-sign", 20 %}
           </div>
           <h2 id="financial-heading" style="margin: 0;">Financial Assistance</h2>
         </div>
@@ -438,10 +402,8 @@ permalink: /support/wellbeing/
         <!-- Cameron Fund -->
         <article class="resource-card" aria-labelledby="res-cameron-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "dollar-sign", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-cameron-title">Cameron Fund</h3>
@@ -452,7 +414,7 @@ permalink: /support/wellbeing/
           <div class="resource-card-actions">
             <a href="https://www.cameronfund.org.uk" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit Cameron Fund website (opens in new tab)">
               Visit Cameron Fund
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {% icon "external-link", 12 %}
             </a>
           </div>
         </article>
@@ -460,10 +422,8 @@ permalink: /support/wellbeing/
         <!-- BMA Benevolent Fund -->
         <article class="resource-card" aria-labelledby="res-bma-ben-title">
           <div class="resource-card-header">
-            <div class="resource-card-logo" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--colour-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
+            <div class="resource-card-logo" style="color: var(--colour-primary);" aria-hidden="true">
+              {% icon "monitor", 28 %}
             </div>
             <div>
               <h3 class="resource-card-title" id="res-bma-ben-title">BMA Benevolent Fund</h3>
@@ -474,7 +434,7 @@ permalink: /support/wellbeing/
           <div class="resource-card-actions">
             <a href="https://www.bma.org.uk/advice-and-support/your-wellbeing/financial-and-legal-support" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Visit BMA financial support page (opens in new tab)">
               Visit BMA Fund
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {% icon "external-link", 12 %}
             </a>
           </div>
         </article>
@@ -493,7 +453,7 @@ permalink: /support/wellbeing/
         </p>
         <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
           <a href="tel:01612230032" class="btn btn--primary btn--lg">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.51 8.69a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+            {% icon "phone", 18 %}
             Call 0161 223 0032
           </a>
           <a href="/contact/" class="btn btn--outline btn--lg">Send a message</a>

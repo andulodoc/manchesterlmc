@@ -14,7 +14,7 @@ showDisclaimer: true
       <div class="hero-inner">
         <div class="hero-content">
           <p class="hero-eyebrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
+            {% icon "circle", 14, "fill" %}
             {{ homepage.hero.eyebrow }}
           </p>
           <h1 id="hero-heading">{{ homepage.hero.heading }}</h1>
@@ -23,9 +23,9 @@ showDisclaimer: true
             {% for cta in homepage.hero.ctas %}
             <a href="{{ cta.url }}" class="btn btn--{{ cta.style }} btn--lg">
               {% if cta.style === "primary" %}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              {% icon "shield", 18 %}
               {% elif cta.style === "secondary" %}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              {% icon "user", 18 %}
               {% endif %}
               {{ cta.label }}
             </a>
@@ -47,7 +47,7 @@ showDisclaimer: true
 
         <a href="/support/#partner" class="role-card">
           <div class="role-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            {% icon "briefcase" %}
           </div>
           <span class="role-card-title">{{ homepage.roleCards[0].title }}</span>
           <span class="role-card-sub">{{ homepage.roleCards[0].subtitle }}</span>
@@ -55,7 +55,7 @@ showDisclaimer: true
 
         <a href="/support/#salaried" class="role-card">
           <div class="role-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            {% icon "user" %}
           </div>
           <span class="role-card-title">{{ homepage.roleCards[1].title }}</span>
           <span class="role-card-sub">{{ homepage.roleCards[1].subtitle }}</span>
@@ -63,7 +63,7 @@ showDisclaimer: true
 
         <a href="/support/#locum" class="role-card">
           <div class="role-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+            {% icon "shuffle" %}
           </div>
           <span class="role-card-title">{{ homepage.roleCards[2].title }}</span>
           <span class="role-card-sub">{{ homepage.roleCards[2].subtitle }}</span>
@@ -71,7 +71,7 @@ showDisclaimer: true
 
         <a href="/support/#manager" class="role-card">
           <div class="role-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            {% icon "settings" %}
           </div>
           <span class="role-card-title">{{ homepage.roleCards[3].title }}</span>
           <span class="role-card-sub">{{ homepage.roleCards[3].subtitle }}</span>
@@ -79,7 +79,7 @@ showDisclaimer: true
 
         <a href="/support/#nurse" class="role-card">
           <div class="role-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/><line x1="12" y1="9" x2="12" y2="15"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+            {% icon "heart" %}
           </div>
           <span class="role-card-title">{{ homepage.roleCards[4].title }}</span>
           <span class="role-card-sub">{{ homepage.roleCards[4].subtitle }}</span>
@@ -113,7 +113,7 @@ showDisclaimer: true
         </div>
         <a href="/news/" class="link-arrow">
           All News
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          {% icon "arrow-right" %}
         </a>
       </div>
 
@@ -135,7 +135,7 @@ showDisclaimer: true
         </div>
         <a href="/events/" class="link-arrow">
           Full Calendar
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          {% icon "arrow-right" %}
         </a>
       </div>
 
@@ -151,16 +151,16 @@ showDisclaimer: true
             <div class="event-meta">
               {% if event.data.time %}
               <span class="event-meta-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                {% icon "clock", 16 %}
                 {{ event.data.time }}
               </span>
               {% endif %}
               {% if event.data.venue %}
               <span class="event-meta-item">
                 {% if event.data.format === "online" %}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                {% icon "monitor", 16 %}
                 {% else %}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                {% icon "map-pin", 16 %}
                 {% endif %}
                 {{ event.data.venue }}
               </span>
@@ -190,67 +190,67 @@ showDisclaimer: true
 
         <a href="/guidance/" class="service-card">
           <div class="service-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="10" cy="15" r="3"/><line x1="12.5" y1="17.5" x2="15" y2="20"/></svg>
+            {% icon "file-text" %}
           </div>
           <h3>{{ homepage.serviceCards[0].title }}</h3>
           <p>{{ homepage.serviceCards[0].text }}</p>
           <span class="service-card-link">{{ homepage.serviceCards[0].linkText }}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right" %}
           </span>
         </a>
 
         <a href="/support/" class="service-card">
           <div class="service-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            {% icon "shield" %}
           </div>
           <h3>{{ homepage.serviceCards[1].title }}</h3>
           <p>{{ homepage.serviceCards[1].text }}</p>
           <span class="service-card-link">{{ homepage.serviceCards[1].linkText }}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right" %}
           </span>
         </a>
 
         <a href="/support/wellbeing/" class="service-card">
           <div class="service-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            {% icon "heart" %}
           </div>
           <h3>{{ homepage.serviceCards[2].title }}</h3>
           <p>{{ homepage.serviceCards[2].text }}</p>
           <span class="service-card-link">{{ homepage.serviceCards[2].linkText }}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right" %}
           </span>
         </a>
 
         <a href="/vacancies/" class="service-card">
           <div class="service-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            {% icon "user-plus" %}
           </div>
           <h3>{{ homepage.serviceCards[3].title }}</h3>
           <p>{{ homepage.serviceCards[3].text }}</p>
           <span class="service-card-link">{{ homepage.serviceCards[3].linkText }}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right" %}
           </span>
         </a>
 
         <a href="/events/" class="service-card">
           <div class="service-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="12" cy="16" r="2"/><line x1="12" y1="14" x2="12" y2="12"/></svg>
+            {% icon "calendar" %}
           </div>
           <h3>{{ homepage.serviceCards[4].title }}</h3>
           <p>{{ homepage.serviceCards[4].text }}</p>
           <span class="service-card-link">{{ homepage.serviceCards[4].linkText }}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right" %}
           </span>
         </a>
 
         <a href="/members/" class="service-card">
           <div class="service-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><circle cx="12" cy="14" r="2"/><line x1="12" y1="16" x2="12" y2="19"/></svg>
+            {% icon "award" %}
           </div>
           <h3>{{ homepage.serviceCards[5].title }}</h3>
           <p>{{ homepage.serviceCards[5].text }}</p>
           <span class="service-card-link">{{ homepage.serviceCards[5].linkText }}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right" %}
           </span>
         </a>
 
@@ -277,7 +277,7 @@ showDisclaimer: true
         </div>
         <div class="newsletter-card-download">
           <div class="newsletter-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+            {% icon "download" %}
           </div>
           <span class="newsletter-issue-label">{{ homepage.newsletter.issueLabel }}</span>
         </div>

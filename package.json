@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "feather-icons": "^4.29.2",
     "markdown-it": "^14.0.0"
   }
 }

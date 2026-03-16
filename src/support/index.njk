@@ -34,9 +34,7 @@ showDisclaimer: true
 
       <!-- Confidence alert -->
       <div class="alert alert--info support-confidence-alert" role="note">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-        </svg>
+        {% icon "lock", 20 %}
         <span><strong>All calls and enquiries are treated in strict confidence.</strong> Manchester LMC will never share your details with your employer, the ICB, NHS England, or any other body without your explicit consent.</span>
       </div>
 
@@ -57,132 +55,124 @@ showDisclaimer: true
         <!-- 1. Confidential Advisory Service -->
         <article class="service-card" id="confidential" aria-labelledby="card-confidential-heading">
           <div class="service-card-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-            </svg>
+            {% icon "lock", 28 %}
           </div>
           <h3 id="card-confidential-heading">Confidential Advisory Service</h3>
           <p>Facing a GMC investigation, fitness to practise referral, complaint, or suspension? Involved in a CQC inspection or partnership dispute? Our experienced advisors provide immediate, confidential guidance — free of charge and without judgement.</p>
           <ul style="list-style: none; padding: 0; margin: var(--space-4) 0; display: flex; flex-direction: column; gap: var(--space-2);">
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               GMC investigations &amp; fitness to practise
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               Patient complaints &amp; NHS ombudsman
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               Suspension &amp; immediate action cases
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               CQC inspections &amp; enforcement
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               Partnership disputes &amp; practice difficulties
             </li>
           </ul>
           <a href="/contact/" class="service-card-link">
             Call us in confidence
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right", 16 %}
           </a>
         </article>
 
         <!-- 2. Wellbeing Hub -->
         <article class="service-card" id="wellbeing" aria-labelledby="card-wellbeing-heading">
           <div class="service-card-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
+            {% icon "heart", 28 %}
           </div>
           <h3 id="card-wellbeing-heading">Wellbeing Hub</h3>
           <p>GP wellbeing is central to safe, sustainable patient care. Our Wellbeing Hub brings together mental health support, peer networks, free apps, crisis lines, and financial assistance resources — all in one place, specifically for healthcare professionals in Manchester.</p>
           <ul style="list-style: none; padding: 0; margin: var(--space-4) 0; display: flex; flex-direction: column; gap: var(--space-2);">
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               NHS Practitioner Health &amp; BMA counselling
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               Peer support &amp; mentoring schemes
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               Free apps: Headspace, SilverCloud, Unmind
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               24/7 crisis support lines
             </li>
           </ul>
           <a href="/support/wellbeing/" class="service-card-link">
             Visit the Wellbeing Hub
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right", 16 %}
           </a>
         </article>
 
         <!-- 3. Practice Support -->
         <article class="service-card" id="practice-support" aria-labelledby="card-practice-heading">
           <div class="service-card-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
+            {% icon "home", 28 %}
           </div>
           <h3 id="card-practice-heading">Practice Support</h3>
           <p>Practical, expert guidance on the operational and legal challenges that practices face every day. We help you navigate employment law, HR matters, staff disciplinary issues, contracts, and policy implementation — saving you time and reducing risk.</p>
           <ul style="list-style: none; padding: 0; margin: var(--space-4) 0; display: flex; flex-direction: column; gap: var(--space-2);">
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               Employment matters &amp; HR guidance
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               Staff disciplinary &amp; grievance processes
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               GMS/PMS contract interpretation
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               Policies, procedures &amp; templates
             </li>
           </ul>
           <a href="/contact/" class="service-card-link">
             Get practice support
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right", 16 %}
           </a>
         </article>
 
         <!-- 4. Breach Reporting -->
         <article class="service-card" id="breach-reporting" aria-labelledby="card-breach-heading">
           <div class="service-card-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-            </svg>
+            {% icon "alert-triangle", 28 %}
           </div>
           <h3 id="card-breach-heading">Breach Reporting</h3>
           <p>If your ICB, NHS England, or a local trust is failing to meet its contractual obligations to your practice, you have the right to formally report this. We will advise you on the process and support you throughout any escalation.</p>
           <ul style="list-style: none; padding: 0; margin: var(--space-4) 0; display: flex; flex-direction: column; gap: var(--space-2);">
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               ICB contractual breaches
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               Trust &amp; secondary care failures
             </li>
             <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {% icon "check", 14 %}
               Formal dispute escalation support
             </li>
           </ul>
           <a href="/support/breach-report/" class="service-card-link">
             Report a breach
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {% icon "arrow-right", 16 %}
           </a>
         </article>
 
@@ -191,9 +181,7 @@ showDisclaimer: true
           <div style="display: flex; gap: var(--space-6); align-items: flex-start; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 280px;">
               <div class="service-card-icon" aria-hidden="true" style="margin-bottom: var(--space-5);">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
-                </svg>
+                {% icon "gift", 28 %}
               </div>
               <h3 id="card-cameron-heading">Cameron Fund</h3>
               <p>The Cameron Fund provides financial assistance to doctors and their families who are experiencing financial difficulty — whether due to illness, mental health difficulties, family crisis, or other hardship. Grants are means-tested and entirely confidential.</p>
@@ -203,19 +191,19 @@ showDisclaimer: true
               <p style="font-weight: 600; color: var(--colour-primary); margin-bottom: var(--space-3);">Cameron Fund at a glance</p>
               <ul style="list-style: none; padding: 0; margin: 0 0 var(--space-5); display: flex; flex-direction: column; gap: var(--space-2);">
                 <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  {% icon "check", 14 %}
                   Open to all registered GPs
                 </li>
                 <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  {% icon "check", 14 %}
                   Grants and interest-free loans
                 </li>
                 <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  {% icon "check", 14 %}
                   Strictly confidential process
                 </li>
                 <li style="display: flex; align-items: center; gap: var(--space-2); font-size: 0.9rem; color: var(--colour-muted);">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--colour-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  {% icon "check", 14 %}
                   No obligation application
                 </li>
               </ul>
@@ -226,7 +214,7 @@ showDisclaimer: true
                 rel="noopener noreferrer"
                 aria-label="Visit the Cameron Fund website (opens in new tab)">
                 Visit Cameron Fund
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                {% icon "external-link", 14 %}
               </a>
             </div>
           </div>
@@ -256,11 +244,11 @@ showDisclaimer: true
               <p style="color: rgba(255,255,255,0.72); margin-bottom: var(--space-5);">Managing Director, Manchester LMC</p>
               <div style="display: flex; flex-direction: column; gap: var(--space-3);">
                 <a href="tel:01612230032" style="display: inline-flex; align-items: center; gap: var(--space-3); color: rgba(255,255,255,0.85); font-size: 0.9375rem;" aria-label="Call Nicola Holland on 0161 223 0032">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.51 8.69a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+                  {% icon "phone", 16 %}
                   0161 223 0032
                 </a>
                 <a href="mailto:nicola.holland@manchesterlmc.co.uk" style="display: inline-flex; align-items: center; gap: var(--space-3); color: rgba(255,255,255,0.85); font-size: 0.9375rem;" aria-label="Email Nicola Holland">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  {% icon "mail", 16 %}
                   nicola.holland@manchesterlmc.co.uk
                 </a>
               </div>

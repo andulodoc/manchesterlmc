@@ -38,14 +38,14 @@ showDisclaimer: true
             <h3>{{ event.data.title }}</h3>
             <div class="event-meta">
               <span class="event-meta-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                {% icon "clock" %}
                 {{ event.data.time }}
               </span>
               <span class="event-meta-item">
                 {% if event.data.format == "online" %}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                {% icon "monitor" %}
                 {% else %}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                {% icon "map-pin" %}
                 {% endif %}
                 {{ event.data.venue }}
               </span>
@@ -74,15 +74,15 @@ showDisclaimer: true
       <div data-tabs>
         <div class="tab-list" role="tablist" aria-label="Meeting types">
           <button class="tab-btn" role="tab" data-tab="tab-partners" aria-selected="false">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            {% icon "briefcase", 16 %}
             Partner &amp; Salaried GP Meetings
           </button>
           <button class="tab-btn" role="tab" data-tab="tab-locum" aria-selected="false">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            {% icon "users", 16 %}
             Locum &amp; Freelance Meetings
           </button>
           <button class="tab-btn" role="tab" data-tab="tab-external" aria-selected="false">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            {% icon "globe", 16 %}
             External &amp; Educational Events
           </button>
         </div>
@@ -107,7 +107,7 @@ showDisclaimer: true
                   <td style="padding:var(--space-4);">{{ row.data.venue }}</td>
                   <td style="padding:var(--space-4);">
                     {% if row.data.registerUrl %}
-                    <a href="{{ row.data.registerUrl }}" class="link-arrow" style="font-size:.875rem;">{{ row.data.registerLabel }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                    <a href="{{ row.data.registerUrl }}" class="link-arrow" style="font-size:.875rem;">{{ row.data.registerLabel }}{% icon "arrow-right" %}</a>
                     {% else %}
                     <span style="color:var(--colour-muted);">TBC</span>
                     {% endif %}
@@ -153,7 +153,7 @@ showDisclaimer: true
         <details class="accordion-item">
           <summary class="accordion-btn">
             {{ group.year }} Partners Meeting Minutes
-            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            <span class="accordion-icon">{% icon "chevron-down" %}</span>
           </summary>
           <div class="accordion-panel">
             <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3);">
