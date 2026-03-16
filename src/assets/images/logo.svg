@@ -1,50 +1,119 @@
 <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Manchester LMC logo">
-  <circle cx="100" cy="100" r="95" fill="#0d3d56" />
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="97" fill="#1a6b8a" />
+  <!-- Main dark background -->
+  <circle cx="100" cy="100" r="91" fill="#0d3d56" />
 
-  <path d="M100 65
-           C 80 50, 40 45, 15 70
-           C 30 80, 70 85, 100 75
-           C 130 85, 170 80, 185 70
-           C 160 45, 120 50, 100 65 Z"
-        fill="#2a9fca" />
+  <!-- All content shifted down to centre on first snake crossing -->
+  <g transform="translate(0, 13)">
 
-  <path d="M100 65 C 85 55, 60 55, 30 72 M100 65 C 115 55, 140 55, 170 72"
-        stroke="#0d3d56" stroke-width="1" fill="none" opacity="0.3"/>
-
-  <rect x="97.5" y="55" width="5" height="125" rx="2.5" fill="#ffffff" />
-  <circle cx="100" cy="55" r="5" fill="#ffffff" />
-
-  <path d="M100 75
-           C 125 82, 125 92, 100 97
-           C 80 102, 80 110, 100 115
-           C 116 120, 116 128, 100 133
-           C 87 138, 87 145, 100 150
-           C 110 155, 110 162, 100 167"
-        fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
-
-  <path d="M100 75
-           C 75 82, 75 92, 100 97
-           C 120 102, 120 110, 100 115
-           C 84 120, 84 128, 100 133
-           C 113 138, 113 145, 100 150
-           C 90 155, 90 162, 100 167"
-        fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
-
-  <g transform="translate(60, 145) rotate(-25)">
-    <ellipse cx="0" cy="0" rx="6" ry="4" fill="#fcdb43" />
-    <path d="M-3 -3.5 Q-4 0, -3 3.5 M0 -4 Q-1 0, 0 4 M3 -3.5 Q2 0, 3 3.5" stroke="#000000" stroke-width="1.2" fill="none"/>
-    <circle cx="7" cy="0" r="2.5" fill="#000000" />
-    <path d="M7 1 L10 4 M7 -1 L10 -4" stroke="#000000" stroke-width="0.8" fill="none"/>
-    <path d="M-2 -3 C-6 -10, 2 -12, 6 -4 C4 -8, -1 -8, -2 -3 Z" fill="rgba(255,255,255,0.7)" stroke="#ffffff" stroke-width="0.5"/>
-    <path d="M-2 3 C-6 10, 2 12, 6 4 C4 8, -1 8, -2 3 Z" fill="rgba(255,255,255,0.7)" stroke="#ffffff" stroke-width="0.5"/>
+  <!-- Wings - Left (5 feathers) -->
+  <g opacity="0.9">
+    <path d="M100 44 C 88 38, 68 28, 48 30 C 38 31, 30 36, 27 44 C 34 42, 44 38, 56 40 C 66 42, 80 46, 98 50 Z" fill="#2a9fca" />
+    <path d="M100 48 C 88 42, 68 32, 52 34 C 42 35, 34 40, 32 48 C 38 46, 48 42, 58 44 C 68 46, 80 50, 98 54 Z" fill="#2a9fca" opacity="0.85" />
+    <path d="M99 52 C 84 48, 65 40, 52 42 C 44 43, 38 47, 36 52 C 44 50, 54 48, 64 50 C 74 52, 84 56, 98 58 Z" fill="#2a9fca" opacity="0.7" />
+    <path d="M98 56 C 82 54, 68 48, 58 50 C 50 51, 44 54, 42 58 C 50 56, 60 54, 68 56 C 76 58, 86 60, 98 60 Z" fill="#2a9fca" opacity="0.55" />
+    <path d="M98 60 C 84 58, 72 54, 64 56 C 58 57, 52 60, 50 64 C 56 62, 66 60, 72 61 C 80 62, 88 64, 98 64 Z" fill="#2a9fca" opacity="0.4" />
+  </g>
+  <!-- Wings - Right (5 feathers) -->
+  <g opacity="0.9">
+    <path d="M100 44 C 112 38, 132 28, 152 30 C 162 31, 170 36, 173 44 C 166 42, 156 38, 144 40 C 134 42, 120 46, 102 50 Z" fill="#2a9fca" />
+    <path d="M100 48 C 112 42, 132 32, 148 34 C 158 35, 166 40, 168 48 C 162 46, 152 42, 142 44 C 132 46, 120 50, 102 54 Z" fill="#2a9fca" opacity="0.85" />
+    <path d="M101 52 C 116 48, 135 40, 148 42 C 156 43, 162 47, 164 52 C 156 50, 146 48, 136 50 C 126 52, 116 56, 102 58 Z" fill="#2a9fca" opacity="0.7" />
+    <path d="M102 56 C 118 54, 132 48, 142 50 C 150 51, 156 54, 158 58 C 150 56, 140 54, 132 56 C 124 58, 114 60, 102 60 Z" fill="#2a9fca" opacity="0.55" />
+    <path d="M102 60 C 116 58, 128 54, 136 56 C 142 57, 148 60, 150 64 C 144 62, 134 60, 128 61 C 120 62, 112 64, 102 64 Z" fill="#2a9fca" opacity="0.4" />
   </g>
 
-  <g transform="translate(145, 100) rotate(15)">
-    <ellipse cx="0" cy="0" rx="6" ry="4" fill="#fcdb43" />
-    <path d="M-3 -3.5 Q-4 0, -3 3.5 M0 -4 Q-1 0, 0 4 M3 -3.5 Q2 0, 3 3.5" stroke="#000000" stroke-width="1.2" fill="none"/>
-    <circle cx="-7" cy="0" r="2.5" fill="#000000" />
-    <path d="M-7 1 L-10 4 M-7 -1 L-10 -4" stroke="#000000" stroke-width="0.8" fill="none"/>
-    <path d="M2 -3 C 6 -10, -2 -12, -6 -4 C -4 -8, 1 -8, 2 -3 Z" fill="rgba(255,255,255,0.7)" stroke="#ffffff" stroke-width="0.5"/>
-    <path d="M2 3 C 6 10, -2 12, -6 4 C -4 8, 1 8, 2 3 Z" fill="rgba(255,255,255,0.7)" stroke="#ffffff" stroke-width="0.5"/>
+  <!-- Staff ball at top (drawn before snakes) -->
+  <circle cx="100" cy="30" r="6" fill="#2a9fca" />
+
+  <!--
+    SNAKE LAYOUT (top to bottom):
+    
+    RED snake: head on LEFT, body goes right, crosses to left, crosses to right...
+    GREEN snake: head on RIGHT, body goes left, crosses to right, crosses to left...
+    
+    At each crossing point, one snake passes IN FRONT of the staff
+    and the other passes BEHIND. We alternate which is in front.
+    
+    Crossing 1 (~y92):  RED in front (going right), GREEN behind (going left)
+    Crossing 2 (~y116): GREEN in front (going right), RED behind (going left)
+    Crossing 3 (~y138): RED in front (going right), GREEN behind (going left)
+    Crossing 4 (~y158): tails converge
+  -->
+
+  <!-- ========== BEHIND SNAKE (off-white) ========== -->
+
+  <!-- Behind head - left side, elongated -->
+  <ellipse cx="89" cy="71" rx="3.2" ry="5.5" transform="rotate(35, 89, 71)" fill="#d8d8d0" />
+
+  <!-- Behind body - tapered segments -->
+  <path d="M88 72 C 80 78, 78 86, 100 92"
+        fill="none" stroke="#d8d8d0" stroke-width="5.5" stroke-linecap="round" />
+  <path d="M100 92 C 122 100, 118 110, 100 116"
+        fill="none" stroke="#d8d8d0" stroke-width="4.8" stroke-linecap="round" />
+  <path d="M100 116 C 82 122, 78 132, 100 138"
+        fill="none" stroke="#d8d8d0" stroke-width="4" stroke-linecap="round" />
+  <path d="M100 138 C 118 144, 116 152, 100 158"
+        fill="none" stroke="#d8d8d0" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Staff re-drawn on top of behind snake (tapered, rounded bottom) -->
+  <path d="M97 34 L103 34 L101.5 164 C101.5 167, 98.5 167, 98.5 164 Z" fill="#2a9fca" />
+
+  <!-- ========== FRONT SNAKE (white) ========== -->
+
+  <!-- Front body - tapered segments -->
+  <path d="M112 72 C 120 78, 122 86, 100 92"
+        fill="none" stroke="#ffffff" stroke-width="5.5" stroke-linecap="round" />
+  <path d="M100 92 C 78 100, 82 110, 100 116"
+        fill="none" stroke="#ffffff" stroke-width="4.8" stroke-linecap="round" />
+  <path d="M100 116 C 118 122, 122 132, 100 138"
+        fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+  <path d="M100 138 C 82 144, 84 152, 100 158"
+        fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Front head - right side, elongated (topmost) -->
+  <ellipse cx="111" cy="71" rx="3.2" ry="5.5" transform="rotate(-35, 111, 71)" fill="#ffffff" />
+
+  <!-- ========== BEES ========== -->
+
+  <!-- Worker Bee - LEFT -->
+  <g transform="translate(60, 120) rotate(-40) scale(0.99)">
+    <!-- Abdomen (rear, larger, pointed tail) -->
+    <ellipse cx="-4" cy="0" rx="6" ry="4.5" fill="#fcdb43" />
+    <!-- Abdomen stripes -->
+    <line x1="-5" y1="-4.2" x2="-5" y2="4.2" stroke="#0d3d56" stroke-width="1.5" />
+    <line x1="-1.5" y1="-4.5" x2="-1.5" y2="4.5" stroke="#0d3d56" stroke-width="1.5" />
+    <!-- Thorax (front, smaller, rounder) -->
+    <ellipse cx="4.5" cy="0" rx="3.5" ry="3.5" fill="#fcdb43" />
+    <!-- Head -->
+    <circle cx="9.5" cy="0" r="2.8" fill="#0d3d56" />
+    <!-- Antennae -->
+    <path d="M11.5 -1.5 Q 14 -6, 16 -5" stroke="#ffffff" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <path d="M11.5 1.5 Q 14 6, 16 5" stroke="#ffffff" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <!-- Wings -->
+    <path d="M3 -3.5 C -2 -8.5, -4 -13.5, 1 -14.5 C 6 -15.5, 9 -10.5, 3 -3.5 Z" fill="rgba(255,255,255,0.5)" stroke="rgba(255,255,255,0.7)" stroke-width="0.5"/>
+    <path d="M3 3.5 C -2 8.5, -4 13.5, 1 14.5 C 6 15.5, 9 10.5, 3 3.5 Z" fill="rgba(255,255,255,0.5)" stroke="rgba(255,255,255,0.7)" stroke-width="0.5"/>
+  </g>
+
+  <!-- Worker Bee - RIGHT -->
+  <g transform="translate(142, 90) rotate(40) scale(0.99)">
+    <!-- Abdomen (rear, larger, pointed tail) -->
+    <ellipse cx="4" cy="0" rx="6" ry="4.5" fill="#fcdb43" />
+    <!-- Abdomen stripes -->
+    <line x1="5" y1="-4.2" x2="5" y2="4.2" stroke="#0d3d56" stroke-width="1.5" />
+    <line x1="1.5" y1="-4.5" x2="1.5" y2="4.5" stroke="#0d3d56" stroke-width="1.5" />
+    <!-- Thorax (front, smaller, rounder) -->
+    <ellipse cx="-4.5" cy="0" rx="3.5" ry="3.5" fill="#fcdb43" />
+    <!-- Head -->
+    <circle cx="-9.5" cy="0" r="2.8" fill="#0d3d56" />
+    <!-- Antennae -->
+    <path d="M-11.5 -1.5 Q -14 -6, -16 -5" stroke="#ffffff" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <path d="M-11.5 1.5 Q -14 6, -16 5" stroke="#ffffff" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <!-- Wings -->
+    <path d="M-3 -3.5 C 2 -8.5, 4 -13.5, -1 -14.5 C -6 -15.5, -9 -10.5, -3 -3.5 Z" fill="rgba(255,255,255,0.5)" stroke="rgba(255,255,255,0.7)" stroke-width="0.5"/>
+    <path d="M-3 3.5 C 2 8.5, 4 13.5, -1 14.5 C -6 15.5, -9 10.5, -3 3.5 Z" fill="rgba(255,255,255,0.5)" stroke="rgba(255,255,255,0.7)" stroke-width="0.5"/>
+  </g>
+
   </g>
 </svg>
