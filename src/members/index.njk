@@ -47,14 +47,35 @@ showDisclaimer: true
                 <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
                   <input type="checkbox" name="remember"> Remember me
                 </label>
-                <a href="#" style="font-size: 0.9rem; color: var(--colour-secondary);">Forgotten your password?</a>
+                <a href="#" id="forgot-link" style="font-size: 0.9rem; color: var(--colour-secondary);">Forgotten your password?</a>
               </div>
               <button type="submit" class="btn btn--primary" style="width: 100%;">Log In</button>
             </form>
 
             <div id="login-error" class="alert alert--warning" style="display: none; margin-top: 1.5rem;">
               {% icon "info", 20 %}
-              <div>Incorrect email or password. Please try again, or <a href="#">reset your password</a>.</div>
+              <div>Incorrect email or password. Please try again, or <a href="#" id="reset-link-in-error">reset your password</a>.</div>
+            </div>
+
+            <!-- Forgot password inline form (hidden until link clicked) -->
+            <div id="forgot-panel" style="display:none; margin-top:1.5rem;">
+              <hr style="border:none; border-top:1px solid var(--colour-border); margin-bottom:1.5rem;">
+              <h3 style="margin:0 0 0.5rem;">Reset your password</h3>
+              <p style="color:var(--colour-muted); font-size:0.9rem; margin-bottom:1.25rem;">Enter your registered email address and we'll send you a reset link.</p>
+              <form id="forgot-form" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="forgot-email">Email address</label>
+                  <input class="form-input" type="email" id="forgot-email" name="email" autocomplete="email" required placeholder="your@email.com">
+                </div>
+                <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                  <button type="submit" class="btn btn--primary" style="flex:1;">Send Reset Link</button>
+                  <button type="button" id="forgot-cancel" class="btn btn--outline">Cancel</button>
+                </div>
+              </form>
+              <div id="forgot-success" class="alert alert--success" style="display:none; margin-top:1rem;">
+                {% icon "check", 20 %}
+                <div>If an account exists for that email, a reset link has been sent. Please check your inbox.</div>
+              </div>
             </div>
 
             <p style="margin-top: 2rem; text-align: center; font-size: 0.9rem; color: var(--colour-muted);">
@@ -218,7 +239,7 @@ showDisclaimer: true
 
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
               <div>
-                <p style="margin: 0; font-size: 0.9rem; color: var(--colour-muted);">Logged in as <strong>member@example.com</strong></p>
+                <p style="margin: 0; font-size: 0.9rem; color: var(--colour-muted);">Logged in as <strong id="member-display-name"></strong></p>
               </div>
               <button id="logout-btn" class="btn btn--sm btn--outline">Log Out</button>
             </div>

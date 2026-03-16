@@ -212,21 +212,21 @@
 })();
 
 /* ── Vacancy post-a-vacancy auth gate ─────────────────────── */
+/* Driven by auth state — see auth module below. */
 (function () {
-  const authGate = document.getElementById('vacancy-auth-gate');
-  const form = document.getElementById('vacancy-form');
-  if (!authGate || !form) return;
-
-  // Simulate unauthenticated state; replace with real session check
-  const isAuthenticated = false;
-
-  if (isAuthenticated) {
-    authGate.style.display = 'none';
-    form.style.display = 'block';
-  } else {
-    authGate.style.display = 'block';
-    form.style.display = 'none';
-  }
+  window.__manchesterLMC = window.__manchesterLMC || {};
+  window.__manchesterLMC.updateVacancyGate = function (authenticated) {
+    const authGate = document.getElementById('vacancy-auth-gate');
+    const form = document.getElementById('vacancy-form');
+    if (!authGate || !form) return;
+    if (authenticated) {
+      authGate.style.display = 'none';
+      form.style.display = 'block';
+    } else {
+      authGate.style.display = 'block';
+      form.style.display = 'none';
+    }
+  };
 })();
 
 /* ── Contact / breach form submission feedback ─────────────── */
@@ -394,4 +394,272 @@
 
   const viewLink = document.getElementById('view-disclaimer-link');
   if (viewLink) viewLink.addEventListener('click', (e) => { e.preventDefault(); localStorage.removeItem('manchesterlmc-disclaimer-accepted'); location.reload(); });
+})();
+
+/* ── Members area auth ─────────────────────────────────────────
+   Handles login, register, logout, and auth-state-driven UI.
+   All tokens are stored server-side in httpOnly cookies —
+   never in localStorage or sessionStorage.
+   ─────────────────────────────────────────────────────────── */
+(function () {
+
+  /* ── Auth state check on page load ── */
+  async function checkAuthState() {
+    try {
+      const res = await fetch('/.netlify/functions/auth-status', {
+        method: 'GET',
+        credentials: 'same-origin',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+      });
+      if (!res.ok) return setUnauthenticated();
+      const data = await res.json();
+      if (data.authenticated) {
+        setAuthenticated(data.displayName, data.role);
+      } else {
+        setUnauthenticated();
+      }
+    } catch {
+      setUnauthenticated();
+    }
+  }
+
+  function setAuthenticated(displayName, role) {
+    // Members page: show content, hide login/register panels
+    const loginSection = document.querySelector('.auth-tabs');
+    const loginPanel   = document.getElementById('panel-login');
+    const registerPanel = document.getElementById('panel-register');
+    const memberContent = document.getElementById('member-content');
+    const loggedInAs    = document.getElementById('member-display-name');
+
+    if (loginSection)   loginSection.style.display = 'none';
+    if (loginPanel)     loginPanel.style.display = 'none';
+    if (registerPanel)  registerPanel.style.display = 'none';
+    if (memberContent) {
+      memberContent.style.display = 'block';
+      if (loggedInAs) loggedInAs.textContent = displayName;
+    }
+
+    // Show admin link if lmc_admin
+    const adminLink = document.getElementById('nav-admin-link');
+    if (adminLink && role === 'lmc_admin') adminLink.style.display = '';
+
+    // Update vacancy gate
+    if (window.__manchesterLMC?.updateVacancyGate) {
+      window.__manchesterLMC.updateVacancyGate(true);
+    }
+
+    // Update nav login/register buttons
+    const navLogin    = document.querySelector('.nav-utility-btn[href="/members/"]');
+    const navRegister = document.querySelector('.nav-utility-btn[href="/members/#register"]');
+    if (navLogin) { navLogin.textContent = displayName.split(' ')[0]; navLogin.href = '/members/'; }
+    if (navRegister) navRegister.style.display = 'none';
+  }
+
+  function setUnauthenticated() {
+    if (window.__manchesterLMC?.updateVacancyGate) {
+      window.__manchesterLMC.updateVacancyGate(false);
+    }
+  }
+
+  /* ── Login form ── */
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = loginForm.querySelector('[type="submit"]');
+      const errorBox = document.getElementById('login-error');
+      const errorMsg = errorBox?.querySelector('div');
+
+      btn.disabled = true;
+      btn.textContent = 'Logging in…';
+      if (errorBox) errorBox.style.display = 'none';
+
+      try {
+        const res = await fetch('/.netlify/functions/auth-login', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({
+            email: loginForm.querySelector('#login-email').value.trim(),
+            password: loginForm.querySelector('#login-password').value,
+          }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.ok) {
+          setAuthenticated(data.displayName, data.role);
+          // Scroll to member content
+          document.getElementById('member-content')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          if (errorBox) {
+            errorBox.style.display = 'flex';
+            if (errorMsg) errorMsg.textContent = data.error || 'Login failed. Please try again.';
+          }
+          btn.disabled = false;
+          btn.textContent = 'Log In';
+        }
+      } catch {
+        if (errorBox) {
+          errorBox.style.display = 'flex';
+          if (errorMsg) (errorMsg).textContent = 'A network error occurred. Please try again.';
+        }
+        btn.disabled = false;
+        btn.textContent = 'Log In';
+      }
+    });
+  }
+
+  /* ── Register form ── */
+  const registerForm = document.getElementById('register-form');
+  if (registerForm) {
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = registerForm.querySelector('[type="submit"]');
+
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+
+      const password  = registerForm.querySelector('#reg-password').value;
+      const password2 = registerForm.querySelector('#reg-password2').value;
+
+      if (password !== password2) {
+        showFormError(registerForm, 'Passwords do not match.');
+        btn.disabled = false;
+        btn.textContent = 'Register & Proceed to Payment';
+        return;
+      }
+
+      try {
+        const res = await fetch('/.netlify/functions/auth-register', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({
+            firstname: registerForm.querySelector('#reg-firstname').value.trim(),
+            lastname:  registerForm.querySelector('#reg-lastname').value.trim(),
+            email:     registerForm.querySelector('#reg-email').value.trim(),
+            gmc:       registerForm.querySelector('#reg-gmc').value.trim(),
+            role:      registerForm.querySelector('#reg-role').value,
+            password,
+            password2,
+          }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.ok) {
+          registerForm.innerHTML =
+            '<div class="alert alert--success" style="margin-top:1rem">' +
+            '<div>' + (data.message || 'Registration received. Please check your email.') + '</div>' +
+            '</div>';
+        } else {
+          showFormError(registerForm, data.error || 'Registration failed. Please try again.');
+          btn.disabled = false;
+          btn.textContent = 'Register & Proceed to Payment';
+        }
+      } catch {
+        showFormError(registerForm, 'A network error occurred. Please try again.');
+        btn.disabled = false;
+        btn.textContent = 'Register & Proceed to Payment';
+      }
+    });
+  }
+
+  /* ── Logout button ── */
+  const logoutBtn = document.getElementById('logout-btn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', async () => {
+      logoutBtn.disabled = true;
+      logoutBtn.textContent = 'Logging out…';
+      try {
+        await fetch('/.netlify/functions/auth-logout', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        });
+      } finally {
+        // Reload to show the login form again
+        window.location.reload();
+      }
+    });
+  }
+
+  /* ── Utility: show an error message above a form's submit button ── */
+  function showFormError(form, message) {
+    let box = form.querySelector('.form-error-box');
+    if (!box) {
+      box = document.createElement('div');
+      box.className = 'alert alert--warning form-error-box';
+      box.style.marginTop = '1rem';
+      const btn = form.querySelector('[type="submit"]');
+      form.insertBefore(box, btn);
+    }
+    box.textContent = message;
+    box.style.display = 'flex';
+  }
+
+  /* ── Forgot password inline form ── */
+  const forgotPanel  = document.getElementById('forgot-panel');
+  const forgotLink   = document.getElementById('forgot-link');
+  const resetErrLink = document.getElementById('reset-link-in-error');
+  const forgotCancel = document.getElementById('forgot-cancel');
+  const forgotForm   = document.getElementById('forgot-form');
+
+  function showForgotPanel() {
+    if (!forgotPanel) return;
+    forgotPanel.style.display = '';
+    document.getElementById('forgot-email')?.focus();
+  }
+
+  if (forgotLink) {
+    forgotLink.addEventListener('click', (e) => { e.preventDefault(); showForgotPanel(); });
+  }
+  if (resetErrLink) {
+    resetErrLink.addEventListener('click', (e) => { e.preventDefault(); showForgotPanel(); });
+  }
+  if (forgotCancel) {
+    forgotCancel.addEventListener('click', () => { forgotPanel.style.display = 'none'; });
+  }
+
+  if (forgotForm) {
+    forgotForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn     = forgotForm.querySelector('[type="submit"]');
+      const success = document.getElementById('forgot-success');
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        await fetch('/.netlify/functions/auth-reset-password', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({
+            email: document.getElementById('forgot-email').value.trim(),
+          }),
+        });
+      } finally {
+        // Always show the generic success message regardless of response
+        forgotForm.style.display = 'none';
+        if (success) success.style.display = 'flex';
+        btn.disabled = false;
+        btn.textContent = 'Send Reset Link';
+      }
+    });
+  }
+
+  /* ── Run on load ── */
+  checkAuthState();
+
 })();

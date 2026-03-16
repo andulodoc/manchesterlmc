@@ -1,0 +1,200 @@
+---
+layout: layouts/base.njk
+title: Reset Password
+description: "Set a new password for your Manchester LMC account."
+mainClass: page-members
+showContactStrip: false
+showDisclaimer: false
+---
+
+<section class="page-hero">
+  <div class="container">
+    {% set breadcrumbs = [{label: "Members Area", url: "/members/"}, {label: "Reset Password"}] %}
+    {% include "partials/breadcrumb.njk" %}
+    <h1>Reset Password</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width: 480px;">
+
+    <!-- Invalid/expired token state -->
+    <div id="reset-invalid" style="display:none;">
+      <div class="alert alert--warning">
+        {% icon "alert-triangle", 20 %}
+        <div>This reset link is invalid or has expired. Reset links are single-use and expire after 1 hour.</div>
+      </div>
+      <p style="margin-top:1.5rem; text-align:center;">
+        <a href="/members/" class="btn btn--primary">Request a new reset link</a>
+      </p>
+    </div>
+
+    <!-- Already logged in -->
+    <div id="reset-already-logged-in" style="display:none;">
+      <div class="alert alert--info">
+        {% icon "info", 20 %}
+        <div>You are already logged in. <a href="/members/">Go to Members Area</a>.</div>
+      </div>
+    </div>
+
+    <!-- Loading state -->
+    <div id="reset-loading" style="text-align:center; padding:3rem 0; color:var(--colour-muted);">
+      {% icon "loader", 24 %}
+      <p style="margin-top:1rem;">Verifying reset link…</p>
+    </div>
+
+    <!-- New password form -->
+    <div id="reset-form-panel" style="display:none;">
+      <div class="card" style="padding:2rem;">
+        <h2 style="margin-top:0;">Choose a new password</h2>
+        <p style="color:var(--colour-muted); margin-bottom:1.5rem; font-size:0.9rem;">
+          Your new password must be at least 8 characters.
+        </p>
+        <form id="reset-password-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="new-password">New password</label>
+            <input class="form-input" type="password" id="new-password" name="password"
+                   autocomplete="new-password" required minlength="8" placeholder="Minimum 8 characters">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-password2">Confirm new password</label>
+            <input class="form-input" type="password" id="new-password2" name="password2"
+                   autocomplete="new-password" required minlength="8" placeholder="Re-enter password">
+          </div>
+          <div id="reset-form-error" class="alert alert--warning" style="display:none; margin-bottom:1rem;">
+            {% icon "info", 20 %}
+            <div id="reset-form-error-msg"></div>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width:100%;">Set New Password</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success state -->
+    <div id="reset-success" style="display:none; text-align:center;">
+      <div class="card" style="padding:2rem;">
+        <div style="width:56px; height:56px; background:var(--colour-secondary); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; color:white;">
+          {% icon "check", 24 %}
+        </div>
+        <h2 style="margin-top:0;">Password updated</h2>
+        <p style="color:var(--colour-muted); margin-bottom:1.5rem;">Your password has been changed. You can now log in with your new password.</p>
+        <a href="/members/" class="btn btn--primary" style="width:100%;">Log In</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+
+  function show(id) {
+    ['reset-loading','reset-invalid','reset-form-panel','reset-success','reset-already-logged-in']
+      .forEach(el => {
+        const node = document.getElementById(el);
+        if (node) node.style.display = el === id ? '' : 'none';
+      });
+  }
+
+  // Extract token from URL — Supabase puts it in the hash as access_token
+  // or in query params as token_hash depending on flow setting
+  function getToken() {
+    // Check query params first (newer PKCE-adjacent flows)
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('token_hash')) return { token: params.get('token_hash'), source: 'query' };
+
+    // Fall back to URL hash (implicit flow)
+    const hash = new URLSearchParams(window.location.hash.slice(1));
+    if (hash.get('access_token') && hash.get('type') === 'recovery') {
+      return { token: hash.get('access_token'), source: 'hash' };
+    }
+
+    return null;
+  }
+
+  async function init() {
+    // If no token in URL, this page was visited directly
+    const tokenData = getToken();
+    if (!tokenData) {
+      show('reset-invalid');
+      return;
+    }
+
+    // Check if already logged in (shouldn't reset if they have an active session)
+    try {
+      const statusRes = await fetch('/.netlify/functions/auth-status', {
+        credentials: 'same-origin',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+      });
+      const status = await statusRes.json();
+      if (status.authenticated) {
+        show('reset-already-logged-in');
+        return;
+      }
+    } catch { /* non-fatal */ }
+
+    // Token present — show the form
+    show('reset-form-panel');
+
+    // Wire up form
+    const form = document.getElementById('reset-password-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('[type="submit"]');
+      const errBox = document.getElementById('reset-form-error');
+      const errMsg = document.getElementById('reset-form-error-msg');
+
+      const password  = document.getElementById('new-password').value;
+      const password2 = document.getElementById('new-password2').value;
+
+      errBox.style.display = 'none';
+
+      if (password.length < 8) {
+        errMsg.textContent = 'Password must be at least 8 characters.';
+        errBox.style.display = 'flex';
+        return;
+      }
+      if (password !== password2) {
+        errMsg.textContent = 'Passwords do not match.';
+        errBox.style.display = 'flex';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Updating…';
+
+      try {
+        const res = await fetch('/.netlify/functions/auth-reset-password', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({ token: tokenData.token, password }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.ok) {
+          // Clear the token from the URL so it can't be reused from history
+          history.replaceState(null, '', window.location.pathname);
+          show('reset-success');
+        } else {
+          errMsg.textContent = data.error || 'Unable to reset password. Please request a new link.';
+          errBox.style.display = 'flex';
+          btn.disabled = false;
+          btn.textContent = 'Set New Password';
+        }
+      } catch {
+        errMsg.textContent = 'A network error occurred. Please try again.';
+        errBox.style.display = 'flex';
+        btn.disabled = false;
+        btn.textContent = 'Set New Password';
+      }
+    });
+  }
+
+  init();
+})();
+</script>
