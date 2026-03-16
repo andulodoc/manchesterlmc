@@ -365,13 +365,29 @@
     dialog.showModal();
   }
 
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animatedClose(callback) {
+    if (reducedMotion) {
+      dialog.close();
+      if (callback) callback();
+      return;
+    }
+    dialog.classList.add('closing');
+    dialog.addEventListener('animationend', function handler() {
+      dialog.removeEventListener('animationend', handler);
+      dialog.classList.remove('closing');
+      dialog.close();
+      if (callback) callback();
+    });
+  }
+
   function accept() {
     localStorage.setItem('manchesterlmc-disclaimer-accepted', 'true');
-    dialog.close();
+    animatedClose();
   }
 
   document.getElementById('accept-disclaimer').addEventListener('click', accept);
-  document.getElementById('disclaimer-close').addEventListener('click', () => dialog.close());
 
   const decline = document.getElementById('view-again-disclaimer');
   if (decline) decline.addEventListener('click', () => { window.location.href = 'https://www.manchesterlmc.co.uk'; });
