@@ -184,7 +184,7 @@ showDisclaimer: false
   function show(el) { el.style.display = ''; }
   function hide(el) { el.style.display = 'none'; }
 
-  fetch('/api/auth-status', { credentials: 'include' })
+  fetch('/.netlify/functions/auth-status', { credentials: 'include' })
     .then(function (r) { return r.json(); })
     .then(function (data) {
       hide(loading);
