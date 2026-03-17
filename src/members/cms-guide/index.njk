@@ -19,7 +19,7 @@ showDisclaimer: false
 <section class="section">
   <div class="container">
 
-    <!-- Access denied (shown if not lmc_admin) -->
+    <!-- Access denied -->
     <div id="cms-access-denied" style="display:none; max-width:520px; margin:0 auto; text-align:center;">
       <div class="alert alert--warning">
         {% icon "lock", 20 %}
@@ -32,145 +32,268 @@ showDisclaimer: false
       <p style="color:var(--colour-muted);">Checking access…</p>
     </div>
 
-    <!-- Guide content (shown once access confirmed) -->
+    <!-- Guide content -->
     <div id="cms-guide-content" style="display:none;">
 
-      <div style="max-width:800px;">
-
-        <!-- Quick-start alert -->
-        <div class="alert alert--info" style="margin-bottom:2.5rem;">
-          {% icon "info", 20 %}
-          <div><strong>Quick start:</strong> Open the CMS at <a href="/admin/" target="_blank" rel="noopener">/admin/</a>. Log in with your Netlify Identity account (separate from your member login). Any changes you save are published to the live site within about 60 seconds.</div>
+      <!-- Launch CMS + intro panel -->
+      <div style="display:flex; flex-wrap:wrap; gap:var(--space-10); align-items:center; margin-bottom:var(--space-12); padding:var(--space-10); background:var(--colour-primary); border-radius:var(--radius-xl); color:white;">
+        <div style="flex:1; min-width:260px;">
+          <span class="section-eyebrow" style="color:var(--colour-accent-light);">Decap CMS</span>
+          <h2 style="color:white; margin-bottom:var(--space-4);">What is the CMS?</h2>
+          <p style="color:rgba(255,255,255,.8); margin-bottom:var(--space-6);">A browser-based editor that lets authorised administrators update site content without touching code. Changes save to GitHub and the site rebuilds automatically — changes appear live within about 60 seconds.</p>
+          <a href="/admin/" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
+            {% icon "external-link", 18 %}
+            Launch CMS
+          </a>
         </div>
-
-        <!-- What is the CMS -->
-        <h2>What is the CMS?</h2>
-        <p>The Manchester LMC website uses <strong>Decap CMS</strong> (formerly Netlify CMS) — a browser-based editor that lets authorised administrators update site content without touching code. Changes are saved directly to the GitHub repository and automatically trigger a new site build on Netlify.</p>
-        <p>The CMS is only accessible to accounts with <strong>lmc_admin</strong> role. It is separate from the member login system — you will need a Netlify Identity invitation to access it.</p>
-
-        <!-- How to log in -->
-        <h2 style="margin-top:2.5rem;">Logging in</h2>
-        <ol style="line-height:2; padding-left:1.5rem;">
-          <li>Go to <a href="/admin/" target="_blank" rel="noopener">manchesterlmc.co.uk/admin/</a></li>
-          <li>Click <strong>Login with Netlify Identity</strong></li>
-          <li>Enter the email address you were invited with and your password</li>
-          <li>You will land on the CMS dashboard showing the collection list</li>
-        </ol>
-        <p>If you have not received an invitation, ask the site owner to invite you via the Netlify dashboard under <strong>Identity → Invite users</strong>.</p>
-
-        <!-- Collections overview -->
-        <h2 style="margin-top:2.5rem;">Collections</h2>
-        <p>Content is organised into <strong>collections</strong> — groups of similar pages or posts. They appear in the left-hand sidebar in order of how frequently they are used.</p>
-
-        <div style="overflow-x:auto; margin-bottom:2rem;">
-          <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
-            <thead>
-              <tr style="background:var(--colour-surface); text-align:left;">
-                <th style="padding:0.75rem 1rem; border-bottom:2px solid var(--colour-border);">Collection</th>
-                <th style="padding:0.75rem 1rem; border-bottom:2px solid var(--colour-border);">What it controls</th>
-                <th style="padding:0.75rem 1rem; border-bottom:2px solid var(--colour-border);">Format</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>News</strong></td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">News articles shown on the News page and home page</td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Individual posts</td>
-              </tr>
-              <tr>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>Events</strong></td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Upcoming events and meetings listed on the Events page</td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Individual posts</td>
-              </tr>
-              <tr>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>Guidance</strong></td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Clinical and practice guidance documents</td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Individual posts</td>
-              </tr>
-              <tr>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>Vacancies</strong></td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">GP and practice job listings</td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Individual posts</td>
-              </tr>
-              <tr>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>Pages</strong></td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Standalone informational pages (About, Support, etc.)</td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Single pages</td>
-              </tr>
-              <tr>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>Homepage</strong></td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Hero text, stats, and featured section on the home page</td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Single file</td>
-              </tr>
-              <tr>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>People</strong></td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Committee members shown on the About page</td>
-                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Individual entries</td>
-              </tr>
-              <tr>
-                <td style="padding:0.75rem 1rem;"><strong>Settings</strong></td>
-                <td style="padding:0.75rem 1rem;">Site-wide settings: name, contact details, navigation, social links</td>
-                <td style="padding:0.75rem 1rem;">Single file</td>
-              </tr>
-            </tbody>
-          </table>
+        <div style="flex-shrink:0; display:grid; grid-template-columns:1fr 1fr; gap:var(--space-6); text-align:center;">
+          <div>
+            <div style="font-family:var(--font-heading); font-size:2.25rem; font-weight:700; color:white; line-height:1;">~60s</div>
+            <div style="font-size:.875rem; color:rgba(255,255,255,.65); margin-top:var(--space-1);">To go live</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-heading); font-size:2.25rem; font-weight:700; color:white; line-height:1;">8</div>
+            <div style="font-size:.875rem; color:rgba(255,255,255,.65); margin-top:var(--space-1);">Collections</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-heading); font-size:2.25rem; font-weight:700; color:white; line-height:1;">0</div>
+            <div style="font-size:.875rem; color:rgba(255,255,255,.65); margin-top:var(--space-1);">Code needed</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-heading); font-size:2.25rem; font-weight:700; color:var(--colour-accent-light); line-height:1;">Free</div>
+            <div style="font-size:.875rem; color:rgba(255,255,255,.65); margin-top:var(--space-1);">To use</div>
+          </div>
         </div>
-
-        <!-- Common tasks -->
-        <h2 style="margin-top:2.5rem;">Common tasks</h2>
-
-        <h3 style="margin-top:1.5rem;">Adding a news article</h3>
-        <ol style="line-height:2; padding-left:1.5rem;">
-          <li>In the CMS sidebar click <strong>News</strong></li>
-          <li>Click <strong>New News</strong> (top right)</li>
-          <li>Fill in the <strong>Title</strong>, <strong>Date</strong>, <strong>Category</strong>, and <strong>Summary</strong></li>
-          <li>Write the article body in the rich-text editor</li>
-          <li>Optionally tick <strong>Featured</strong> to show this article in the home page highlights section</li>
-          <li>Click <strong>Save</strong> — the article will be published within a minute</li>
-        </ol>
-
-        <h3 style="margin-top:1.5rem;">Adding an event</h3>
-        <ol style="line-height:2; padding-left:1.5rem;">
-          <li>In the CMS sidebar click <strong>Events</strong></li>
-          <li>Click <strong>New Event</strong></li>
-          <li>Fill in <strong>Title</strong>, <strong>Date</strong>, <strong>Time</strong>, <strong>Location</strong>, and <strong>Description</strong></li>
-          <li>Add a registration link if there is one</li>
-          <li>Click <strong>Save</strong></li>
-        </ol>
-
-        <h3 style="margin-top:1.5rem;">Editing a page</h3>
-        <ol style="line-height:2; padding-left:1.5rem;">
-          <li>In the CMS sidebar click <strong>Pages</strong></li>
-          <li>Click the page you want to edit</li>
-          <li>Make your changes in the editor</li>
-          <li>Click <strong>Save</strong></li>
-        </ol>
-
-        <h3 style="margin-top:1.5rem;">Updating contact details or navigation</h3>
-        <ol style="line-height:2; padding-left:1.5rem;">
-          <li>In the CMS sidebar click <strong>Settings</strong></li>
-          <li>Edit the relevant field (address, phone, email, nav items, etc.)</li>
-          <li>Click <strong>Save</strong></li>
-        </ol>
-
-        <!-- Tips -->
-        <h2 style="margin-top:2.5rem;">Tips and notes</h2>
-        <ul style="line-height:2; padding-left:1.5rem;">
-          <li><strong>Changes take ~60 seconds</strong> to appear on the live site — Netlify rebuilds the site automatically after each save.</li>
-          <li><strong>Drafts:</strong> The CMS saves a draft automatically. You must click <strong>Publish</strong> (or set status to Published) for content to appear on the site.</li>
-          <li><strong>Rich text vs Markdown:</strong> The body editor has a toggle in the top right — switch to Markdown view if you need to add custom HTML or complex formatting.</li>
-          <li><strong>Images:</strong> Upload images directly in the CMS editor. They are stored in the repository under <code>src/assets/images/uploads/</code>. Keep file sizes below 500 KB where possible.</li>
-          <li><strong>Deleting content:</strong> Select the item in the collection, open the options menu (three dots), and choose <strong>Delete</strong>. This cannot be undone through the CMS — contact the developer if you need to recover deleted content (it remains in git history).</li>
-          <li><strong>The CMS login is separate</strong> from your member area login. If you forget your CMS password use the <em>Forgot password</em> link on the CMS login screen.</li>
-        </ul>
-
-        <!-- Need help -->
-        <div class="alert alert--info" style="margin-top:2.5rem;">
-          {% icon "help-circle", 20 %}
-          <div><strong>Need help?</strong> Contact the site administrator or email <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a> if you encounter issues with the CMS.</div>
-        </div>
-
       </div>
+
+      <!-- Login instructions -->
+      <div style="margin-bottom:var(--space-12);">
+        <div class="section-header" style="margin-bottom:var(--space-8);">
+          <span class="section-eyebrow">Getting Started</span>
+          <h2>Logging In</h2>
+          <p>The CMS login is <strong>separate</strong> from your member area login — you need a Netlify Identity invitation.</p>
+        </div>
+        <div class="grid-2" style="align-items:start; gap:var(--space-8);">
+          <div>
+            <ol style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:var(--space-5);">
+              <li style="display:flex; gap:var(--space-4); align-items:flex-start;">
+                <span style="flex-shrink:0; width:2rem; height:2rem; border-radius:50%; background:var(--colour-accent); color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.875rem;">1</span>
+                <div><strong>Go to <a href="/admin/" target="_blank" rel="noopener">/admin/</a></strong><br><span style="color:var(--colour-muted); font-size:.9rem;">Or click the Launch CMS button above</span></div>
+              </li>
+              <li style="display:flex; gap:var(--space-4); align-items:flex-start;">
+                <span style="flex-shrink:0; width:2rem; height:2rem; border-radius:50%; background:var(--colour-accent); color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.875rem;">2</span>
+                <div><strong>Click "Login with Netlify Identity"</strong><br><span style="color:var(--colour-muted); font-size:.9rem;">This uses a separate account from your member login</span></div>
+              </li>
+              <li style="display:flex; gap:var(--space-4); align-items:flex-start;">
+                <span style="flex-shrink:0; width:2rem; height:2rem; border-radius:50%; background:var(--colour-accent); color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.875rem;">3</span>
+                <div><strong>Enter your invited email and password</strong><br><span style="color:var(--colour-muted); font-size:.9rem;">Check your inbox for an invitation if this is your first time</span></div>
+              </li>
+              <li style="display:flex; gap:var(--space-4); align-items:flex-start;">
+                <span style="flex-shrink:0; width:2rem; height:2rem; border-radius:50%; background:var(--colour-accent); color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.875rem;">4</span>
+                <div><strong>You'll land on the CMS dashboard</strong><br><span style="color:var(--colour-muted); font-size:.9rem;">Collections are listed in the left-hand sidebar</span></div>
+              </li>
+            </ol>
+          </div>
+          <div style="background:var(--colour-neutral); border-radius:var(--radius-lg); padding:var(--space-8); border:1px solid var(--colour-border);">
+            <h3 style="font-size:1rem; margin-bottom:var(--space-4);">No invitation yet?</h3>
+            <p style="font-size:.9rem; color:var(--colour-muted); margin-bottom:var(--space-4);">Ask the site owner to invite you via the Netlify dashboard under <strong>Identity → Invite users</strong>. You'll receive an email with a link to set your password.</p>
+            <div style="border-top:1px solid var(--colour-border); padding-top:var(--space-4); margin-top:var(--space-4);">
+              <p style="font-size:.875rem; color:var(--colour-muted); margin:0;">Forgotten your CMS password? Use the <em>Forgot password</em> link on the CMS login screen — it's separate from the member area password reset.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collections -->
+      <div class="section--neutral" style="border-radius:var(--radius-xl); padding:var(--space-10); margin-bottom:var(--space-12);">
+        <div class="section-header" style="margin-bottom:var(--space-8);">
+          <span class="section-eyebrow">Content Types</span>
+          <h2>Collections</h2>
+          <p>Content is organised into collections — groups of similar pages or posts. They appear in the left sidebar in order of how frequently they're used.</p>
+        </div>
+        <div class="grid-2" style="gap:var(--space-5);">
+
+          <div class="service-card" style="border-left:4px solid var(--colour-accent);">
+            <div class="service-card-icon">{% icon "file-text", 24 %}</div>
+            <h3>News</h3>
+            <p style="font-size:.9rem; color:var(--colour-muted);">News articles displayed on the News page and home page highlights. Supports categories, featured flag, and optional images.</p>
+          </div>
+
+          <div class="service-card" style="border-left:4px solid var(--colour-accent);">
+            <div class="service-card-icon">{% icon "calendar", 24 %}</div>
+            <h3>Events</h3>
+            <p style="font-size:.9rem; color:var(--colour-muted);">Upcoming meetings and events listed on the Events page. Include date, time, location, and optional registration link.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card-icon">{% icon "book-open", 24 %}</div>
+            <h3>Guidance</h3>
+            <p style="font-size:.9rem; color:var(--colour-muted);">Clinical and practice guidance documents. Supports categories and file attachments.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card-icon">{% icon "briefcase", 24 %}</div>
+            <h3>Vacancies</h3>
+            <p style="font-size:.9rem; color:var(--colour-muted);">GP and practice job listings. Set a closing date and include application instructions or a link.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card-icon">{% icon "layout", 24 %}</div>
+            <h3>Pages</h3>
+            <p style="font-size:.9rem; color:var(--colour-muted);">Standalone informational pages such as About, Support, and Contact. Edit body copy and SEO metadata.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card-icon">{% icon "home", 24 %}</div>
+            <h3>Homepage</h3>
+            <p style="font-size:.9rem; color:var(--colour-muted);">Hero headline, subtext, stats, and featured section content shown on the site's home page.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card-icon">{% icon "users", 24 %}</div>
+            <h3>People</h3>
+            <p style="font-size:.9rem; color:var(--colour-muted);">Committee member profiles shown on the About / Team page. Includes name, role, and photo.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card-icon">{% icon "settings", 24 %}</div>
+            <h3>Settings</h3>
+            <p style="font-size:.9rem; color:var(--colour-muted);">Site-wide configuration: contact details, navigation items, social links, and footer text.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Common tasks -->
+      <div style="margin-bottom:var(--space-12);">
+        <div class="section-header" style="margin-bottom:var(--space-8);">
+          <span class="section-eyebrow">Step-by-Step</span>
+          <h2>Common Tasks</h2>
+        </div>
+        <div class="grid-2" style="gap:var(--space-6); align-items:start;">
+
+          <div style="background:var(--colour-neutral); border-radius:var(--radius-lg); padding:var(--space-8); border:1px solid var(--colour-border);">
+            <div style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-5);">
+              <span style="background:var(--colour-accent); border-radius:var(--radius-md); padding:var(--space-2); display:flex; color:white;">{% icon "file-text", 20 %}</span>
+              <h3 style="margin:0; font-size:1.0625rem;">Adding a news article</h3>
+            </div>
+            <ol style="padding-left:1.25rem; margin:0; color:var(--colour-muted); font-size:.9rem; line-height:1.9;">
+              <li>In the sidebar click <strong style="color:var(--colour-text);">News</strong></li>
+              <li>Click <strong style="color:var(--colour-text);">New News</strong> (top right)</li>
+              <li>Fill in Title, Date, Category, and Summary</li>
+              <li>Write the body in the rich-text editor</li>
+              <li>Tick <strong style="color:var(--colour-text);">Featured</strong> to show on the home page</li>
+              <li>Click <strong style="color:var(--colour-text);">Publish</strong></li>
+            </ol>
+          </div>
+
+          <div style="background:var(--colour-neutral); border-radius:var(--radius-lg); padding:var(--space-8); border:1px solid var(--colour-border);">
+            <div style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-5);">
+              <span style="background:var(--colour-accent); border-radius:var(--radius-md); padding:var(--space-2); display:flex; color:white;">{% icon "calendar", 20 %}</span>
+              <h3 style="margin:0; font-size:1.0625rem;">Adding an event</h3>
+            </div>
+            <ol style="padding-left:1.25rem; margin:0; color:var(--colour-muted); font-size:.9rem; line-height:1.9;">
+              <li>In the sidebar click <strong style="color:var(--colour-text);">Events</strong></li>
+              <li>Click <strong style="color:var(--colour-text);">New Event</strong></li>
+              <li>Fill in Title, Date, Time, Location, and Description</li>
+              <li>Add a registration link if there is one</li>
+              <li>Click <strong style="color:var(--colour-text);">Publish</strong></li>
+            </ol>
+          </div>
+
+          <div style="background:var(--colour-neutral); border-radius:var(--radius-lg); padding:var(--space-8); border:1px solid var(--colour-border);">
+            <div style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-5);">
+              <span style="background:var(--colour-primary); border-radius:var(--radius-md); padding:var(--space-2); display:flex; color:white;">{% icon "layout", 20 %}</span>
+              <h3 style="margin:0; font-size:1.0625rem;">Editing a page</h3>
+            </div>
+            <ol style="padding-left:1.25rem; margin:0; color:var(--colour-muted); font-size:.9rem; line-height:1.9;">
+              <li>In the sidebar click <strong style="color:var(--colour-text);">Pages</strong></li>
+              <li>Click the page you want to edit</li>
+              <li>Make your changes in the editor</li>
+              <li>Click <strong style="color:var(--colour-text);">Save</strong></li>
+            </ol>
+          </div>
+
+          <div style="background:var(--colour-neutral); border-radius:var(--radius-lg); padding:var(--space-8); border:1px solid var(--colour-border);">
+            <div style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-5);">
+              <span style="background:var(--colour-primary); border-radius:var(--radius-md); padding:var(--space-2); display:flex; color:white;">{% icon "settings", 20 %}</span>
+              <h3 style="margin:0; font-size:1.0625rem;">Updating contact details or navigation</h3>
+            </div>
+            <ol style="padding-left:1.25rem; margin:0; color:var(--colour-muted); font-size:.9rem; line-height:1.9;">
+              <li>In the sidebar click <strong style="color:var(--colour-text);">Settings</strong></li>
+              <li>Edit the relevant field</li>
+              <li>Click <strong style="color:var(--colour-text);">Save</strong></li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tips -->
+      <div style="margin-bottom:var(--space-12);">
+        <div class="section-header" style="margin-bottom:var(--space-8);">
+          <span class="section-eyebrow">Good to Know</span>
+          <h2>Tips &amp; Notes</h2>
+        </div>
+        <div class="grid-3" style="gap:var(--space-5);">
+
+          <div style="padding:var(--space-6); background:var(--colour-neutral); border-radius:var(--radius-lg); border:1px solid var(--colour-border);">
+            <div style="color:var(--colour-accent); margin-bottom:var(--space-3);">{% icon "clock", 22 %}</div>
+            <h3 style="font-size:1rem; margin-bottom:var(--space-2);">Changes take ~60 seconds</h3>
+            <p style="font-size:.875rem; color:var(--colour-muted); margin:0;">Netlify rebuilds the site automatically after each save. Refresh the live site after a minute to see your changes.</p>
+          </div>
+
+          <div style="padding:var(--space-6); background:var(--colour-neutral); border-radius:var(--radius-lg); border:1px solid var(--colour-border);">
+            <div style="color:var(--colour-accent); margin-bottom:var(--space-3);">{% icon "toggle-left", 22 %}</div>
+            <h3 style="font-size:1rem; margin-bottom:var(--space-2);">Draft vs Published</h3>
+            <p style="font-size:.875rem; color:var(--colour-muted); margin:0;">Content is saved as a Draft until you explicitly publish it. Use the status dropdown (top of the editor) to set it to <em>Published</em>.</p>
+          </div>
+
+          <div style="padding:var(--space-6); background:var(--colour-neutral); border-radius:var(--radius-lg); border:1px solid var(--colour-border);">
+            <div style="color:var(--colour-accent); margin-bottom:var(--space-3);">{% icon "code", 22 %}</div>
+            <h3 style="font-size:1rem; margin-bottom:var(--space-2);">Rich text vs Markdown</h3>
+            <p style="font-size:.875rem; color:var(--colour-muted); margin:0;">Toggle between views using the button in the top-right of the body editor. Use Markdown view for custom HTML or complex formatting.</p>
+          </div>
+
+          <div style="padding:var(--space-6); background:var(--colour-neutral); border-radius:var(--radius-lg); border:1px solid var(--colour-border);">
+            <div style="color:var(--colour-accent); margin-bottom:var(--space-3);">{% icon "image", 22 %}</div>
+            <h3 style="font-size:1rem; margin-bottom:var(--space-2);">Images</h3>
+            <p style="font-size:.875rem; color:var(--colour-muted); margin:0;">Upload images directly in the editor. Keep files below 500 KB. They're stored in <code style="font-size:.8rem;">src/assets/images/uploads/</code>.</p>
+          </div>
+
+          <div style="padding:var(--space-6); background:var(--colour-neutral); border-radius:var(--radius-lg); border:1px solid var(--colour-border);">
+            <div style="color:var(--colour-muted); margin-bottom:var(--space-3);">{% icon "trash-2", 22 %}</div>
+            <h3 style="font-size:1rem; margin-bottom:var(--space-2);">Deleting content</h3>
+            <p style="font-size:.875rem; color:var(--colour-muted); margin:0;">Open the three-dot menu on any item and choose <em>Delete</em>. Content can be recovered from git history — contact the developer if needed.</p>
+          </div>
+
+          <div style="padding:var(--space-6); background:var(--colour-neutral); border-radius:var(--radius-lg); border:1px solid var(--colour-border);">
+            <div style="color:var(--colour-muted); margin-bottom:var(--space-3);">{% icon "lock", 22 %}</div>
+            <h3 style="font-size:1rem; margin-bottom:var(--space-2);">Separate login</h3>
+            <p style="font-size:.875rem; color:var(--colour-muted); margin:0;">The CMS uses Netlify Identity, which is entirely separate from the member area login. Reset your CMS password from the CMS login screen.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Need help CTA -->
+      <div style="background:var(--colour-primary); border-radius:var(--radius-xl); padding:var(--space-10); display:flex; flex-wrap:wrap; gap:var(--space-6); align-items:center; justify-content:space-between;">
+        <div>
+          <h3 style="color:white; margin-bottom:var(--space-2);">Need help with the CMS?</h3>
+          <p style="color:rgba(255,255,255,.75); margin:0;">Contact the site administrator or email the LMC office.</p>
+        </div>
+        <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">
+          <a href="mailto:{{ site.contact.email }}" class="btn btn--secondary">
+            {% icon "mail", 18 %}
+            Email the office
+          </a>
+          <a href="/admin/" target="_blank" rel="noopener" class="btn btn--primary">
+            {% icon "external-link", 18 %}
+            Launch CMS
+          </a>
+        </div>
+      </div>
+
     </div><!-- /cms-guide-content -->
   </div>
 </section>
