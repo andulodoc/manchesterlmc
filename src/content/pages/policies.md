@@ -16,6 +16,7 @@ order: 4
 hideFromNav: true
 sections:
   - type: markdown
+    id: privacy
     heading: Privacy Policy
     body: |
       Manchester LMC takes the privacy of its members and website users seriously. This policy explains how we collect, use, and protect personal data in accordance with the UK GDPR and Data Protection Act 2018.
@@ -29,6 +30,7 @@ sections:
       **Your rights:** Under UK GDPR you have the right to access, correct, or delete your personal data. Contact our Managing Director to exercise these rights.
 
   - type: markdown
+    id: accessibility
     heading: Accessibility Statement
     body: |
       Manchester LMC is committed to making this website accessible in accordance with the Public Sector Bodies (Websites and Mobile Applications) Accessibility Regulations 2018.
@@ -36,6 +38,7 @@ sections:
       This website aims to meet WCAG 2.1 Level AA standards. We welcome feedback on accessibility — please [contact us](/contact/) if you experience any barriers.
 
   - type: markdown
+    id: cookies
     heading: Cookie Policy
     body: |
       This website uses cookies to:
