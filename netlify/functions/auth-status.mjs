@@ -1,10 +1,15 @@
-import { supabaseAdmin } from "./_shared/supabase.mjs";
+import { supabaseAnon, supabaseAdmin } from "./_shared/supabase.mjs";
 import { parseCookies, accessCookie, refreshCookie } from "./_shared/cookies.mjs";
 import { methodNotAllowed } from "./_shared/response.mjs";
 
+const JSON_HEADERS = {
+  "Content-Type": "application/json",
+  "Cache-Control": "no-store, no-cache",
+};
+
 const NOT_AUTHENTICATED = {
   statusCode: 200,
-  headers: { "Content-Type": "application/json" },
+  headers: JSON_HEADERS,
   body: JSON.stringify({ authenticated: false }),
 };
 
@@ -15,15 +20,19 @@ export const handler = async (event) => {
   const accessToken = cookies.sb_access_token;
   const refreshToken = cookies.sb_refresh_token;
 
+  console.log("[auth-status] has access_token:", !!accessToken, "has refresh_token:", !!refreshToken);
+
   // ── Try access token first ──────────────────────────────────
   if (accessToken) {
-    const { data, error } = await supabaseAdmin.auth.getUser(accessToken);
-    if (!error && data?.user) {
+    const { data, error } = await supabaseAnon.auth.getUser(accessToken);
+    if (error) {
+      console.log("[auth-status] getUser error:", error.message);
+    } else if (data?.user) {
       const profile = await getProfile(data.user.id);
       if (profile && profile.status === "active") {
         return {
           statusCode: 200,
-          headers: { "Content-Type": "application/json" },
+          headers: JSON_HEADERS,
           body: JSON.stringify({
             authenticated: true,
             displayName: `${profile.first_name} ${profile.last_name}`,
@@ -31,18 +40,21 @@ export const handler = async (event) => {
           }),
         };
       }
+      console.log("[auth-status] profile missing or inactive:", profile?.status);
     }
   }
 
   // ── Access token missing/expired — try refresh ──────────────
   if (refreshToken) {
-    const { data, error } = await supabaseAdmin.auth.refreshSession({ refresh_token: refreshToken });
-    if (!error && data?.session && data?.user) {
+    const { data, error } = await supabaseAnon.auth.refreshSession({ refresh_token: refreshToken });
+    if (error) {
+      console.log("[auth-status] refreshSession error:", error.message);
+    } else if (data?.session && data?.user) {
       const profile = await getProfile(data.user.id);
       if (profile && profile.status === "active") {
         return {
           statusCode: 200,
-          headers: { "Content-Type": "application/json" },
+          headers: JSON_HEADERS,
           multiValueHeaders: {
             "Set-Cookie": [
               accessCookie(data.session.access_token),
@@ -56,9 +68,11 @@ export const handler = async (event) => {
           }),
         };
       }
+      console.log("[auth-status] refresh profile missing or inactive:", profile?.status);
     }
   }
 
+  console.log("[auth-status] returning not authenticated");
   return NOT_AUTHENTICATED;
 };
 
