@@ -1,4 +1,4 @@
-<section class="section"{% if section.id %} id="{{ section.id }}"{% endif %}>
+<section class="section section--prose"{% if section.id %} id="{{ section.id }}"{% endif %}>
   <div class="container">
     {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
     <div class="prose">{{ section.body | markdown | safe }}</div>

@@ -151,6 +151,45 @@ p:last-child {
 
 strong { font-weight: 600; }
 
+/* ── Prose ────────────────────────────────────────────────── */
+/* Applied to markdown-rendered body copy */
+.prose h2,
+.prose h3,
+.prose h4 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-3);
+}
+
+.prose h2:first-child,
+.prose h3:first-child,
+.prose h4:first-child {
+  margin-top: 0;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+
+.prose li {
+  margin-bottom: var(--space-2);
+  max-width: 70ch;
+}
+
+.prose li:last-child {
+  margin-bottom: 0;
+}
+
+/* Bridge the gap between a section heading and its prose block */
+h2 + .prose,
+h3 + .prose {
+  margin-top: var(--space-3);
+}
+
 /* ── Layout Utilities ─────────────────────────────────────── */
 .container {
   width: 100%;
@@ -167,6 +206,10 @@ strong { font-weight: 600; }
 
 .section {
   padding-block: var(--space-16);
+}
+
+.section--prose {
+  padding-block: var(--space-10);
 }
 
 .section--neutral {
