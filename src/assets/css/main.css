@@ -131,6 +131,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.2;
   color: var(--colour-primary);
+  margin-bottom: var(--space-3);
 }
 
 h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
