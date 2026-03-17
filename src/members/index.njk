@@ -237,6 +237,65 @@ showDisclaimer: true
 
             <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid var(--colour-border);">
 
+            <!-- Account section -->
+            <div>
+              <button id="account-toggle" class="btn btn--sm btn--outline" style="margin-bottom:1rem;" aria-expanded="false" aria-controls="account-panel">
+                {% icon "settings", 16 %}
+                Account Settings
+              </button>
+
+              <div id="account-panel" style="display:none;">
+
+                <!-- Update name -->
+                <div class="card" style="padding:1.5rem; margin-bottom:1rem;">
+                  <h3 style="margin-top:0; font-size:1rem;">Your Details</h3>
+                  <form id="profile-form" novalidate>
+                    <div class="grid-2" style="gap:1rem;">
+                      <div class="form-group">
+                        <label class="form-label" for="profile-firstname">First name</label>
+                        <input class="form-input" type="text" id="profile-firstname" name="firstname" autocomplete="given-name" required>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="profile-lastname">Last name</label>
+                        <input class="form-input" type="text" id="profile-lastname" name="lastname" autocomplete="family-name" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Email address</label>
+                      <p id="profile-email" style="margin:0; padding:0.6rem 0; font-size:0.95rem; color:var(--colour-muted);">—</p>
+                      <span class="form-hint">To change your email address, contact <a href="mailto:info@manchesterlmc.co.uk">info@manchesterlmc.co.uk</a></span>
+                    </div>
+                    <div id="profile-feedback" class="alert" style="display:none; margin-bottom:1rem;"></div>
+                    <button type="submit" class="btn btn--primary btn--sm">Save Changes</button>
+                  </form>
+                </div>
+
+                <!-- Change password -->
+                <div class="card" style="padding:1.5rem;">
+                  <h3 style="margin-top:0; font-size:1rem;">Change Password</h3>
+                  <form id="password-form" novalidate>
+                    <div class="form-group">
+                      <label class="form-label" for="current-password">Current password</label>
+                      <input class="form-input" type="password" id="current-password" name="currentPassword" autocomplete="current-password" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="change-password">New password</label>
+                      <input class="form-input" type="password" id="change-password" name="newPassword" autocomplete="new-password" required minlength="8" placeholder="Minimum 8 characters">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="change-password2">Confirm new password</label>
+                      <input class="form-input" type="password" id="change-password2" name="newPassword2" autocomplete="new-password" required minlength="8">
+                    </div>
+                    <div id="password-feedback" class="alert" style="display:none; margin-bottom:1rem;"></div>
+                    <button type="submit" class="btn btn--primary btn--sm">Update Password</button>
+                  </form>
+                </div>
+
+              </div><!-- /account-panel -->
+            </div>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--colour-border);">
+
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
               <div>
                 <p style="margin: 0; font-size: 0.9rem; color: var(--colour-muted);">Logged in as <strong id="member-display-name"></strong></p>

@@ -448,6 +448,9 @@
       window.__manchesterLMC.updateVacancyGate(true);
     }
 
+    // Load profile data into account settings form
+    loadProfile();
+
     // Update nav login/register buttons
     const navLogin    = document.querySelector('.nav-utility-btn[href="/members/"]');
     const navRegister = document.querySelector('.nav-utility-btn[href="/members/#register"]');
@@ -603,6 +606,127 @@
     }
     box.textContent = message;
     box.style.display = 'flex';
+  }
+
+  /* ── Account settings toggle ── */
+  const accountToggle = document.getElementById('account-toggle');
+  const accountPanel  = document.getElementById('account-panel');
+  if (accountToggle && accountPanel) {
+    accountToggle.addEventListener('click', () => {
+      const showing = accountPanel.style.display !== 'none';
+      accountPanel.style.display = showing ? 'none' : 'block';
+      accountToggle.setAttribute('aria-expanded', showing ? 'false' : 'true');
+    });
+  }
+
+  /* ── Load profile into form ── */
+  async function loadProfile() {
+    const res = await fetch('/.netlify/functions/auth-profile', {
+      credentials: 'same-origin',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    }).catch(() => null);
+    if (!res || !res.ok) return;
+    const data = await res.json();
+    const fn = document.getElementById('profile-firstname');
+    const ln = document.getElementById('profile-lastname');
+    const em = document.getElementById('profile-email');
+    if (fn) fn.value = data.firstName || '';
+    if (ln) ln.value = data.lastName || '';
+    if (em) em.textContent = data.email || '';
+  }
+
+  /* ── Profile update form ── */
+  const profileForm = document.getElementById('profile-form');
+  if (profileForm) {
+    profileForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = profileForm.querySelector('[type="submit"]');
+      const feedback = document.getElementById('profile-feedback');
+      btn.disabled = true;
+      btn.textContent = 'Saving…';
+      feedback.style.display = 'none';
+      try {
+        const res = await fetch('/.netlify/functions/auth-profile', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+          body: JSON.stringify({
+            firstName: document.getElementById('profile-firstname').value.trim(),
+            lastName:  document.getElementById('profile-lastname').value.trim(),
+          }),
+        });
+        const data = await res.json();
+        if (res.ok && data.ok) {
+          feedback.className = 'alert alert--success';
+          feedback.textContent = 'Your details have been updated.';
+          feedback.style.display = 'flex';
+          const nameEl = document.getElementById('member-display-name');
+          if (nameEl && data.displayName) nameEl.textContent = data.displayName;
+        } else {
+          feedback.className = 'alert alert--warning';
+          feedback.textContent = data.error || 'Failed to update. Please try again.';
+          feedback.style.display = 'flex';
+        }
+      } catch {
+        feedback.className = 'alert alert--warning';
+        feedback.textContent = 'A network error occurred. Please try again.';
+        feedback.style.display = 'flex';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Save Changes';
+      }
+    });
+  }
+
+  /* ── Password change form ── */
+  const passwordForm = document.getElementById('password-form');
+  if (passwordForm) {
+    passwordForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = passwordForm.querySelector('[type="submit"]');
+      const feedback = document.getElementById('password-feedback');
+      const newPassword  = document.getElementById('change-password').value;
+      const newPassword2 = document.getElementById('change-password2').value;
+      feedback.style.display = 'none';
+      if (newPassword !== newPassword2) {
+        feedback.className = 'alert alert--warning';
+        feedback.textContent = 'New passwords do not match.';
+        feedback.style.display = 'flex';
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Updating…';
+      try {
+        const res = await fetch('/.netlify/functions/auth-change-password', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+          body: JSON.stringify({
+            currentPassword: document.getElementById('current-password').value,
+            newPassword,
+            newPassword2,
+          }),
+        });
+        const data = await res.json();
+        if (res.ok && data.ok) {
+          feedback.className = 'alert alert--success';
+          feedback.textContent = 'Password updated successfully.';
+          feedback.style.display = 'flex';
+          passwordForm.reset();
+        } else {
+          feedback.className = 'alert alert--warning';
+          feedback.textContent = data.error || 'Failed to update password. Please try again.';
+          feedback.style.display = 'flex';
+        }
+      } catch {
+        feedback.className = 'alert alert--warning';
+        feedback.textContent = 'A network error occurred. Please try again.';
+        feedback.style.display = 'flex';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Update Password';
+      }
+    });
   }
 
   /* ── Forgot password inline form ── */
