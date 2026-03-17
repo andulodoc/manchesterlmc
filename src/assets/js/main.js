@@ -413,9 +413,11 @@
     if (navLogin)    { navLogin.textContent = displayName.split(' ')[0]; }
     if (navRegister) { navRegister.style.display = 'none'; }
 
-    // Admin link
+    // Admin + CMS links (lmc_admin only)
     const adminLink = document.getElementById('nav-admin-link');
+    const cmsLink   = document.getElementById('nav-cms-link');
     if (adminLink && role === 'lmc_admin') adminLink.style.display = '';
+    if (cmsLink   && role === 'lmc_admin') cmsLink.style.display   = '';
 
     // Members page content
     const loginSection  = document.querySelector('.auth-tabs');
@@ -446,7 +448,9 @@
     if (navRegister) { navRegister.style.display = ''; }
 
     const adminLink = document.getElementById('nav-admin-link');
+    const cmsLink   = document.getElementById('nav-cms-link');
     if (adminLink) adminLink.style.display = 'none';
+    if (cmsLink)   cmsLink.style.display   = 'none';
 
     if (window.__manchesterLMC?.updateVacancyGate) {
       window.__manchesterLMC.updateVacancyGate(false);
