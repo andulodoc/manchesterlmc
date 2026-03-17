@@ -403,7 +403,68 @@
    ─────────────────────────────────────────────────────────── */
 (function () {
 
-  /* ── Auth state check on page load ── */
+  const AUTH_CACHE_KEY = 'mlmc_auth';
+
+  /* ── Apply nav state (shared by cache restore + server confirm) ── */
+  function applyAuthUI(displayName, role) {
+    // Nav buttons
+    const navLogin    = document.querySelector('.nav-utility-btn[href="/members/"]');
+    const navRegister = document.querySelector('.nav-utility-btn[href="/members/#register"]');
+    if (navLogin)    { navLogin.textContent = displayName.split(' ')[0]; }
+    if (navRegister) { navRegister.style.display = 'none'; }
+
+    // Admin link
+    const adminLink = document.getElementById('nav-admin-link');
+    if (adminLink && role === 'lmc_admin') adminLink.style.display = '';
+
+    // Members page content
+    const loginSection  = document.querySelector('.auth-tabs');
+    const loginPanel    = document.getElementById('panel-login');
+    const registerPanel = document.getElementById('panel-register');
+    const memberContent = document.getElementById('member-content');
+    const loggedInAs    = document.getElementById('member-display-name');
+
+    if (loginSection)  loginSection.style.display = 'none';
+    if (loginPanel)    loginPanel.style.display = 'none';
+    if (registerPanel) registerPanel.style.display = 'none';
+    if (memberContent) {
+      memberContent.style.display = 'block';
+      if (loggedInAs) loggedInAs.textContent = displayName;
+    }
+
+    // Vacancy gate
+    if (window.__manchesterLMC?.updateVacancyGate) {
+      window.__manchesterLMC.updateVacancyGate(true);
+    }
+  }
+
+  function clearAuthUI() {
+    // Restore nav to logged-out state
+    const navLogin    = document.querySelector('.nav-utility-btn[href="/members/"]');
+    const navRegister = document.querySelector('.nav-utility-btn[href="/members/#register"]');
+    if (navLogin)    { navLogin.textContent = 'Login'; }
+    if (navRegister) { navRegister.style.display = ''; }
+
+    const adminLink = document.getElementById('nav-admin-link');
+    if (adminLink) adminLink.style.display = 'none';
+
+    if (window.__manchesterLMC?.updateVacancyGate) {
+      window.__manchesterLMC.updateVacancyGate(false);
+    }
+  }
+
+  /* ── Step 1: restore from cache instantly (no flash) ── */
+  (function restoreFromCache() {
+    try {
+      const cached = sessionStorage.getItem(AUTH_CACHE_KEY);
+      if (cached) {
+        const { displayName, role } = JSON.parse(cached);
+        if (displayName) applyAuthUI(displayName, role);
+      }
+    } catch { /* ignore */ }
+  })();
+
+  /* ── Step 2: validate with server in background ── */
   async function checkAuthState() {
     try {
       const res = await fetch('/.netlify/functions/auth-status', {
@@ -419,49 +480,25 @@
         setUnauthenticated();
       }
     } catch {
-      setUnauthenticated();
+      // Network error — trust the cache rather than flashing logged-out
     }
   }
 
   function setAuthenticated(displayName, role) {
-    // Members page: show content, hide login/register panels
-    const loginSection = document.querySelector('.auth-tabs');
-    const loginPanel   = document.getElementById('panel-login');
-    const registerPanel = document.getElementById('panel-register');
-    const memberContent = document.getElementById('member-content');
-    const loggedInAs    = document.getElementById('member-display-name');
+    // Persist to sessionStorage so other pages render instantly
+    try {
+      sessionStorage.setItem(AUTH_CACHE_KEY, JSON.stringify({ displayName, role }));
+    } catch { /* ignore */ }
 
-    if (loginSection)   loginSection.style.display = 'none';
-    if (loginPanel)     loginPanel.style.display = 'none';
-    if (registerPanel)  registerPanel.style.display = 'none';
-    if (memberContent) {
-      memberContent.style.display = 'block';
-      if (loggedInAs) loggedInAs.textContent = displayName;
-    }
-
-    // Show admin link if lmc_admin
-    const adminLink = document.getElementById('nav-admin-link');
-    if (adminLink && role === 'lmc_admin') adminLink.style.display = '';
-
-    // Update vacancy gate
-    if (window.__manchesterLMC?.updateVacancyGate) {
-      window.__manchesterLMC.updateVacancyGate(true);
-    }
+    applyAuthUI(displayName, role);
 
     // Load profile data into account settings form
     loadProfile();
-
-    // Update nav login/register buttons
-    const navLogin    = document.querySelector('.nav-utility-btn[href="/members/"]');
-    const navRegister = document.querySelector('.nav-utility-btn[href="/members/#register"]');
-    if (navLogin) { navLogin.textContent = displayName.split(' ')[0]; navLogin.href = '/members/'; }
-    if (navRegister) navRegister.style.display = 'none';
   }
 
   function setUnauthenticated() {
-    if (window.__manchesterLMC?.updateVacancyGate) {
-      window.__manchesterLMC.updateVacancyGate(false);
-    }
+    try { sessionStorage.removeItem(AUTH_CACHE_KEY); } catch { /* ignore */ }
+    clearAuthUI();
   }
 
   /* ── Login form ── */
