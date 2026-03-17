@@ -5,12 +5,20 @@
   "type": "module",
   "scripts": {
     "build": "eleventy",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint:security": "eslint netlify/functions --config eslint.security.config.mjs"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@supabase/supabase-js": "^2.99.2",
     "feather-icons": "^4.29.2",
     "markdown-it": "^14.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^10.0.3",
+    "eslint-plugin-security": "^4.0.0",
+    "vitest": "^4.1.0"
   }
 }

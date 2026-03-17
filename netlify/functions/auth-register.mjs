@@ -6,14 +6,15 @@ const VALID_ROLE_TYPES = [
   "locum_gp", "portfolio_gp", "practice_staff", "gp_partner", "salaried_gp", "other",
 ];
 
-// Map display values from the form to DB role_type slugs
-const ROLE_TYPE_MAP = {
-  "Locum GP": "locum_gp",
-  "Portfolio GP": "portfolio_gp",
-  "GP Registrar (not at member practice)": "other",
-  "Retired GP": "other",
-  "Other": "other",
-};
+// Map display values from the form to DB role_type slugs.
+// Using a Map avoids prototype-chain injection via user-supplied keys.
+const ROLE_TYPE_MAP = new Map([
+  ["Locum GP", "locum_gp"],
+  ["Portfolio GP", "portfolio_gp"],
+  ["GP Registrar (not at member practice)", "other"],
+  ["Retired GP", "other"],
+  ["Other", "other"],
+]);
 
 const GENERIC_SUCCESS = {
   ok: true,
@@ -45,7 +46,7 @@ export const handler = async (event) => {
     return badRequest("A valid 7-digit GMC number is required.");
   }
 
-  if (!role || !ROLE_TYPE_MAP[role]) {
+  if (!role || !ROLE_TYPE_MAP.has(role)) {
     return badRequest("Please select a valid role.");
   }
 
@@ -53,6 +54,7 @@ export const handler = async (event) => {
     return badRequest("Password must be at least 8 characters.");
   }
 
+  // eslint-disable-next-line security/detect-possible-timing-attacks
   if (password !== password2) {
     return badRequest("Passwords do not match.");
   }
@@ -82,7 +84,7 @@ export const handler = async (event) => {
 
   // ── Insert profile row (service role bypasses RLS) ──────────
   if (data.user) {
-    const roleType = ROLE_TYPE_MAP[role];
+    const roleType = ROLE_TYPE_MAP.get(role);
     const { error: profileError } = await supabaseAdmin.from("profiles").insert({
       id: data.user.id,
       first_name: firstname.trim(),
