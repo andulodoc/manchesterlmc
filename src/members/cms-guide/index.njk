@@ -1,0 +1,202 @@
+---
+layout: layouts/base.njk
+title: CMS Guide
+description: "How to use the Manchester LMC content management system — adding news, events, guidance, and more."
+mainClass: page-members
+showContactStrip: false
+showDisclaimer: false
+---
+
+<section class="page-hero">
+  <div class="container">
+    {% set breadcrumbs = [{label: "Members Area", url: "/members/"}, {label: "Admin Dashboard", url: "/members/admin/"}, {label: "CMS Guide"}] %}
+    {% include "partials/breadcrumb.njk" %}
+    <h1>CMS Guide</h1>
+    <p>How to add and edit content on the Manchester LMC website using Decap CMS.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Access denied (shown if not lmc_admin) -->
+    <div id="cms-access-denied" style="display:none; max-width:520px; margin:0 auto; text-align:center;">
+      <div class="alert alert--warning">
+        {% icon "lock", 20 %}
+        <div>You do not have permission to access this page. <a href="/members/">Return to Members Area</a>.</div>
+      </div>
+    </div>
+
+    <!-- Loading state -->
+    <div id="cms-loading" style="text-align:center; padding:4rem 0;">
+      <p style="color:var(--colour-muted);">Checking access…</p>
+    </div>
+
+    <!-- Guide content (shown once access confirmed) -->
+    <div id="cms-guide-content" style="display:none;">
+
+      <div style="max-width:800px;">
+
+        <!-- Quick-start alert -->
+        <div class="alert alert--info" style="margin-bottom:2.5rem;">
+          {% icon "info", 20 %}
+          <div><strong>Quick start:</strong> Open the CMS at <a href="/admin/" target="_blank" rel="noopener">/admin/</a>. Log in with your Netlify Identity account (separate from your member login). Any changes you save are published to the live site within about 60 seconds.</div>
+        </div>
+
+        <!-- What is the CMS -->
+        <h2>What is the CMS?</h2>
+        <p>The Manchester LMC website uses <strong>Decap CMS</strong> (formerly Netlify CMS) — a browser-based editor that lets authorised administrators update site content without touching code. Changes are saved directly to the GitHub repository and automatically trigger a new site build on Netlify.</p>
+        <p>The CMS is only accessible to accounts with <strong>lmc_admin</strong> role. It is separate from the member login system — you will need a Netlify Identity invitation to access it.</p>
+
+        <!-- How to log in -->
+        <h2 style="margin-top:2.5rem;">Logging in</h2>
+        <ol style="line-height:2; padding-left:1.5rem;">
+          <li>Go to <a href="/admin/" target="_blank" rel="noopener">manchesterlmc.co.uk/admin/</a></li>
+          <li>Click <strong>Login with Netlify Identity</strong></li>
+          <li>Enter the email address you were invited with and your password</li>
+          <li>You will land on the CMS dashboard showing the collection list</li>
+        </ol>
+        <p>If you have not received an invitation, ask the site owner to invite you via the Netlify dashboard under <strong>Identity → Invite users</strong>.</p>
+
+        <!-- Collections overview -->
+        <h2 style="margin-top:2.5rem;">Collections</h2>
+        <p>Content is organised into <strong>collections</strong> — groups of similar pages or posts. They appear in the left-hand sidebar in order of how frequently they are used.</p>
+
+        <div style="overflow-x:auto; margin-bottom:2rem;">
+          <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+            <thead>
+              <tr style="background:var(--colour-surface); text-align:left;">
+                <th style="padding:0.75rem 1rem; border-bottom:2px solid var(--colour-border);">Collection</th>
+                <th style="padding:0.75rem 1rem; border-bottom:2px solid var(--colour-border);">What it controls</th>
+                <th style="padding:0.75rem 1rem; border-bottom:2px solid var(--colour-border);">Format</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>News</strong></td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">News articles shown on the News page and home page</td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Individual posts</td>
+              </tr>
+              <tr>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>Events</strong></td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Upcoming events and meetings listed on the Events page</td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Individual posts</td>
+              </tr>
+              <tr>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>Guidance</strong></td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Clinical and practice guidance documents</td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Individual posts</td>
+              </tr>
+              <tr>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>Vacancies</strong></td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">GP and practice job listings</td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Individual posts</td>
+              </tr>
+              <tr>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>Pages</strong></td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Standalone informational pages (About, Support, etc.)</td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Single pages</td>
+              </tr>
+              <tr>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>Homepage</strong></td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Hero text, stats, and featured section on the home page</td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Single file</td>
+              </tr>
+              <tr>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);"><strong>People</strong></td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Committee members shown on the About page</td>
+                <td style="padding:0.75rem 1rem; border-bottom:1px solid var(--colour-border);">Individual entries</td>
+              </tr>
+              <tr>
+                <td style="padding:0.75rem 1rem;"><strong>Settings</strong></td>
+                <td style="padding:0.75rem 1rem;">Site-wide settings: name, contact details, navigation, social links</td>
+                <td style="padding:0.75rem 1rem;">Single file</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Common tasks -->
+        <h2 style="margin-top:2.5rem;">Common tasks</h2>
+
+        <h3 style="margin-top:1.5rem;">Adding a news article</h3>
+        <ol style="line-height:2; padding-left:1.5rem;">
+          <li>In the CMS sidebar click <strong>News</strong></li>
+          <li>Click <strong>New News</strong> (top right)</li>
+          <li>Fill in the <strong>Title</strong>, <strong>Date</strong>, <strong>Category</strong>, and <strong>Summary</strong></li>
+          <li>Write the article body in the rich-text editor</li>
+          <li>Optionally tick <strong>Featured</strong> to show this article in the home page highlights section</li>
+          <li>Click <strong>Save</strong> — the article will be published within a minute</li>
+        </ol>
+
+        <h3 style="margin-top:1.5rem;">Adding an event</h3>
+        <ol style="line-height:2; padding-left:1.5rem;">
+          <li>In the CMS sidebar click <strong>Events</strong></li>
+          <li>Click <strong>New Event</strong></li>
+          <li>Fill in <strong>Title</strong>, <strong>Date</strong>, <strong>Time</strong>, <strong>Location</strong>, and <strong>Description</strong></li>
+          <li>Add a registration link if there is one</li>
+          <li>Click <strong>Save</strong></li>
+        </ol>
+
+        <h3 style="margin-top:1.5rem;">Editing a page</h3>
+        <ol style="line-height:2; padding-left:1.5rem;">
+          <li>In the CMS sidebar click <strong>Pages</strong></li>
+          <li>Click the page you want to edit</li>
+          <li>Make your changes in the editor</li>
+          <li>Click <strong>Save</strong></li>
+        </ol>
+
+        <h3 style="margin-top:1.5rem;">Updating contact details or navigation</h3>
+        <ol style="line-height:2; padding-left:1.5rem;">
+          <li>In the CMS sidebar click <strong>Settings</strong></li>
+          <li>Edit the relevant field (address, phone, email, nav items, etc.)</li>
+          <li>Click <strong>Save</strong></li>
+        </ol>
+
+        <!-- Tips -->
+        <h2 style="margin-top:2.5rem;">Tips and notes</h2>
+        <ul style="line-height:2; padding-left:1.5rem;">
+          <li><strong>Changes take ~60 seconds</strong> to appear on the live site — Netlify rebuilds the site automatically after each save.</li>
+          <li><strong>Drafts:</strong> The CMS saves a draft automatically. You must click <strong>Publish</strong> (or set status to Published) for content to appear on the site.</li>
+          <li><strong>Rich text vs Markdown:</strong> The body editor has a toggle in the top right — switch to Markdown view if you need to add custom HTML or complex formatting.</li>
+          <li><strong>Images:</strong> Upload images directly in the CMS editor. They are stored in the repository under <code>src/assets/images/uploads/</code>. Keep file sizes below 500 KB where possible.</li>
+          <li><strong>Deleting content:</strong> Select the item in the collection, open the options menu (three dots), and choose <strong>Delete</strong>. This cannot be undone through the CMS — contact the developer if you need to recover deleted content (it remains in git history).</li>
+          <li><strong>The CMS login is separate</strong> from your member area login. If you forget your CMS password use the <em>Forgot password</em> link on the CMS login screen.</li>
+        </ul>
+
+        <!-- Need help -->
+        <div class="alert alert--info" style="margin-top:2.5rem;">
+          {% icon "help-circle", 20 %}
+          <div><strong>Need help?</strong> Contact the site administrator or email <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a> if you encounter issues with the CMS.</div>
+        </div>
+
+      </div>
+    </div><!-- /cms-guide-content -->
+  </div>
+</section>
+
+<script>
+(function () {
+  var denied  = document.getElementById('cms-access-denied');
+  var loading = document.getElementById('cms-loading');
+  var content = document.getElementById('cms-guide-content');
+
+  function show(el) { el.style.display = ''; }
+  function hide(el) { el.style.display = 'none'; }
+
+  fetch('/api/auth-status', { credentials: 'include' })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      hide(loading);
+      if (data.authenticated && data.role === 'lmc_admin') {
+        show(content);
+      } else {
+        show(denied);
+      }
+    })
+    .catch(function () {
+      hide(loading);
+      show(denied);
+    });
+}());
+</script>
