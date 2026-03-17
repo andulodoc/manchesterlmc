@@ -87,3 +87,12 @@ Any `getUser error` or `refreshSession error` lines indicate an authentication p
 | Run `npm audit` and update vulnerable packages | After any `npm install` |
 | Re-run external scanners after CSP or header changes | After each relevant deploy |
 | Review Supabase project settings (email limits, auth config) | Quarterly |
+| Verify Netlify Identity widget SRI hash is still valid | Quarterly |
+
+**Updating the Netlify Identity widget SRI hash** (run if the CMS login breaks after a Netlify update):
+
+```bash
+curl -fsSL https://identity.netlify.com/v1/netlify-identity-widget.js | openssl dgst -sha384 -binary | openssl base64 -A
+```
+
+Replace the `integrity="sha384-..."` value on the `<script>` tag in `src/_includes/layouts/base.njk` with the new hash.
