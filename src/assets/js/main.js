@@ -407,17 +407,29 @@
 
   /* ── Apply nav state (shared by cache restore + server confirm) ── */
   function applyAuthUI(displayName, role) {
-    // Nav buttons
+    const firstName = displayName.split(' ')[0];
+
+    // Desktop nav buttons
     const navLogin    = document.querySelector('.nav-utility-btn[href="/members/"]');
     const navRegister = document.querySelector('.nav-utility-btn[href="/members/#register"]');
-    if (navLogin)    { navLogin.textContent = displayName.split(' ')[0]; }
+    if (navLogin)    { navLogin.textContent = firstName; }
     if (navRegister) { navRegister.style.display = 'none'; }
 
-    // Admin + CMS links (lmc_admin only)
+    // Desktop admin + CMS links (lmc_admin only)
     const adminLink = document.getElementById('nav-admin-link');
     const cmsLink   = document.getElementById('nav-cms-link');
     if (adminLink && role === 'lmc_admin') adminLink.style.display = '';
     if (cmsLink   && role === 'lmc_admin') cmsLink.style.display   = '';
+
+    // Mobile nav utility
+    const mobileLogin    = document.getElementById('nav-mobile-login');
+    const mobileRegister = document.getElementById('nav-mobile-register');
+    const mobileAdmin    = document.getElementById('nav-mobile-admin-link');
+    const mobileCms      = document.getElementById('nav-mobile-cms-link');
+    if (mobileLogin)    { mobileLogin.textContent = firstName; }
+    if (mobileRegister) { mobileRegister.style.display = 'none'; }
+    if (mobileAdmin && role === 'lmc_admin') mobileAdmin.style.display = '';
+    if (mobileCms   && role === 'lmc_admin') mobileCms.style.display   = '';
 
     // Members page content
     const loginSection  = document.querySelector('.auth-tabs');
@@ -441,7 +453,7 @@
   }
 
   function clearAuthUI() {
-    // Restore nav to logged-out state
+    // Desktop nav
     const navLogin    = document.querySelector('.nav-utility-btn[href="/members/"]');
     const navRegister = document.querySelector('.nav-utility-btn[href="/members/#register"]');
     if (navLogin)    { navLogin.textContent = 'Login'; }
@@ -451,6 +463,16 @@
     const cmsLink   = document.getElementById('nav-cms-link');
     if (adminLink) adminLink.style.display = 'none';
     if (cmsLink)   cmsLink.style.display   = 'none';
+
+    // Mobile nav
+    const mobileLogin    = document.getElementById('nav-mobile-login');
+    const mobileRegister = document.getElementById('nav-mobile-register');
+    const mobileAdmin    = document.getElementById('nav-mobile-admin-link');
+    const mobileCms      = document.getElementById('nav-mobile-cms-link');
+    if (mobileLogin)    { mobileLogin.textContent = 'Login'; }
+    if (mobileRegister) { mobileRegister.style.display = ''; }
+    if (mobileAdmin)    { mobileAdmin.style.display = 'none'; }
+    if (mobileCms)      { mobileCms.style.display   = 'none'; }
 
     if (window.__manchesterLMC?.updateVacancyGate) {
       window.__manchesterLMC.updateVacancyGate(false);
