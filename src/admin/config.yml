@@ -88,7 +88,13 @@ collections:
       - { label: Description, name: description, widget: text, required: false, hint: "Short description. Used for events only." }
       - { label: "Link URL", name: registerUrl, widget: string, required: false, hint: "Registration link (events), join/papers link (meeting dates), or download URL." }
       - { label: "Link Label", name: registerLabel, widget: string, required: false, hint: "Button text, e.g. Register, Teams link, Member login, Download PDF." }
-      - { label: "Download URL", name: downloadUrl, widget: string, required: false, hint: "For past minutes only — link to the PDF download." }
+      - label: Document
+        name: downloadUrl
+        widget: file
+        required: false
+        media_folder: "src/assets/files/uploads"
+        public_folder: "/assets/files/uploads"
+        hint: "For past minutes only — upload the PDF."
       - { label: Active, name: active, widget: boolean, default: true, hint: "Uncheck to hide without deleting." }
       - label: SEO Override
         name: seo
@@ -130,7 +136,12 @@ collections:
         options:
           - { label: PDF, value: pdf }
           - { label: Word, value: word }
-      - { label: "Download URL", name: downloadUrl, widget: string, hint: "Paste a publicly shareable link to the document (OneDrive, SharePoint, Google Drive, Dropbox, etc.). Ensure the sharing permission is set to 'Anyone with the link can view' — links that require a login will not work for site visitors." }
+      - label: Document
+        name: downloadUrl
+        widget: file
+        media_folder: "src/assets/files/uploads"
+        public_folder: "/assets/files/uploads"
+        hint: "Upload the PDF or Word document."
       - label: SEO Override
         name: seo
         widget: object
@@ -395,7 +406,13 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Description, name: description, widget: text }
               - { label: Issue Label, name: issueLabel, widget: string, hint: "e.g. Issue 42 · Winter 2025" }
-              - { label: Download URL, name: downloadUrl, widget: string, required: false }
+              - label: Download URL
+                name: downloadUrl
+                widget: file
+                required: false
+                media_folder: "src/assets/files/uploads"
+                public_folder: "/assets/files/uploads"
+                hint: "Upload the newsletter PDF."
               - { label: Archive URL, name: archiveUrl, widget: string, required: false }
 
   # ─── People ────────────────────────────────────────────────────────
