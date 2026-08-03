@@ -142,7 +142,13 @@ permalink: /support/breach-report/
           <p>Complete all required fields. Your information will only be seen by LMC officers and is handled in accordance with our privacy policy.</p>
         </div>
 
-        <form action="https://formspree.io/f/placeholder" method="POST" data-ajax enctype="multipart/form-data" novalidate aria-label="Breach report form">
+        <form name="breach-report" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-ajax enctype="multipart/form-data" data-success-message="Thank you — your breach report has been submitted. An LMC officer will review it within three working days." novalidate aria-label="Breach report form">
+
+          <input type="hidden" name="form-name" value="breach-report">
+          <div class="alert" data-form-feedback hidden role="status" aria-live="polite" style="margin-bottom: var(--space-5);"></div>
+          <p style="display: none;" aria-hidden="true">
+            <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
 
           <fieldset style="border:none;padding:0;margin:0 0 var(--space-8)">
             <legend style="font-family:var(--font-heading);font-size:1.125rem;font-weight:700;color:var(--colour-primary);margin-bottom:var(--space-5);padding-bottom:var(--space-3);border-bottom:2px solid var(--colour-neutral);width:100%;display:block">Your Details</legend>

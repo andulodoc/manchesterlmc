@@ -95,12 +95,19 @@ showDisclaimer: true
       </div>
 
       <form
-        action="https://formspree.io/f/YOUR_FORM_ID"
+        name="contact"
         method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
         data-ajax
+        data-success-message="Thank you — your message has been sent. We'll be in touch within two working days."
         novalidate
         aria-label="Contact form"
         style="max-width: 760px; margin: 0 auto; background-color: var(--colour-white); padding: var(--space-8); border-radius: var(--radius-xl); border: 1px solid var(--colour-border);">
+
+        <input type="hidden" name="form-name" value="contact">
+
+        <div class="alert" data-form-feedback hidden role="status" aria-live="polite" style="margin-bottom: var(--space-5);"></div>
 
         <div class="grid-2" style="gap: var(--space-5);">
 
@@ -214,8 +221,9 @@ showDisclaimer: true
         </div>
 
         <!-- Hidden honeypot (spam prevention) -->
-        <input type="text" name="_gotcha" style="display: none;" tabindex="-1" aria-hidden="true">
-        <input type="hidden" name="_subject" value="New enquiry from manchesterlmc.co.uk">
+        <p style="display: none;" aria-hidden="true">
+          <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
 
         <!-- Submit -->
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);">

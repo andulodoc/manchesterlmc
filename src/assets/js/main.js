@@ -229,15 +229,63 @@
   };
 })();
 
-/* ── Contact / breach form submission feedback ─────────────── */
+/* ── Netlify Forms AJAX submission (contact / vacancy / breach forms) ── */
 (function () {
-  document.querySelectorAll('form[data-ajax]').forEach((form) => {
+  document.querySelectorAll('form[data-ajax][data-netlify]').forEach((form) => {
+    const feedback = form.querySelector('[data-form-feedback]');
+    const btn = form.querySelector('[type="submit"]');
+    const btnLabel = btn ? btn.innerHTML : '';
+    const isMultipart = form.enctype === 'multipart/form-data';
+    const successMessage = form.dataset.successMessage
+      || "Thank you — your submission has been sent. We'll be in touch soon.";
+
+    function showFeedback(message, isError) {
+      if (!feedback) return;
+      feedback.hidden = false;
+      feedback.textContent = message;
+      feedback.classList.toggle('alert--success', !isError);
+      feedback.classList.toggle('alert--warning', isError);
+    }
+
     form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+      }
+
+      const formData = new FormData(form);
+      const body = isMultipart ? formData : new URLSearchParams(formData).toString();
+      const init = { method: 'POST', body };
+      if (!isMultipart) {
+        init.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+      }
+
+      fetch(form.getAttribute('action') || window.location.pathname, init)
+        .then((response) => {
+          if (!response.ok) throw new Error('Submission failed');
+          form.reset();
+          showFeedback(successMessage, false);
+        })
+        .catch(() => {
+          showFeedback('Sorry, something went wrong sending your submission. Please try again or email us directly.', true);
+        })
+        .finally(() => {
+          if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = btnLabel;
+          }
+        });
+    });
+  });
+
+  // Other forms (not yet wired to Netlify Forms) keep the old UX-only behaviour.
+  document.querySelectorAll('form[data-ajax]:not([data-netlify])').forEach((form) => {
+    form.addEventListener('submit', () => {
       const btn = form.querySelector('[type="submit"]');
       if (!btn) return;
       btn.disabled = true;
       btn.textContent = 'Sending…';
-      // Real submission handled by Formspree/Netlify; this is for UX only
     });
   });
 })();

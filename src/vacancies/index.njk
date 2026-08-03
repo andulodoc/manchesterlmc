@@ -102,7 +102,13 @@ showDisclaimer: true
 
         <!-- Vacancy form (shown when authenticated) -->
         <div id="vacancy-form" style="display:none">
-          <form action="https://formspree.io/f/placeholder" method="POST" data-ajax novalidate aria-label="Post a vacancy form">
+          <form name="vacancy-listing" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-ajax data-success-message="Thank you — your vacancy listing has been submitted. Our team will review and publish it shortly." novalidate aria-label="Post a vacancy form">
+
+            <input type="hidden" name="form-name" value="vacancy-listing">
+            <div class="alert" data-form-feedback hidden role="status" aria-live="polite" style="margin-bottom: var(--space-5);"></div>
+            <p style="display: none;" aria-hidden="true">
+              <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+            </p>
 
             <div class="form-group">
               <label class="form-label" for="job-title">Job Title <span class="required" aria-hidden="true">*</span></label>
