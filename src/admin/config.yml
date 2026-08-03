@@ -92,7 +92,7 @@ collections:
         name: downloadUrl
         widget: file
         required: false
-        media_folder: "src/assets/files/uploads"
+        media_folder: "/src/assets/files/uploads"
         public_folder: "/assets/files/uploads"
         hint: "For past minutes only — upload the PDF."
       - { label: Active, name: active, widget: boolean, default: true, hint: "Uncheck to hide without deleting." }
@@ -139,7 +139,7 @@ collections:
       - label: Document
         name: downloadUrl
         widget: file
-        media_folder: "src/assets/files/uploads"
+        media_folder: "/src/assets/files/uploads"
         public_folder: "/assets/files/uploads"
         hint: "Upload the PDF or Word document."
       - label: SEO Override
@@ -410,7 +410,7 @@ collections:
                 name: downloadUrl
                 widget: file
                 required: false
-                media_folder: "src/assets/files/uploads"
+                media_folder: "/src/assets/files/uploads"
                 public_folder: "/assets/files/uploads"
                 hint: "Upload the newsletter PDF."
               - { label: Archive URL, name: archiveUrl, widget: string, required: false }
