@@ -25,7 +25,7 @@ sections:
 
       **How we use your data:** To respond to enquiries, administer membership, circulate newsletters and event invitations, and improve our services.
 
-      **Data retention:** Member data is retained for the duration of membership plus 6 years. Enquiry data is retained for 3 years. You may request deletion at any time by contacting info@manchesterlmc.co.uk.
+      **Data retention:** Member data is retained for the duration of membership plus 6 years. Enquiry data is retained for 3 years. You may request deletion at any time by contacting enquiries@manchesterlmc.co.uk.
 
       **Your rights:** Under UK GDPR you have the right to access, correct, or delete your personal data. Contact our Managing Director to exercise these rights.
 

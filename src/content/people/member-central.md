@@ -3,7 +3,7 @@ title: "Dr [Name]"
 role: "Committee Member — Central Manchester"
 group: committee
 photo: ""
-email: info@manchesterlmc.co.uk
+email: enquiries@manchesterlmc.co.uk
 phone: ""
 tags:
   - central-manchester

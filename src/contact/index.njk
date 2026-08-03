@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Contact Us
-description: "Contact Manchester LMC. Reach our team at Oak House, Beswick. Phone, email, and online contact form."
+description: "Contact Manchester LMC. Phone, email, and online contact form."
 mainClass: page-contact
 showContactStrip: false
 showDisclaimer: true
@@ -22,27 +22,11 @@ showDisclaimer: true
   <!-- ── Contact Info + Map ──────────────────────────────────── -->
   <section class="section" aria-labelledby="contact-details-heading">
     <div class="container">
-      <div class="grid-2" style="align-items: start;">
+      <div style="max-width: 640px; margin: 0 auto;">
 
-        <!-- Left: contact details -->
+        <!-- Contact details -->
         <div>
           <h2 id="contact-details-heading" style="margin-bottom: var(--space-6);">Get in Touch</h2>
-
-          <!-- Address -->
-          <div style="display: flex; gap: var(--space-4); margin-bottom: var(--space-6);">
-            <div style="flex-shrink: 0; width: 40px; height: 40px; background-color: var(--colour-neutral); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--colour-secondary);">
-              {% icon "map-pin", 20 %}
-            </div>
-            <div>
-              <p style="font-weight: 600; color: var(--colour-primary); margin-bottom: var(--space-1);">Our Office</p>
-              <address style="font-style: normal; color: var(--colour-muted); line-height: 1.7;">
-                Oak House<br>
-                47 Graham Street<br>
-                Beswick<br>
-                Manchester, M11 3BB
-              </address>
-            </div>
-          </div>
 
           <!-- Telephone -->
           <div style="display: flex; gap: var(--space-4); margin-bottom: var(--space-6);">
@@ -52,10 +36,10 @@ showDisclaimer: true
             <div>
               <p style="font-weight: 600; color: var(--colour-primary); margin-bottom: var(--space-1);">Telephone</p>
               <p style="margin-bottom: var(--space-1);">
-                <a href="tel:01612230032" style="color: var(--colour-muted);">0161 223 0032</a>
+                <a href="tel:01612238974" style="color: var(--colour-muted);">0161 223 8974</a>
               </p>
               <p>
-                <a href="tel:01612220088" style="color: var(--colour-muted);">0161 222 0088</a>
+                <a href="tel:01612238974" style="color: var(--colour-muted);">0161 223 8974</a>
               </p>
             </div>
           </div>
@@ -67,7 +51,7 @@ showDisclaimer: true
             </div>
             <div>
               <p style="font-weight: 600; color: var(--colour-primary); margin-bottom: var(--space-1);">Email</p>
-              <a href="mailto:info@manchesterlmc.co.uk" style="color: var(--colour-muted);">info@manchesterlmc.co.uk</a>
+              <a href="mailto:enquiries@manchesterlmc.co.uk" style="color: var(--colour-muted);">enquiries@manchesterlmc.co.uk</a>
             </div>
           </div>
 
@@ -98,41 +82,9 @@ showDisclaimer: true
             </ul>
           </div>
 
-        </div><!-- /left col -->
+        </div>
 
-        <!-- Right: map -->
-        <div>
-          <div class="map-embed" aria-label="Map showing Manchester LMC office location at Oak House, 47 Graham Street, Beswick, Manchester M11 3BB">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2372.4!2d-2.1775!3d53.4765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sOak+House%2C+47+Graham+Street%2C+Beswick%2C+Manchester+M11+3BB!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
-              title="Map showing Manchester LMC at Oak House, 47 Graham Street, Beswick, Manchester M11 3BB"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-
-          <!-- Directions note -->
-          <div style="margin-top: var(--space-4); padding: var(--space-4); background-color: var(--colour-neutral); border-radius: var(--radius-md);">
-            <p style="font-size: 0.875rem; color: var(--colour-muted); margin: 0;">
-              <strong style="color: var(--colour-primary);">Getting here:</strong> Oak House is on Graham Street in Beswick, accessible via Ashton New Road (A662). Metrolink: Beswick stop (Ashton-under-Lyne line), 5-minute walk. Free parking available on site.
-            </p>
-          </div>
-
-          <div style="margin-top: var(--space-4);">
-            <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Oak+House,+47+Graham+Street,+Beswick,+Manchester+M11+3BB"
-              class="btn btn--outline"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open directions to Manchester LMC in Google Maps (opens in new tab)">
-              {% icon "navigation", 16 %}
-              Get Directions
-            </a>
-          </div>
-        </div><!-- /right col -->
-
-      </div><!-- /grid-2 -->
+      </div>
     </div>
   </section>
 

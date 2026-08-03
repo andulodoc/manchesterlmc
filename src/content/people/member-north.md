@@ -3,7 +3,7 @@ title: "Dr [Name]"
 role: "Committee Member — North Manchester"
 group: committee
 photo: ""
-email: info@manchesterlmc.co.uk
+email: enquiries@manchesterlmc.co.uk
 phone: ""
 tags:
   - north-manchester

@@ -1,6 +1,6 @@
 {
-  "phone1": "0161 223 0032",
-  "phone2": "0161 222 0088",
+  "phone1": "0161 223 8974",
+  "phone2": "0161 223 8974",
   "facebook": "https://www.facebook.com",
   "copyright": "2026 Manchester Local Medical Committee. All rights reserved.",
   "name": "Manchester LMC",
@@ -8,13 +8,6 @@
   "url": "https://manchesterlmc.co.uk",
   "officeHours": "Mon–Fri: 09:00–17:00",
   "twitter": "https://twitter.com/manchesterlmc",
-  "address": {
-    "line1": "Oak House",
-    "line2": "47 Graham Street",
-    "line3": "Beswick",
-    "city": "Manchester",
-    "postcode": "M11 3BB"
-  },
-  "email": "info@manchesterlmc.co.uk",
+  "email": "enquiries@manchesterlmc.co.uk",
   "linkedin": "https://linkedin.com"
 }
