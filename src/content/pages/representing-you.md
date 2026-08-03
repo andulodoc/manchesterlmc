@@ -3,7 +3,6 @@ title: Representing You
 permalink: /about/representing-you/
 description: "How Manchester LMC represents GPs at local, regional, and national level."
 mainClass: page-content
-showContactStrip: true
 showDisclaimer: true
 hero:
   heading: Representing You
