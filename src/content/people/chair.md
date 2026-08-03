@@ -3,7 +3,7 @@ title: "Dr Samira Anane"
 role: LMC Chair
 group: officer
 photo: ""
-email: chair@manchesterlmc.co.uk
+email: enquiries@manchesterlmc.co.uk
 phone: ""
 tags:
   - officer

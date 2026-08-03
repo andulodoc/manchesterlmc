@@ -3,7 +3,7 @@ title: "Dr Stephen J Dean"
 role: Honorary Treasurer
 group: officer
 photo: ""
-email: treasurer@manchesterlmc.co.uk
+email: enquiries@manchesterlmc.co.uk
 phone: ""
 tags:
   - officer

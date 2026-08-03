@@ -3,7 +3,7 @@ title: "Dr Steven Colabella"
 role: Vice Chair
 group: officer
 photo: ""
-email: vicechair@manchesterlmc.co.uk
+email: enquiries@manchesterlmc.co.uk
 phone: ""
 tags:
   - officer
