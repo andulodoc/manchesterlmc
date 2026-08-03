@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.njk
-title: Our Team
+title: LMC Officers and Executive
 description: "Meet the Manchester LMC team — our elected committee members, officers, and administrative staff."
 mainClass: page-team
 showContactStrip: true
@@ -11,9 +11,9 @@ permalink: /about/team/
   <section class="page-hero" aria-label="Page header">
     <div class="container">
       <div class="page-hero-content">
-        {% set breadcrumbs = [{url: "/about/", label: "About Us"}, {label: "Our Team"}] %}
+        {% set breadcrumbs = [{url: "/about/", label: "About Us"}, {label: "LMC Officers and Executive"}] %}
         {% include "partials/breadcrumb.njk" %}
-        <h1>Meet the Team</h1>
+        <h1>LMC Officers and Executive</h1>
         <p>Manchester LMC is led by elected GP representatives and supported by a dedicated administrative team</p>
       </div>
     </div>
@@ -25,7 +25,7 @@ permalink: /about/team/
       <div class="section-header">
         <span class="section-eyebrow">Leadership</span>
         <h2 id="officers-heading">Executive Officers</h2>
-        <p>Our officers are elected by the LMC committee and serve in voluntary roles alongside their clinical work.</p>
+        <p>Our officers and executive are elected by the LMC committee and serve in these roles alongside their clinical work.</p>
       </div>
 
       <div class="grid-3">
@@ -42,13 +42,32 @@ permalink: /about/team/
       <div class="section-header">
         <span class="section-eyebrow">Elected Members</span>
         <h2 id="committee-heading">LMC Committee Members</h2>
-        <p>Our committee members are elected by the GPs they represent. They bring experience from across primary care — partners, salaried GPs, and locums — from every part of Manchester.</p>
+        <p>In addition to the LMC Executive and Officers above, our wider committee is elected by the GPs they represent — partners, salaried GPs, and freelance GPs from across Manchester.</p>
       </div>
 
-      <div class="grid-3">
-        {% for person in collections.committeeMembers %}
-          {% include "partials/person-card.njk" %}
-        {% endfor %}
+      {% set groups = [
+        { members: committeeMembers.partners, label: "Partners" },
+        { members: committeeMembers.salaried, label: "Salaried GPs" },
+        { members: committeeMembers.freelance, label: "Freelance GPs" }
+      ] %}
+
+      {% for grp in groups %}
+        <div style="margin-bottom:var(--space-10);">
+          <h3 style="margin-bottom:var(--space-4);">{{ grp.label }} ({{ grp.members | length }})</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--space-3);">
+            {% for member in grp.members %}
+              <div style="border:1px solid var(--colour-border);border-radius:var(--radius-md);padding:var(--space-4);">
+                <p style="font-weight:600;color:var(--colour-primary);margin-bottom:var(--space-1);">{{ member.name }}</p>
+                <p style="font-size:.875rem;color:var(--colour-muted);margin-bottom:2px;">{{ member.constituency }}</p>
+                <p style="font-size:.875rem;color:var(--colour-muted);">{{ member.practice }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+
+      <div class="alert alert--info">
+        <strong>Note:</strong> Committee member names, constituencies, and practices shown above are placeholders and will be updated once confirmed.
       </div>
     </div>
   </section>

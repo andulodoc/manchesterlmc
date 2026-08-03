@@ -1,9 +1,9 @@
 ---
-title: "[Name]"
-role: Finance & Levy Officer
+title: "Paula Steel"
+role: Senior Executive Administrator
 group: admin
 photo: ""
-email: finance@manchesterlmc.co.uk
+email: psteel@manchesterlmc.co.uk
 phone: ""
 tags: []
 sortOrder: 52

@@ -1,14 +1,14 @@
 ---
-title: "Dr [Deputy Name]"
-role: Deputy Chair
+title: "Dr Steven Colabella"
+role: Vice Chair
 group: officer
 photo: ""
-email: deputy@manchesterlmc.co.uk
+email: vicechair@manchesterlmc.co.uk
 phone: ""
 tags:
   - officer
   - leadership
-sortOrder: 2
+sortOrder: 3
 ---
 
-Salaried GP at [Practice], Manchester. Represents salaried and locum GPs on the committee and leads on workforce matters and the LMC wellbeing agenda.
+GP Partner at The Arch Medical Practice, Hulme. Central Manchester Representative since June 2017, Steven has been an executive member since June 2018 and Vice Chair since January 2026.

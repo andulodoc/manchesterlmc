@@ -159,13 +159,6 @@ export default function (eleventyConfig) {
       .sort((a, b) => (a.data.sortOrder || 99) - (b.data.sortOrder || 99));
   });
 
-  eleventyConfig.addCollection("committeeMembers", function (collectionApi) {
-    return collectionApi
-      .getFilteredByTag("people")
-      .filter((item) => item.data.group === "committee")
-      .sort((a, b) => (a.data.sortOrder || 99) - (b.data.sortOrder || 99));
-  });
-
   eleventyConfig.addCollection("adminStaff", function (collectionApi) {
     return collectionApi
       .getFilteredByTag("people")

@@ -7,9 +7,9 @@
       "mobileId": "mob-about",
       "dropdown": [
         { "label": "About Manchester LMC", "href": "/about/" },
-        { "label": "Our Team", "href": "/about/team/" },
+        { "label": "LMC Officers and Executive", "href": "/about/team/" },
         { "label": "How We're Funded", "href": "/about/funding/" },
-        { "label": "Constitution", "href": "/about/funding/#constitution" }
+        { "label": "Constitution and Standing Orders", "href": "/about/funding/#constitution" }
       ]
     },
     {

@@ -3,7 +3,7 @@ title: Nicola Holland
 role: Managing Director
 group: admin
 photo: ""
-email: nicola.holland@manchesterlmc.co.uk
+email: nholland@manchesterlmc.co.uk
 phone: ""
 tags: []
 sortOrder: 50

@@ -1,5 +1,5 @@
 ---
-title: "Dr [Treasurer Name]"
+title: "Dr Stephen J Dean"
 role: Honorary Treasurer
 group: officer
 photo: ""
@@ -8,7 +8,7 @@ phone: ""
 tags:
   - officer
   - leadership
-sortOrder: 3
+sortOrder: 4
 ---
 
-GP Partner at [Practice], Manchester. Oversees the LMC's financial affairs, levy collection, and annual accounts. Reports to the committee at each quarterly meeting.
+GP Partner at Five Oaks Family Practice, Beswick. GP Registrar representative from March 1996 to July 1996, Stephen has been a member since February 1998, an executive member since September 2002, and Hon. Treasurer since September 2002. Oversees the LMC's financial affairs, levy collection, and annual accounts, reporting to the committee at each quarterly meeting.

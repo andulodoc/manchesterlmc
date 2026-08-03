@@ -1,9 +1,9 @@
 ---
-title: "[Name]"
-role: Administrative Officer
+title: "Lisa Stevenson"
+role: Executive Administrator
 group: admin
 photo: ""
-email: admin@manchesterlmc.co.uk
+email: lstevenson@manchesterlmc.co.uk
 phone: ""
 tags: []
 sortOrder: 51

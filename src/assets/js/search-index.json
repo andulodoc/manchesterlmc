@@ -1,7 +1,7 @@
 [
   { "type": "page", "title": "Home", "description": "Representing and supporting general practice in Manchester since 1974.", "section": "Home", "url": "/" },
   { "type": "page", "title": "About Manchester LMC", "description": "Who we are, what we do, and how Manchester LMC works for GPs across the city.", "section": "About Us", "url": "/about/" },
-  { "type": "page", "title": "Our Team", "description": "Meet the Manchester LMC committee members, officers, and administrative staff.", "section": "About Us", "url": "/about/team/" },
+  { "type": "page", "title": "LMC Officers and Executive", "description": "Meet the Manchester LMC committee members, officers, and administrative staff.", "section": "About Us", "url": "/about/team/" },
   { "type": "page", "title": "How We're Funded", "description": "How Manchester LMC is funded through the statutory GP practice levy and voluntary locum subscriptions.", "section": "About Us", "url": "/about/funding/" },
   { "type": "page", "title": "GP Support", "description": "Confidential expert support for GPs and practice staff — GMC investigations, CQC visits, employment matters, wellbeing, and financial assistance.", "section": "Support", "url": "/support/" },
   { "type": "page", "title": "Wellbeing Hub", "description": "Mental health support, peer networks, crisis lines, free apps, and financial assistance for GPs and primary care staff.", "section": "Support", "url": "/support/wellbeing/" },
